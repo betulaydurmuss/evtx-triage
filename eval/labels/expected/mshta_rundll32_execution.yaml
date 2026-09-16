@@ -1,0 +1,16 @@
+# mshta / rundll32 execution chain with a scheduled task.
+sample: "Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx"
+csv: "exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.csv"
+tactic: execution
+expect_detections: true
+key_events:
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 1
+    rule_title_contains: "RunHTMLApplication"
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 1
+    rule_title_contains: "Mshta"
+key_events_same_group: true
+must_mention_any: ["mshta", "rundll32", "script", "execut", "download"]
+must_not_mention: []
+acceptable_assessments: [likely_malicious, suspicious]

@@ -1,0 +1,2244 @@
+{
+  "samples_repository": "https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES",
+  "samples_commit": "4ceed2f4706daf601c212a8f91c113dd85349a2c",
+  "hayabusa": {
+    "binary": "hayabusa-4.1.0-win-x64.exe",
+    "binary_sha256": "a9603a988b6a8360684dde95d9a65b1793e9415a6ee7cd8b40c601cf3036e623",
+    "command": [
+      "dfir-timeline",
+      "-f",
+      "<evtx>",
+      "-p",
+      "all-field-info-verbose",
+      "-U",
+      "-O",
+      "-w",
+      "-q",
+      "-C",
+      "-b",
+      "-A",
+      "-o",
+      "<csv>"
+    ]
+  },
+  "samples": [
+    {
+      "evtx": "AutomatedTestingTools/Malware/DE_timestomp_and_dll_sideloading_and_RunPersist.evtx",
+      "evtx_sha256": "ce94f2bd83c0adf2381afee0f3714b41aef4ae0997350b3aa039d7947865164c",
+      "csv": "AutomatedTestingTools/Malware/de_timestomp_and_dll_sideloading_and_runpersist.csv",
+      "detections": 29,
+      "csv_sha256": "025583afbc2ea4993d9e9ddfe3ff333fb9a01de4664ec5a76625aa8d57e62c78",
+      "status": "ok"
+    },
+    {
+      "evtx": "AutomatedTestingTools/Malware/rundll32_cmd_schtask.evtx",
+      "evtx_sha256": "4ee3de8ac48d973a800666c3e1d757d11eaf9a960e7144db566bb51d903b4b09",
+      "csv": "AutomatedTestingTools/Malware/rundll32_cmd_schtask.csv",
+      "detections": 28,
+      "csv_sha256": "b823f6e27b640ef03c17c8db2609077e706ad6c7234973164b79b43b4892c133",
+      "status": "ok"
+    },
+    {
+      "evtx": "AutomatedTestingTools/Malware/rundll32_hollowing_wermgr_masquerading.evtx",
+      "evtx_sha256": "dd771b5c6f30a25886af418e0bb69ded8383c13a08f74e5602cc5878ed623b11",
+      "csv": "AutomatedTestingTools/Malware/rundll32_hollowing_wermgr_masquerading.csv",
+      "detections": 5,
+      "csv_sha256": "b85980edd955cf130c0586581abad67cf8b060173334bbb73c3b604c5c3d5c87",
+      "status": "ok"
+    },
+    {
+      "evtx": "AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.evtx",
+      "evtx_sha256": "7a58c4055659045dbdba8e8bc83252711455f0c4d54e2b963147ef9349822699",
+      "csv": "AutomatedTestingTools/Malware/sideloading_injection_persistence_run_key.csv",
+      "detections": 7,
+      "csv_sha256": "97ac7a922ff4d48c0c36afc23d0c7b9657b10f0d79d4c637efc8e41a52f52e90",
+      "status": "ok"
+    },
+    {
+      "evtx": "AutomatedTestingTools/Malware/sideloading_uacbypass_rundll32_injection_c2.evtx",
+      "evtx_sha256": "ead8a4c6c822da22ac98c6f16123090f0eb30955666c63f9acaa0d51561925da",
+      "csv": "AutomatedTestingTools/Malware/sideloading_uacbypass_rundll32_injection_c2.csv",
+      "detections": 36,
+      "csv_sha256": "5181e79a5db135cd153bcd096a1b27c97baeda55d25b2468c2d65e354d8f4dd4",
+      "status": "ok"
+    },
+    {
+      "evtx": "AutomatedTestingTools/PanacheSysmon_vs_AtomicRedTeam01.evtx",
+      "evtx_sha256": "6903dff9f218fa027c704c8c445b74e08b952c8d71be79bd0327f1e792d4aa01",
+      "csv": "AutomatedTestingTools/panachesysmon_vs_atomicredteam01.csv",
+      "detections": 706,
+      "csv_sha256": "e7851a84e6cadb55f7955a86ab6990e79d9ef65f6ae24760819db15bf98e307e",
+      "status": "ok"
+    },
+    {
+      "evtx": "AutomatedTestingTools/WinDefender_Events_1117_1116_AtomicRedTeam.evtx",
+      "evtx_sha256": "d7bebbe4a9bd6fdcfe53e019e7386a983f89c2fc7919fc51ecf249453ed60780",
+      "csv": "AutomatedTestingTools/windefender_events_1117_1116_atomicredteam.csv",
+      "detections": 13,
+      "csv_sha256": "c28ea7a898a3ba3d5f41fb2d2bad7244eec5c47f90548cf486e6f185ce4a610d",
+      "status": "ok"
+    },
+    {
+      "evtx": "AutomatedTestingTools/panache_sysmon_vs_EDRTestingScript.evtx",
+      "evtx_sha256": "9c1371a0632de15095b6ffe2e38991b764d4beaddb1722178e93aa476f83f52f",
+      "csv": "AutomatedTestingTools/panache_sysmon_vs_edrtestingscript.csv",
+      "detections": 207,
+      "csv_sha256": "4f3da2533de018cc0e49bcbd471a870a7c8dc64ed4e20b1020d983ba8b8109ed",
+      "status": "ok"
+    },
+    {
+      "evtx": "Command and Control/DE_RDP_Tunnel_5156.evtx",
+      "evtx_sha256": "25853cab2d474dd52159d45e8c7b139c27b55767be558447ccbc6f494daec786",
+      "csv": "Command and Control/de_rdp_tunnel_5156.csv",
+      "detections": 95,
+      "csv_sha256": "e55f87d26b8d9733ef6991af464a661b86f2bba8a8c91a2dc555d5836974a465",
+      "status": "ok"
+    },
+    {
+      "evtx": "Command and Control/DE_RDP_Tunneling_4624.evtx",
+      "evtx_sha256": "2668d3d7f0505ad453affcb9e2b7206617cf1ec1e5a212bd8f191eb8523c0ab1",
+      "csv": "Command and Control/de_rdp_tunneling_4624.csv",
+      "detections": 8,
+      "csv_sha256": "b3d063dc7334981c10088bfe786eb0782bbbf3d1ab0d5c145b57ef2674824d54",
+      "status": "ok"
+    },
+    {
+      "evtx": "Command and Control/DE_RDP_Tunneling_TerminalServices-RemoteConnectionManagerOperational_1149.evtx",
+      "evtx_sha256": "b9d6d1a3af56501120d1d6b4dbe3d1fc600d88844f255208b4eff0f1e250b00f",
+      "csv": "Command and Control/de_rdp_tunneling_terminalservices_remoteconnectionmanageroperational_1149.csv",
+      "detections": 11,
+      "csv_sha256": "68bfa42d5e5f4acf03a01aa0b9355e5d09906421a2f43267707a3013e2a9da9e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Command and Control/DE_sysmon-3-rdp-tun.evtx",
+      "evtx_sha256": "1d1eb55d1b7c785db26e19b0d50b9eb4a7928671e4edeb82ea5182cb834c874a",
+      "csv": "Command and Control/de_sysmon_3_rdp_tun.csv",
+      "detections": 87,
+      "csv_sha256": "b3595fdbbb3ce56cd518db6cc006ef1e6a4e1cbdf5f682b8a6e61a529c63db56",
+      "status": "ok"
+    },
+    {
+      "evtx": "Command and Control/bits_openvpn.evtx",
+      "evtx_sha256": "9dc80ef8dd521d443016559ee5b0e55837a59bfcc9d790b20b72c38a9eddc40e",
+      "csv": "Command and Control/bits_openvpn.csv",
+      "detections": 162,
+      "csv_sha256": "65395042a28746b378ce4f4523dfeae2eeafdc800405424add71b749ff41ceac",
+      "status": "ok"
+    },
+    {
+      "evtx": "Command and Control/tunna_iis_rdp_smb_tunneling_sysmon_3.evtx",
+      "evtx_sha256": "d7e75b35f9db32c91dc0d066ee935b382253fb56659f19c05833c964f8217469",
+      "csv": "Command and Control/tunna_iis_rdp_smb_tunneling_sysmon_3.csv",
+      "detections": 14,
+      "csv_sha256": "d3a72286f9221866911f10e97db3ec299e780dc429628cb445eb0ce87b6f76c7",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/4794_DSRM_password_change_t1098.evtx",
+      "evtx_sha256": "6858de83024b72dff54d75b882103f760eaa85847831578abab78ab5c7f62061",
+      "csv": "Credential Access/4794_dsrm_password_change_t1098.csv",
+      "detections": 1,
+      "csv_sha256": "44165ec3780406905457cccbf0b071816600b6eb57145f18befda514b9f290e5",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/ACL_ForcePwd_SPNAdd_User_Computer_Accounts.evtx",
+      "evtx_sha256": "f09f993909deb7acdae4c4f6f48e5a8447487e89437873fd8e653436a3dce36c",
+      "csv": "Credential Access/acl_forcepwd_spnadd_user_computer_accounts.csv",
+      "detections": 45,
+      "csv_sha256": "619b83758ddddf6e929dffa0af6fc85c25b60e48acbfd894018b9b8007b0e9b2",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_4624_4625_LogonType2_LogonProc_chrome.evtx",
+      "evtx_sha256": "75f199b68d473172705bf874720b01820317fdd7aa4843545c98720dd6de197f",
+      "csv": "Credential Access/ca_4624_4625_logontype2_logonproc_chrome.csv",
+      "detections": 1,
+      "csv_sha256": "9645d8a6270f9bb4b3715fd4c79ed093330d0d83685827a56d99913035d6f789",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_DCSync_4662.evtx",
+      "evtx_sha256": "679b2ff27af6c932c07bf3e81391e455fae98e69bf3aff0f524e31aadc418131",
+      "csv": "Credential Access/ca_dcsync_4662.csv",
+      "detections": 3,
+      "csv_sha256": "83584cbbf1a628a04803e98baf1d418ac57f69f57d83dd1ae39a9599695c95a0",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_Mimikatz_Memssp_Default_Logs_Sysmon_11.evtx",
+      "evtx_sha256": "a5c52377c8a430fc4838fdc9b7c1638125b95c618d7efa930be0562124e0bfba",
+      "csv": "Credential Access/ca_mimikatz_memssp_default_logs_sysmon_11.csv",
+      "detections": 2,
+      "csv_sha256": "29815c2f89220e403236ec1239f8a61cb2e1988d91447b92c0078ff0dfc0d6fa",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_PetiPotam_etw_rpc_efsr_5_6.evtx",
+      "evtx_sha256": "0a5d1831b776a472e0337c9629b615a939df3d4c8fe5d582a0356887ac9dc4eb",
+      "csv": "Credential Access/ca_petipotam_etw_rpc_efsr_5_6.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Credential Access/CA_chrome_firefox_opera_4663.evtx",
+      "evtx_sha256": "e23b74c463d1fba5c1ef44bcc5f386c56a17327a5b216118f6704cc30545cd8c",
+      "csv": "Credential Access/ca_chrome_firefox_opera_4663.csv",
+      "detections": 2,
+      "csv_sha256": "804508411437ede7db63563bb01f049659337c6cbe8e14614bccebc89c13f66a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_hashdump_4663_4656_lsass_access.evtx",
+      "evtx_sha256": "05fc4e1cf2a55b2b0c1623e4404e42f281dc68e0f024503527d19f3c065d39ac",
+      "csv": "Credential Access/ca_hashdump_4663_4656_lsass_access.csv",
+      "detections": 3,
+      "csv_sha256": "bd17bc413a367091720729f95c1fb8782ebff66c1d4207fbc63dd946188fa4a2",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_keefarce_keepass_credump.evtx",
+      "evtx_sha256": "101037366f9c300f3ec9397ab42b2b9ee35115c3da97b5725c52db04d6bc33b2",
+      "csv": "Credential Access/ca_keefarce_keepass_credump.csv",
+      "detections": 6,
+      "csv_sha256": "2b116f2dddf1df98b28a35e66480490e46fe8d66a94e367d99d212f089e2bebb",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_keepass_KeeThief_Get-KeePassDatabaseKey.evtx",
+      "evtx_sha256": "da1c3fc77c5efdfd652201e2037f5c257ec4e48432900473491b9ca1c32bcf15",
+      "csv": "Credential Access/ca_keepass_keethief_get_keepassdatabasekey.csv",
+      "detections": 6,
+      "csv_sha256": "be6d1c9329b20a663a3ebfe8bba7dba233cb023317acfcd20f46760b702187b3",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_protectedstorage_5145_rpc_masterkey.evtx",
+      "evtx_sha256": "65931b695ed13ad1d0779342257b8e22b2cc30676d65a2610dc6a540701f7841",
+      "csv": "Credential Access/ca_protectedstorage_5145_rpc_masterkey.csv",
+      "detections": 1,
+      "csv_sha256": "895fcfa86e20f9cb8c7c597c69c7855e23a7a42dd1f4c17ff9966cbbac478d90",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_sysmon_hashdump_cmd_meterpreter.evtx",
+      "evtx_sha256": "897206ca4c3c427753fde880970048494cd5a99be9aaba6154b4e3ac499e24c9",
+      "csv": "Credential Access/ca_sysmon_hashdump_cmd_meterpreter.csv",
+      "detections": 12,
+      "csv_sha256": "c26d1cb7e074f1896971e70c7e16889df85884e19aabd4f8b812ec953ec3e946",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/CA_teamviewer-dumper_sysmon_10.evtx",
+      "evtx_sha256": "53eaf99a0a50ad2b2b8b86535b6b5f5da30663d5f977a02eeb4e69d2438fa668",
+      "csv": "Credential Access/ca_teamviewer_dumper_sysmon_10.csv",
+      "detections": 1,
+      "csv_sha256": "ad99f0f39aec8d0bdea3f2abd31cbbccdf8478355a8c642190d959ab51c841c9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/LsassSilentProcessExit_process_exit_monitor_3001_lsass.evtx",
+      "evtx_sha256": "9a9467f92de5a4b49302800b8c1d4ca0a5f6b562e23aaaa36d87bae690888014",
+      "csv": "Credential Access/lsasssilentprocessexit_process_exit_monitor_3001_lsass.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Credential Access/MSSQL_multiple_failed_logon_EventID_18456.evtx",
+      "evtx_sha256": "014e936e1b5bad13275d3c6f2e61cc6dc74c4514557b20264b27df06a08d6ee6",
+      "csv": "Credential Access/mssql_multiple_failed_logon_eventid_18456.csv",
+      "detections": 10,
+      "csv_sha256": "293b1717b2b7d1d591ecdac5e476f5a99b82d5fa37a78a7dc0ae797ae5aa6c2c",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/Powershell_4104_MiniDumpWriteDump_Lsass.evtx",
+      "evtx_sha256": "54ff62eff26af588782e066b7b3b1b952bc83e1b75a84d81f9492e654cb5c319",
+      "csv": "Credential Access/powershell_4104_minidumpwritedump_lsass.csv",
+      "detections": 5,
+      "csv_sha256": "cdb631dca88f2ab970ace334dc747e1ef70680cb7c5e8e5833d89c12e6f2b646",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/Sysmon13_MachineAccount_Password_Hash_Changed_via_LsarSetSecret.evtx",
+      "evtx_sha256": "f2e5df7f6929dcb0ab9c45f0c5f30488dfb167a56ee472fa2ae6bf52f610fa94",
+      "csv": "Credential Access/sysmon13_machineaccount_password_hash_changed_via_lsarsetsecret.csv",
+      "detections": 4,
+      "csv_sha256": "6296bfce7449501f997dd87de747149164242a58aa8dabd0788f04769eb1ca08",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/Sysmon_13_Local_Admin_Password_Changed.evtx",
+      "evtx_sha256": "821e5225b243dfcb44789b1904b7d9ae5ab7a458eeeb68b24af27ace1f477367",
+      "csv": "Credential Access/sysmon_13_local_admin_password_changed.csv",
+      "detections": 1,
+      "csv_sha256": "7338eaab0acf4446bbda9228fa84ffa17634bf2df6dbb4e83591a122ca5d0280",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/Zerologon_CVE-2020-1472_DFIR_System_NetLogon_Error_EventID_5805.evtx",
+      "evtx_sha256": "519cdae51e2a3a3045ff3a3c61fc06576869deed23a81b9e45619f9521f6bc63",
+      "csv": "Credential Access/zerologon_cve_2020_1472_dfir_system_netlogon_error_eventid_5805.csv",
+      "detections": 1,
+      "csv_sha256": "3090250fe86d8b558064c2ab6e4b3b6f4c243fbaf97b23da8f5e2bb21371ef9e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/Zerologon_VoidSec_CVE-2020-1472_4626_LT3_Anonym_follwedby_4742_DC_Anony_DC.evtx",
+      "evtx_sha256": "7ea57911a3afea3777e503e69d30d91b635201df3e6f7f5bbffb1495791064e6",
+      "csv": "Credential Access/zerologon_voidsec_cve_2020_1472_4626_lt3_anonym_follwedby_4742_dc_anony_dc.csv",
+      "detections": 3,
+      "csv_sha256": "322cc81323a2a57fbc5bc3c41b9a6407761caf7deb1a6085c25df35c716f0089",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/babyshark_mimikatz_powershell.evtx",
+      "evtx_sha256": "3747c33a60a32142bf4e30bf023f155b2c0d6e7a018bce8b7bafbd5aa7ec109c",
+      "csv": "Credential Access/babyshark_mimikatz_powershell.csv",
+      "detections": 40,
+      "csv_sha256": "62771062871644c57c0b7814fdadc5842fdbad2ccb00a40b6558dd549e26305a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/dc_applog_ntdsutil_dfir_325_326_327.evtx",
+      "evtx_sha256": "56b83f3f107ad9e02ecbcdc849930608f86cac1269d156c90e38326bc401a6ec",
+      "csv": "Credential Access/dc_applog_ntdsutil_dfir_325_326_327.csv",
+      "detections": 5,
+      "csv_sha256": "f7a523e31647847aa878bab3f2158dea8c1d75d362af766f9ec6adaf4dcd895a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/discovery_sysmon_1_iis_pwd_and_config_discovery_appcmd.evtx",
+      "evtx_sha256": "5388d3281a902a1f3cc087697589145b7de6abdbbc0dc716abd6a702c44bb106",
+      "csv": "Credential Access/discovery_sysmon_1_iis_pwd_and_config_discovery_appcmd.csv",
+      "detections": 67,
+      "csv_sha256": "262cee00f61a94a2041fe8d508c46f0996f711c8f6dec499f1280bd7486c2ea0",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/etw_rpc_zerologon.evtx",
+      "evtx_sha256": "001b973cb13a18a2febd5de3689eac65774ca8025eb1428db38508ff199af99a",
+      "csv": "Credential Access/etw_rpc_zerologon.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Credential Access/kerberos_pwd_spray_4771.evtx",
+      "evtx_sha256": "4a0a1c7132e216dbc704c806e9429df9ae3ac00485d5238e50c776e3099ae11d",
+      "csv": "Credential Access/kerberos_pwd_spray_4771.csv",
+      "detections": 10,
+      "csv_sha256": "e665cab7501f10f4d16de225324235db79643124a582920af3bd29c0de56f888",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/phish_windows_credentials_powershell_scriptblockLog_4104.evtx",
+      "evtx_sha256": "177db8fa70262b4e2eba4e2902c97e82e3c6943fd111bde2ee522d5f1d57e856",
+      "csv": "Credential Access/phish_windows_credentials_powershell_scriptblocklog_4104.csv",
+      "detections": 6,
+      "csv_sha256": "3332c34eedf0010d6aeaf35c18b049fe39037ce31044a7ab31b39a0c5a3130fa",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.evtx",
+      "evtx_sha256": "9ac47a1ab7ac5e899dede49a4ea3512f0d3628edb9605981fe78bc0aec6f296f",
+      "csv": "Credential Access/ppl_bypass_ppldump_knowdll_hijack_sysmon_security.csv",
+      "detections": 26,
+      "csv_sha256": "e30e13ffe17e3fd3e636b87033cc7b1f72fd1903d44148c1415450e36210fb01",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/remote_pwd_reset_rpc_mimikatz_postzerologon_target_DC.evtx",
+      "evtx_sha256": "6a5d703c2838d568bdf0db3578dc3ddbb5de44c24839c5defd2c0545b49043e0",
+      "csv": "Credential Access/remote_pwd_reset_rpc_mimikatz_postzerologon_target_dc.csv",
+      "detections": 3,
+      "csv_sha256": "07f394bcfc727c789d806403f868d128e7ef32cf370c9e2847ee49fcfab8f477",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/remote_sam_registry_access_via_backup_operator_priv.evtx",
+      "evtx_sha256": "5eb397ece85fa13263685cb1d61ec6fdb768f2dc83d17e222f9d318f3703044f",
+      "csv": "Credential Access/remote_sam_registry_access_via_backup_operator_priv.csv",
+      "detections": 15,
+      "csv_sha256": "24df82e133620c4fecd42bc7648decb512f219e618bd51597c89c2f47745d8a7",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/sysmon17_18_kekeo_tsssp_default_np.evtx",
+      "evtx_sha256": "5784342008a619ae910f88fe435bc30fc372399f14405c6265dbce8c9b578838",
+      "csv": "Credential Access/sysmon17_18_kekeo_tsssp_default_np.csv",
+      "detections": 3,
+      "csv_sha256": "66f312c2bb880d2dc6d7e5c26c521bf171ac1311ec8341d52381a82de763a2e8",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/sysmon_10_11_lsass_memdump.evtx",
+      "evtx_sha256": "915f0859251552b6c33efc32f6184d2c25419c5859852124a7f14ed6ec1a3723",
+      "csv": "Credential Access/sysmon_10_11_lsass_memdump.csv",
+      "detections": 13,
+      "csv_sha256": "7bbcd8bae7a8fe25ff80cf4e6bd0666d8e752ab4142586867d54670966277bbf",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx",
+      "evtx_sha256": "f0d11bf8e186947aaf64c3a57debb1b665f518e2dab13acdaafb30c7e8d262af",
+      "csv": "Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.csv",
+      "detections": 35,
+      "csv_sha256": "a0a812165a2f50a727b1add6177681af1d1a25629e69243a423c7e1235cf8f67",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/sysmon_10_1_memdump_comsvcs_minidump.evtx",
+      "evtx_sha256": "d1bf591cabf7d21f49936150bfaf433da7665211ba3fd00bc806f4912a6f96b4",
+      "csv": "Credential Access/sysmon_10_1_memdump_comsvcs_minidump.csv",
+      "detections": 11,
+      "csv_sha256": "d67da2e3c0cd51bfb913f98831bf09b6a0425fb353c2db59c9683f288e7bc1d0",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/sysmon_10_lsass_mimikatz_sekurlsa_logonpasswords.evtx",
+      "evtx_sha256": "9a1689574ed08c1fb18e7ff3f3bed612109aedcb7bf8efbf3537d756e669e96f",
+      "csv": "Credential Access/sysmon_10_lsass_mimikatz_sekurlsa_logonpasswords.csv",
+      "detections": 3,
+      "csv_sha256": "8c005db2d9833c25087daad80215e87f20a212a5c78fd7a92eb87d8444f7e43e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/sysmon_13_keylogger_directx.evtx",
+      "evtx_sha256": "a3ca60a7b49d5a6900460431d4aad4f75e915b9baf8fc211878c2b7bcdac4b6b",
+      "csv": "Credential Access/sysmon_13_keylogger_directx.csv",
+      "detections": 3,
+      "csv_sha256": "5887b37592a3062d47bf43583d3f127600ab3480ef548451399dde762e70b78b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/sysmon_2x10_lsass_with_different_pid_RtlCreateProcessReflection.evtx",
+      "evtx_sha256": "7d160c1b636f8eb3642e9c2c15c941c136d9ecbf19116b18b19f981324d44e00",
+      "csv": "Credential Access/sysmon_2x10_lsass_with_different_pid_rtlcreateprocessreflection.csv",
+      "detections": 12,
+      "csv_sha256": "432f77d6a1db38344eaf203c3dd7ee16603171e557dd03f16df741d48d34682f",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/sysmon_3_10_Invoke-Mimikatz_hosted_Github.evtx",
+      "evtx_sha256": "59c28ff11e4b9b329ee6b0859a5514f772913e95ef9ba8f94c46e02c4d78be17",
+      "csv": "Credential Access/sysmon_3_10_invoke_mimikatz_hosted_github.csv",
+      "status": "blocked: process start refused (Eri\u015fim engellendi)"
+    },
+    {
+      "evtx": "Credential Access/sysmon_rdrleakdiag_lsass_dump.evtx",
+      "evtx_sha256": "17f010bff45a34212e5c5ff13ed1106274f65e3524fc508f7481db8aaeef0434",
+      "csv": "Credential Access/sysmon_rdrleakdiag_lsass_dump.csv",
+      "detections": 8,
+      "csv_sha256": "cf9b51710849470453edfdad2a6597b2ae4c653ff736d36d3e530b5ebdb9ae4a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Credential Access/tutto_malseclogon.evtx",
+      "evtx_sha256": "7f8651fa3ed49bb02a0760e3b4124e08aa0579d580395ea1b1c8c24332fce092",
+      "csv": "Credential Access/tutto_malseclogon.csv",
+      "detections": 19,
+      "csv_sha256": "f31cf2f7d17b4032a15f312acf9c277f4e75ba8c226bc7e4ebbbcccf5d4b570d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_104_system_log_cleared.evtx",
+      "evtx_sha256": "5579cdca073ee4864ea82d656aa2d25400b5c1e85b8e688db5d85f6dc558c2af",
+      "csv": "Defense Evasion/de_104_system_log_cleared.csv",
+      "detections": 1,
+      "csv_sha256": "03cd7611986472f93b79882d0861f9d06df12d7890a4f5269d152cf175173365",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_1102_security_log_cleared.evtx",
+      "evtx_sha256": "a0615707b547a2ac254688fd725c3c590f62440fc9b7947c2843dd40498a39e8",
+      "csv": "Defense Evasion/de_1102_security_log_cleared.csv",
+      "detections": 2,
+      "csv_sha256": "4940f82c89de930d03ca577ebda8d1420456b8966d34408b5a85dcaf4938b26e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_BYOV_Zam64_CA_Memdump_sysmon_7_10.evtx",
+      "evtx_sha256": "329b2a8c70d43789e03bad581e971c4f84aeb2852c5a7c960fa57454225e5199",
+      "csv": "Defense Evasion/de_byov_zam64_ca_memdump_sysmon_7_10.csv",
+      "detections": 9,
+      "csv_sha256": "fc13ef8d5e42f070db880ec92431a4b1e99ac0fe68ba037dd3e8cb34b432727e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_EventLog_Service_Crashed.evtx",
+      "evtx_sha256": "97637b9c858afe52cd644108b30f0aaaeea8837db900b06e40c00c9bc45a3963",
+      "csv": "Defense Evasion/de_eventlog_service_crashed.csv",
+      "detections": 4,
+      "csv_sha256": "ce437f967a6f85fb113e79d267b15073bb391bac422818cbfc0896e5374ae895",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_Fake_ComputerAccount_4720.evtx",
+      "evtx_sha256": "8b0c2b1998bbd6292fbd23c2fbd954ed2a0db5ae38f39493e718262b215b4da9",
+      "csv": "Defense Evasion/de_fake_computeraccount_4720.csv",
+      "detections": 4,
+      "csv_sha256": "4e8fcc73526710fef9032a46e1c5c0386c6f17f65d477c505cf06488801ca3c2",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_KernelDebug_and_TestSigning_ON_Security_4826.evtx",
+      "evtx_sha256": "3fbd57015ffdacdb063535f1269782f9c7ac27da74b9c009ae50b636e3d3f836",
+      "csv": "Defense Evasion/de_kerneldebug_and_testsigning_on_security_4826.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Defense Evasion/DE_Powershell_CLM_Disabled_Sysmon_12.evtx",
+      "evtx_sha256": "3eb77febe76db38146275927c57fa7fcb98394c2261858d957dabc90573ac7c0",
+      "csv": "Defense Evasion/de_powershell_clm_disabled_sysmon_12.csv",
+      "detections": 1,
+      "csv_sha256": "4aaa730245084e95dab300e7fa20e76dd90734497a50df64a85d10296b511ea9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_ProcessHerpaderping_Sysmon_11_10_1_7.evtx",
+      "evtx_sha256": "cafd901d6b6583a2441386ef6b42c380090270e91eb3431ec01a77ccb0e1c37f",
+      "csv": "Defense Evasion/de_processherpaderping_sysmon_11_10_1_7.csv",
+      "detections": 5,
+      "csv_sha256": "2af6fc8a4f0805d14253d21736404ca788bfc516b4d0aaba0a694be53a256c43",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_UAC_Disabled_Sysmon_12_13.evtx",
+      "evtx_sha256": "06d462b8367cfc620bc84dbda970cf34bff761e02d9d6e1d33bc48f56bc66e6d",
+      "csv": "Defense Evasion/de_uac_disabled_sysmon_12_13.csv",
+      "detections": 4,
+      "csv_sha256": "209e6eca5c8418dcd5e499be1a20c65a5aff20cf16a67530e17e890d12ab217e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_WinEventLogSvc_Crash_System_7036.evtx",
+      "evtx_sha256": "026f7df81fd1ac2b8c98678d340b05ffc330f8e944026ec75af48df00b1ce871",
+      "csv": "Defense Evasion/de_wineventlogsvc_crash_system_7036.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Defense Evasion/DE_remote_eventlog_svc_crash_byt3bl33d3r_sysmon_17_1_3.evtx",
+      "evtx_sha256": "aadfd6f526c9ce0b76381f8c7a047b0882fcd2a4640a733f9b4b90d68a34446b",
+      "csv": "Defense Evasion/de_remote_eventlog_svc_crash_byt3bl33d3r_sysmon_17_1_3.csv",
+      "detections": 11,
+      "csv_sha256": "919484cd72b9124199c25e2851167c5a0a7f5dcaf2aba5c26fefc666ddc4161a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_renamed_psexec_service_sysmon_17_18.evtx",
+      "evtx_sha256": "3b58311891bc80b239da102dec9c462d9c8d07c1f0ba5fedaf2c59e1e4447179",
+      "csv": "Defense Evasion/de_renamed_psexec_service_sysmon_17_18.csv",
+      "detections": 11,
+      "csv_sha256": "e5699ca57f5f6133ae6f2f2a8f6175e643809451d3292f7ab74074dfcd652058",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_suspicious_remote_eventlog_svc_access_5145.evtx",
+      "evtx_sha256": "bd9b7712b67b16515f70fd5168142aca1f4cb88cdc1f51c08cf838e317cfdf59",
+      "csv": "Defense Evasion/de_suspicious_remote_eventlog_svc_access_5145.csv",
+      "detections": 5,
+      "csv_sha256": "6ab82abbb38b8ded774150a8b3410ac1426ee31fae682bffb633e2cd47193d70",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DE_xp_cmdshell_enabled_MSSQL_EID_15457.evtx",
+      "evtx_sha256": "2ef4fa374e6ccc23efeb32d12ce38362673cc0afa2e986fcfd88f882480ec582",
+      "csv": "Defense Evasion/de_xp_cmdshell_enabled_mssql_eid_15457.csv",
+      "detections": 2,
+      "csv_sha256": "29eec266b4f321663c8904c90f827b6934f531335bc7dc399d98188db3466204",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/DSE_bypass_BYOV_TDL_dummydriver_sysmon_6_7_13.evtx",
+      "evtx_sha256": "1162521cb06986ddef24bff7c044b05d63f37ea8faeaa6acd8cc2529b05c7618",
+      "csv": "Defense Evasion/dse_bypass_byov_tdl_dummydriver_sysmon_6_7_13.csv",
+      "detections": 9,
+      "csv_sha256": "03107a6229c05da8381f53f23de8fa9be81478d9dc395632e51db1782431475f",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/Sysmon 7  Update Session Orchestrator Dll Hijack.evtx",
+      "evtx_sha256": "7a0c541506770e6ef05e327f600c7fc1d328676058214a0e3a6a82c7d7e8fcdf",
+      "csv": "Defense Evasion/sysmon_7_update_session_orchestrator_dll_hijack.csv",
+      "detections": 86,
+      "csv_sha256": "467f914674fbbd8c3c62d03d0056dc09b377919499c4442d6d7cd974b49a66cf",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/Sysmon 7 dllhijack_cdpsshims_CDPSvc.evtx",
+      "evtx_sha256": "95b499a8478cce0fa8eb579c236a5216c1ba8dff8d4b98f751b2d52edba67400",
+      "csv": "Defense Evasion/sysmon_7_dllhijack_cdpsshims_cdpsvc.csv",
+      "detections": 22,
+      "csv_sha256": "d4b51cc2b2a3417ed4e25fc96f53f8fc87846a82c554bf2ba4f5ee9a4e9edf4d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/Sysmon_10_Evasion_Suspicious_NtOpenProcess_CallTrace.evtx",
+      "evtx_sha256": "90c5a7871a9f90bcf6fdea15fc6623aac5fe29c63282bdf00b8c1b687dac4e2c",
+      "csv": "Defense Evasion/sysmon_10_evasion_suspicious_ntopenprocess_calltrace.csv",
+      "detections": 3,
+      "csv_sha256": "3e0dcd079c24940c8ef54a170abb49b608d00d832ee4808ae01d2b27377c3bb2",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/Sysmon_12_DE_AntiForensics_MRU_DeleteKey.evtx",
+      "evtx_sha256": "1eb4fc9d4fc6c4c36db7c4ec2ae5a6833e6cfb8d26e4c1f8d0653d5a78c533f3",
+      "csv": "Defense Evasion/sysmon_12_de_antiforensics_mru_deletekey.csv",
+      "detections": 3,
+      "csv_sha256": "3a53f3c3623ca05bd1b80f14da61997a8cf0d4eda070fe7207c63d89fa790544",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/Win_4985_T1186_Process_Doppelganging.evtx",
+      "evtx_sha256": "ec2fe6bac8ecbc6e2bf5b253792f2cace2d4530af0152ba9f58dd446db193ae8",
+      "csv": "Defense Evasion/win_4985_t1186_process_doppelganging.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Defense Evasion/apt10_jjs_sideloading_prochollowing_persist_as_service_sysmon_1_7_8_13.evtx",
+      "evtx_sha256": "a623b11315eacd9732da5ebeabdb7c72d0f641fdf0ec5d2ec43e360abd13837e",
+      "csv": "Defense Evasion/apt10_jjs_sideloading_prochollowing_persist_as_service_sysmon_1_7_8_13.csv",
+      "detections": 14,
+      "csv_sha256": "7d56da187c10a8b41204036774093ca6b51490a8f2537e97e13435516711c258",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/de_PsScriptBlockLogging_disabled_sysmon12_13.evtx",
+      "evtx_sha256": "aff2a84996514a6a3e6369de06c2d8edd8dcf4afc3e8e5c2c6fbc38431ef9084",
+      "csv": "Defense Evasion/de_psscriptblocklogging_disabled_sysmon12_13.csv",
+      "detections": 3,
+      "csv_sha256": "52f18c24a53c45c93e8ff745c7a687db38a3aab68cf544a24235c681d8c8445d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/de_hiding_files_via_attrib_cmdlet.evtx",
+      "evtx_sha256": "8bb94aeb8ee163f9d7363382656057feed83c2a22abe25f04a36c61b78b80e8f",
+      "csv": "Defense Evasion/de_hiding_files_via_attrib_cmdlet.csv",
+      "detections": 2,
+      "csv_sha256": "8546a7b23058bc7cc2c78a3d3db7c2e5d3fb9dc9d3b77dca3b4bab9f97f2560a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/de_portforward_netsh_rdp_sysmon_13_1.evtx",
+      "evtx_sha256": "9ca0c561593fbd30956437d566e51e5e913829ba2aec30c0d867d739d4b3f3f8",
+      "csv": "Defense Evasion/de_portforward_netsh_rdp_sysmon_13_1.csv",
+      "detections": 5,
+      "csv_sha256": "ff4c4c42ac6486716567c881b2abf095f022825d10c0ef6dfc1a63622bbc6723",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/de_powershell_execpolicy_changed_sysmon_13.evtx",
+      "evtx_sha256": "da5765253da63f39373dd9f8df0ec9f7573acb6059c6b44f7d7b3ca83393f645",
+      "csv": "Defense Evasion/de_powershell_execpolicy_changed_sysmon_13.csv",
+      "detections": 1,
+      "csv_sha256": "fcf99713d2eeee261274803ad0b7a2bcd3ff86f8fd19a38be8d3fe819812fef4",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/de_sysmon_13_VBA_Security_AccessVBOM.evtx",
+      "evtx_sha256": "9045bbb928d944da7156b488cdc036d40961736a592bb1e6c496786fd02415c6",
+      "csv": "Defense Evasion/de_sysmon_13_vba_security_accessvbom.csv",
+      "detections": 2,
+      "csv_sha256": "04e8d77ce0c9a19fdd84d6777802f9c2ae79f9d13a80218713d7941a8b2838f9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.evtx",
+      "evtx_sha256": "13099e0dd75dd4222c289864902cb12d0c63777f689709a36531fae3e2e43c05",
+      "csv": "Defense Evasion/de_unmanagedpowershell_psinject_sysmon_7_8_10.csv",
+      "detections": 249,
+      "csv_sha256": "834c40fa141745217e2e2644d3d192436f1b22f7b8ba0d82677cf85d1c5791f8",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/evasion_codeinj_odzhan_conhost_sysmon_10_1.evtx",
+      "evtx_sha256": "8034cbbcf25f2d33c9f92d518e29e4501ca2611c5396e15b4b2a60654315fd4b",
+      "csv": "Defense Evasion/evasion_codeinj_odzhan_conhost_sysmon_10_1.csv",
+      "detections": 6,
+      "csv_sha256": "dfab32b933d4ccabfbddb95b99a5501cacbda56c85e34a05876a1386352bc72b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/evasion_codeinj_odzhan_spoolsv_sysmon_10_1.evtx",
+      "evtx_sha256": "768feeb10b97df3903002d023efa4f83f5392a5dd80e10d609f0063d5353f291",
+      "csv": "Defense Evasion/evasion_codeinj_odzhan_spoolsv_sysmon_10_1.csv",
+      "detections": 5,
+      "csv_sha256": "c6f8ef9a71b27650572d8298a2c25b0b4418cd8d8a1d01368113f4607ba452b6",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/faxhell_sysmon_7_1_18_3_bindshell_dllhijack.evtx",
+      "evtx_sha256": "844b8d7aa509fa95cd0734dcd09e16a76d9e3fed49b234ea954b7d94b5571a8c",
+      "csv": "Defense Evasion/faxhell_sysmon_7_1_18_3_bindshell_dllhijack.csv",
+      "detections": 13,
+      "csv_sha256": "e4a586ba8c3b10ac6847e43b7e97bd2f84be2a50a56dceeafec1b340c7f02abc",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/meterpreter_migrate_to_explorer_sysmon_8.evtx",
+      "evtx_sha256": "9e6fe88d33af7ebee4841098a639a04215b3d04cc8e0f1d4f6fa94212fe5d2fc",
+      "csv": "Defense Evasion/meterpreter_migrate_to_explorer_sysmon_8.csv",
+      "detections": 1,
+      "csv_sha256": "a9f67d0962e1b7bbff99e2ad2a818a0aba4f1ee576e66c5d67da406d7171ecaa",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/process_suspend_sysmon_10_ga_800.evtx",
+      "evtx_sha256": "21ed5dc7b3e18d1280d6ff8f50d198d88294423c41aec0d790ba767adc798238",
+      "csv": "Defense Evasion/process_suspend_sysmon_10_ga_800.csv",
+      "detections": 2,
+      "csv_sha256": "67d28db32d76b593b589de33618f01ee7190d5b23aace07dd8aaf87765c8580a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/sideloading_wwlib_sysmon_7_1_11.evtx",
+      "evtx_sha256": "d6a2d4e6f886c7a5cf9c6734527e38c6f7bfe051283cc6d39084be1c713a743d",
+      "csv": "Defense Evasion/sideloading_wwlib_sysmon_7_1_11.csv",
+      "detections": 7,
+      "csv_sha256": "325928abca91d4e61f8b2aea674b1434e23b4dbb175ce7dea6ef1dd15296ce8a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/sysmon_10_1_ppid_spoofing.evtx",
+      "evtx_sha256": "74dda489578fc89d0d8b684126f1d913750da5b9aa30869afa5c054f06a4754e",
+      "csv": "Defense Evasion/sysmon_10_1_ppid_spoofing.csv",
+      "detections": 6,
+      "csv_sha256": "8116ae6679a21ce83123f82018d43682a5053dd28e1f94b68db84be68cce2bf1",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/sysmon_13_rdp_settings_tampering.evtx",
+      "evtx_sha256": "1a877ee743da4f3183e19f30f9d864f9c86bd119fb4c47fa849af5be04985944",
+      "csv": "Defense Evasion/sysmon_13_rdp_settings_tampering.csv",
+      "detections": 27,
+      "csv_sha256": "eb3a68c850199d1e6a5f495735e0c73df7e7d9d7b8f0630950c9071b65063c10",
+      "status": "ok"
+    },
+    {
+      "evtx": "Defense Evasion/sysmon_2_11_evasion_timestomp_MACE.evtx",
+      "evtx_sha256": "1fd461647854d19cf9c813a419ffc728522507777e76d7a32150e58e746d43d6",
+      "csv": "Defense Evasion/sysmon_2_11_evasion_timestomp_mace.csv",
+      "detections": 4,
+      "csv_sha256": "14858ef8762dd0b752bbb3864567f58fc238d79d8fb25c76a485990198842da1",
+      "status": "ok"
+    },
+    {
+      "evtx": "Discovery/4799_remote_local_groups_enumeration.evtx",
+      "evtx_sha256": "c998491414379a4cd7b2f2d6025b7e4c1d1e13e8c31c623368d32b7acebcf93f",
+      "csv": "Discovery/4799_remote_local_groups_enumeration.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Discovery/Discovery_Remote_System_NamedPipes_Sysmon_18.evtx",
+      "evtx_sha256": "40d36563e61b022c7115b5723a796cb138b60eb61d85d9bcf8fc8dfdf0cf02f9",
+      "csv": "Discovery/discovery_remote_system_namedpipes_sysmon_18.csv",
+      "detections": 20,
+      "csv_sha256": "1070d176a87690a5a18be44581452a670c2d1226bb8111b1b72b2dfc55065740",
+      "status": "ok"
+    },
+    {
+      "evtx": "Discovery/dicovery_4661_net_group_domain_admins_target.evtx",
+      "evtx_sha256": "3e1451e5d8845360044e11807219073a289c9183142a7032bbee2796d2577a37",
+      "csv": "Discovery/dicovery_4661_net_group_domain_admins_target.csv",
+      "detections": 53,
+      "csv_sha256": "dcb1fb4d3f4d5c0163443b04dc7d2ff1015d2346a6561c2508a531375cdc41c6",
+      "status": "ok"
+    },
+    {
+      "evtx": "Discovery/discovery_UEFI_Settings_rweverything_sysmon_6.evtx",
+      "evtx_sha256": "1f1903ca9c4a89b9e463c0c0de671da0862b0aa06af9145cfabd0255468b5eba",
+      "csv": "Discovery/discovery_uefi_settings_rweverything_sysmon_6.csv",
+      "detections": 4,
+      "csv_sha256": "a9ab706c85a9d5008aeb81f1c40fab29e18e739212e0748476b014315084b35f",
+      "status": "ok"
+    },
+    {
+      "evtx": "Discovery/discovery_bloodhound.evtx",
+      "evtx_sha256": "34f153b6384a6842fe4c635ec224f7551aef2c69b89267715413fd7d00690eb0",
+      "csv": "Discovery/discovery_bloodhound.csv",
+      "detections": 1,
+      "csv_sha256": "b21337e9f9594354d6c2804320ab2fe8f82696a5ce4a827c0e57e46e60074a44",
+      "status": "ok"
+    },
+    {
+      "evtx": "Discovery/discovery_enum_shares_target_sysmon_3_18.evtx",
+      "evtx_sha256": "c939a9aa65b2b262154571b6290234f559e2b22546ebfe5a57fb792f452f4198",
+      "csv": "Discovery/discovery_enum_shares_target_sysmon_3_18.csv",
+      "detections": 4,
+      "csv_sha256": "dc654f1b654bb97b350be2588e0078382d273f25ddd93d4f3389e2912ed737b6",
+      "status": "ok"
+    },
+    {
+      "evtx": "Discovery/discovery_local_user_or_group_windows_security_4799_4798.evtx",
+      "evtx_sha256": "dc2d739363f7ee4c27c429bcff0676e70d605b1f99198fd59433969dc455d65f",
+      "csv": "Discovery/discovery_local_user_or_group_windows_security_4799_4798.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Discovery/discovery_meterpreter_ps_cmd_process_listing_sysmon_10.evtx",
+      "evtx_sha256": "4a2f88aee90d58fa58fd32a3c1bb31e76cdd1caa4a36f2cfb63b6aa045f60378",
+      "csv": "Discovery/discovery_meterpreter_ps_cmd_process_listing_sysmon_10.csv",
+      "detections": 53,
+      "csv_sha256": "da3d519024cd5d0e1cb5df6938187c90e8a3256f21fd6d8d6fd35a17e641ffc3",
+      "status": "ok"
+    },
+    {
+      "evtx": "Discovery/discovery_psloggedon.evtx",
+      "evtx_sha256": "aa2f3ad059952502d159ead3225a6dac6f2903d76f2ce8f503933deb46af7f07",
+      "csv": "Discovery/discovery_psloggedon.csv",
+      "detections": 1,
+      "csv_sha256": "f2d6c660776b999c9fdedf431a01281339dbbd339d9dc9088694f242db812c5b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Discovery/discovery_sysmon_18_Invoke_UserHunter_NetSessionEnum_DC-srvsvc.evtx",
+      "evtx_sha256": "616a8eed6a0e0901679607659b9c71df38e4e99081ac8f8219113ae4330edf47",
+      "csv": "Discovery/discovery_sysmon_18_invoke_userhunter_netsessionenum_dc_srvsvc.csv",
+      "detections": 1,
+      "csv_sha256": "afef8d7b91d21e92fcbd80f41293eb7463df648999bfc9e19b2084a146e1ab12",
+      "status": "ok"
+    },
+    {
+      "evtx": "Discovery/discovery_sysmon_3_Invoke_UserHunter_SourceMachine.evtx",
+      "evtx_sha256": "a743d37d41d7b88e85ff11baaa2050739fd68703a53ac94cc06df4a28a59ede4",
+      "csv": "Discovery/discovery_sysmon_3_invoke_userhunter_sourcemachine.csv",
+      "detections": 11,
+      "csv_sha256": "b777a4cb3d278de2a6979e057527c8192f64bd6cc3949d40bf64e9b39f247a15",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/Exec_sysmon_meterpreter_reversetcp_msipackage.evtx",
+      "evtx_sha256": "328ec1b4b6c531af991a2de2221900ec93db1853f7446f61c7e3c9bf9bf052e3",
+      "csv": "Execution/exec_sysmon_meterpreter_reversetcp_msipackage.csv",
+      "detections": 9,
+      "csv_sha256": "5f367ce6db455a530087511b31a09d19493178e6d2bdcf9e1bf762db522c33a5",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/Exec_via_cpl_Application_Experience_EventID_17_ControlPanelApplet.evtx",
+      "evtx_sha256": "435da66e3edbb223208cdd31f2aff37ffb3037b091d728fa427d5067022fcc92",
+      "csv": "Execution/exec_via_cpl_application_experience_eventid_17_controlpanelapplet.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Execution/Sysmon_Exec_CompiledHTML.evtx",
+      "evtx_sha256": "c139f6920de2f2712137589196ab733d2566cd211e4f8dca62fd7f35a88fb21e",
+      "csv": "Execution/sysmon_exec_compiledhtml.csv",
+      "status": "blocked: Invalid argument"
+    },
+    {
+      "evtx": "Execution/Sysmon_meterpreter_ReflectivePEInjection_to_notepad_.evtx",
+      "evtx_sha256": "872e959cb691d3e3d3a48068c02c7fb579c2d818a007fbd2831f6616bb8c7082",
+      "csv": "Execution/sysmon_meterpreter_reflectivepeinjection_to_notepad.csv",
+      "detections": 35,
+      "csv_sha256": "111066f84529ec85fb1416a846bee6912545a06df6dfc048cf452caca14257b9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/evasion_execution_imageload_wuauclt_lolbas.evtx",
+      "evtx_sha256": "6e2101b499829c9c7b273309821d63addd0a5020fd1069b29d9bd146586814e2",
+      "csv": "Execution/evasion_execution_imageload_wuauclt_lolbas.csv",
+      "detections": 2,
+      "csv_sha256": "1637e9b389fee03a1ccbb49fadb1f04162fc05ea43ec92ac8e5c58adb2da557e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_driveby_cve-2018-15982_sysmon_1_10.evtx",
+      "evtx_sha256": "18c724eefbc80312cf0628e0cd1390c138c216c8b057c8a5e287f2bef2640727",
+      "csv": "Execution/exec_driveby_cve_2018_15982_sysmon_1_10.csv",
+      "detections": 2,
+      "csv_sha256": "1cecf49abd254cc4a090dbc2f49dec3edf10ed82656e8693aeadd5bcea09d069",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_msxsl_xsl_sysmon_1_7.evtx",
+      "evtx_sha256": "ddaec1c8c49cb3706e9daf184bbcb4c332ae4b148924908ef65acb621ca8e84a",
+      "csv": "Execution/exec_msxsl_xsl_sysmon_1_7.csv",
+      "detections": 4,
+      "csv_sha256": "013fc979d1b640a61ef5678f715bf4813d8763ac982580b6739676ce9993c073",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx",
+      "evtx_sha256": "fb5679aec77dc45a35902f705b513811dfea0f2f93c9c8503464a20270c3222f",
+      "csv": "Execution/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.csv",
+      "detections": 21,
+      "csv_sha256": "e5c3321ce4ce415dab8105ea7764626b8bb753f9213490a5d4006a73562d84d9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_1_11_lolbin_rundll32_openurl_FileProtocolHandler.evtx",
+      "evtx_sha256": "11150ee64363501f5f5ca7ab359e696a6a7bb51a1c76f5fb182c38682a5e7a07",
+      "csv": "Execution/exec_sysmon_1_11_lolbin_rundll32_openurl_fileprotocolhandler.csv",
+      "detections": 18,
+      "csv_sha256": "bcf4ebb03351da5ad8c5c68bb5ef708842e47d785e6b6d9fa044b9d145df94e3",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_1_11_lolbin_rundll32_shdocvw_openurl.evtx",
+      "evtx_sha256": "a958cf481c4a9fb6e434dfdd6cad6974e577bad6716926b6ff5b6c6a2acce74c",
+      "csv": "Execution/exec_sysmon_1_11_lolbin_rundll32_shdocvw_openurl.csv",
+      "detections": 8,
+      "csv_sha256": "e2a23f20e1a9c7581daa664a710761f79de4e72209610c4f89ff934bb740ed62",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_1_11_lolbin_rundll32_zipfldr_RouteTheCall.evtx",
+      "evtx_sha256": "03a43d28ce470db4b3a9e40bda8147a7fa254cbf3237ff2219c3c09e8ddb8847",
+      "csv": "Execution/exec_sysmon_1_11_lolbin_rundll32_zipfldr_routethecall.csv",
+      "detections": 3,
+      "csv_sha256": "8fe6e260a91957a4b6ce99c5911809d1d975ee9ee99eb52c5cdfe9dafd4d1bda",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_1_7_jscript9_defense_evasion.evtx",
+      "evtx_sha256": "34588fcca4663a5abf9111b58860d8b0b2b8e0cf67acc61599874daa1edfcc4d",
+      "csv": "Execution/exec_sysmon_1_7_jscript9_defense_evasion.csv",
+      "detections": 5,
+      "csv_sha256": "430120a3da93017d8fe8ba46d73b59d25d4b02f9e86b86fb122ea7bea645b159",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_1_ftp.evtx",
+      "evtx_sha256": "aadae0e31b5f2310284687062010251fdd9ed9b8e8d76be14b79896d05f970ef",
+      "csv": "Execution/exec_sysmon_1_ftp.csv",
+      "detections": 5,
+      "csv_sha256": "e0ed31bd604e425c47f1b2b063ced9c94222d1a336648470e7bfe55e841c0d87",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_1_lolbin_pcalua.evtx",
+      "evtx_sha256": "3d99ad191360bb22739ce0cbb87dc4d3646f9084d2e6f042fb570f39b0f97418",
+      "csv": "Execution/exec_sysmon_1_lolbin_pcalua.csv",
+      "detections": 4,
+      "csv_sha256": "1d6abf2c9058177c3143eb1c7733a4afb961b7b55a340c7c2af0ff238a5be654",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_1_lolbin_renamed_regsvr32_scrobj.evtx",
+      "evtx_sha256": "4baa0bc603d1e8b50212e60931431c5c6f7bf35fcdedb80bf6ab1fc77907ec04",
+      "csv": "Execution/exec_sysmon_1_lolbin_renamed_regsvr32_scrobj.csv",
+      "detections": 2,
+      "csv_sha256": "7274adbe4a8a4feea08dbc82cf695f89ed94161d92b8ca8175fee44d7feb5ebb",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_1_lolbin_rundll32_advpack_RegisterOCX.evtx",
+      "evtx_sha256": "6d5b52398a67b36c160ec22db8e027efbc3e40943075d2d79c748931bc8d9982",
+      "csv": "Execution/exec_sysmon_1_lolbin_rundll32_advpack_registerocx.csv",
+      "detections": 3,
+      "csv_sha256": "6bf80b315619f9531eeaa0292dc4ab1ce6b406fb1513e2b7ea0f59679535cdb2",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_1_rundll32_pcwutl_LaunchApplication.evtx",
+      "evtx_sha256": "d5f8d2c619562d8dcfc6c68ee51131436e060d036447aae1e88c89518a191f9a",
+      "csv": "Execution/exec_sysmon_1_rundll32_pcwutl_launchapplication.csv",
+      "detections": 3,
+      "csv_sha256": "a4a89e05faed42a6067b5422145f69b0703411e24166430e09b504d7ef2a2283",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_sysmon_lobin_regsvr32_sct.evtx",
+      "evtx_sha256": "d6978888a7dead4523c01df417aa7ea6ad2599a5bbf1acd05d89882aac956442",
+      "csv": "Execution/exec_sysmon_lobin_regsvr32_sct.csv",
+      "detections": 8,
+      "csv_sha256": "48e6b321e569b8fb3e2055745645fe3b1f15a5a2ae0b2f78236df6cae0b27605",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/exec_wmic_xsl_internet_sysmon_3_1_11.evtx",
+      "evtx_sha256": "8b3448717a53b1c3e0dc4803b128da844f052bdd5c9d6afac99b69148e89ef94",
+      "csv": "Execution/exec_wmic_xsl_internet_sysmon_3_1_11.csv",
+      "detections": 9,
+      "csv_sha256": "c3c95b8cd8b9666678c4b3986fdc936ce8ac90ca6a1c34056033bfe41dcaac16",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/execution_evasion_visual_studio_prebuild_event.evtx",
+      "evtx_sha256": "4faca379cd9e454539b922d56037003c9aaaf049185c9ddcad384f041cc74c3f",
+      "csv": "Execution/execution_evasion_visual_studio_prebuild_event.csv",
+      "detections": 31,
+      "csv_sha256": "79f6f04bb7d4083916115d8a6c65951b8b69b5e9844b2347843d62aef3d01fc2",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/revshell_cmd_svchost_sysmon_1.evtx",
+      "evtx_sha256": "08ce1feab22e30eb12a5a5b1ba4ac0aa552ff988b762d08de3a4d75ee1636abd",
+      "csv": "Execution/revshell_cmd_svchost_sysmon_1.csv",
+      "detections": 5,
+      "csv_sha256": "8138f357fa7d3c417f66e3bd3b97aa0acc02134bd82f7f781d208ff9f0cec8c8",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/rogue_msi_url_1040_1042.evtx",
+      "evtx_sha256": "3e4fff1443d6b63f1f575574555c62492f307bbbfd967551e5fe4d4c2141286e",
+      "csv": "Execution/rogue_msi_url_1040_1042.csv",
+      "detections": 2,
+      "csv_sha256": "3f5aa06eaa52b8133d0d79c3cc0fa0ca5a58baf1cdebf5a8e66d58a86431d81d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/susp_explorer_exec.evtx",
+      "evtx_sha256": "e36ecc5634406fa5a8a898b3d0934a6c258891f27ccea97ba4972a81085b6af9",
+      "csv": "Execution/susp_explorer_exec.csv",
+      "detections": 8,
+      "csv_sha256": "7027b74d956e73e31a996b79a7b7b63f8c57ac2fbf5e0aff25328753d8151295",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/susp_explorer_exec_root_cmdline_@rimpq_@CyberRaiju.evtx",
+      "evtx_sha256": "7ad60f106034ee3b3ea2614766dabb75bd03ef56431648fdfc56d0d83a87d86b",
+      "csv": "Execution/susp_explorer_exec_root_cmdline__rimpq__cyberraiju.csv",
+      "detections": 7,
+      "csv_sha256": "28fa8bf9a8adff5e6443bb68acbbe5bab4f8989c1806280526e6fa73a82d7f30",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/sysmon_11_1_lolbas_downldr_desktopimgdownldr.evtx",
+      "evtx_sha256": "f63ea09964ad1b6cc1d1dab6d8203a96f4eae71dd4cddc5408719afdc6e861af",
+      "csv": "Execution/sysmon_11_1_lolbas_downldr_desktopimgdownldr.csv",
+      "detections": 6,
+      "csv_sha256": "5561b45158fc00cdb4e4d6e11e0f009b4534b4a4b0981444911e2556d17f168c",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/sysmon_1_11_rundll32_cpl_ostap.evtx",
+      "evtx_sha256": "3a343508ea71725bf118a85971840257bbba793d25336993cea73274743c3550",
+      "csv": "Execution/sysmon_1_11_rundll32_cpl_ostap.csv",
+      "detections": 8,
+      "csv_sha256": "671dc4bf5c117ade15479d7f3c0d1335864b7e5498978699edd370e2a8f339cc",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/sysmon_exec_from_vss_persistence.evtx",
+      "evtx_sha256": "9abd2bd89115f77f79a96d0ffcc0b1cdb238d2c6d3edcaf24abddc50ee405964",
+      "csv": "Execution/sysmon_exec_from_vss_persistence.csv",
+      "detections": 43,
+      "csv_sha256": "65197889612221f6ddac7ce42329bdcbafbb38caa673bfe042c9020b89112376",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/sysmon_lolbas_rundll32_zipfldr_routethecall_shell.evtx",
+      "evtx_sha256": "5f83c2a19819cf21098ff7047b52d5ece20303bb95332e4020660da6de9c6050",
+      "csv": "Execution/sysmon_lolbas_rundll32_zipfldr_routethecall_shell.csv",
+      "detections": 7,
+      "csv_sha256": "5c5ff24aa35ce31a032cdb951e127fccbdd3a084d2fa9894cd2871306cd5d3d8",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/sysmon_lolbin_bohops_vshadow_exec.evtx",
+      "evtx_sha256": "9cabd9accd1cad037ef7408bfddd9639f793665b73634833722b8cd842485fed",
+      "csv": "Execution/sysmon_lolbin_bohops_vshadow_exec.csv",
+      "detections": 8,
+      "csv_sha256": "90de6a84811915408b1bf9ad6f6b8f25fb35defde9d29772ed68f175b153cedf",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/sysmon_mshta_sharpshooter_stageless_meterpreter.evtx",
+      "evtx_sha256": "a2c396ac66aed02c0e36c6e467db3c3b83a57d003604ca79eb2a33175efcbad1",
+      "csv": "Execution/sysmon_mshta_sharpshooter_stageless_meterpreter.csv",
+      "detections": 5,
+      "csv_sha256": "6eebf0d35ae259212e1bba43c83b02427b96b44eb9e24116de36eacff0086778",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/sysmon_vbs_sharpshooter_stageless_meterpreter.evtx",
+      "evtx_sha256": "57748248a6fbe68c36332acf603b537acce263a3c1b17f6a1cc5f635aaee7558",
+      "csv": "Execution/sysmon_vbs_sharpshooter_stageless_meterpreter.csv",
+      "detections": 9,
+      "csv_sha256": "d4a96acd4bbe5834684039e8b6eb9368a3dc95900b6e4c7429c5c23e85045c2e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/sysmon_zipexec.evtx",
+      "evtx_sha256": "4d995c2a339d3c272afd4ac8cf01f009ca5358bafe3fa51889b28f86296cd894",
+      "csv": "Execution/sysmon_zipexec.csv",
+      "detections": 15,
+      "csv_sha256": "7a9cdbb14e2e0f20d9be9cdf1eb93a5011b00afaa739000b4c48cb8190f6c463",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/temp_scheduled_task_4698_4699.evtx",
+      "evtx_sha256": "a7decf0fbabc340e37de7e7c39fddd5398a7106a4f6acded0ea1d2ffa6bf8b70",
+      "csv": "Execution/temp_scheduled_task_4698_4699.csv",
+      "detections": 3,
+      "csv_sha256": "06bd7f39dccef5e0bfce014d28083e85586146e615f60fb833a90a511afdbd84",
+      "status": "ok"
+    },
+    {
+      "evtx": "Execution/windows_bits_4_59_60_lolbas desktopimgdownldr.evtx",
+      "evtx_sha256": "0269326ab0e308192181a470bd588550d524e7cffd13a60373b29b24c32b1ead",
+      "csv": "Execution/windows_bits_4_59_60_lolbas_desktopimgdownldr.csv",
+      "detections": 1,
+      "csv_sha256": "9137ab64d29c486defe64a3e5b7cf4a23cecdc26a35a57abe32edc98921e11ba",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/DFIR_RDP_Client_TimeZone_RdpCoreTs_104_example.evtx",
+      "evtx_sha256": "b0d91162d7e3b211968ab9d797374a4576cc5cb233757e4f62776a60eb456e9d",
+      "csv": "Lateral Movement/dfir_rdp_client_timezone_rdpcorets_104_example.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Lateral Movement/ImpersonateUser-via local Pass The Hash Sysmon and Security.evtx",
+      "evtx_sha256": "b3cdcbad24144417123becbc62d73d7954e832657d92f3a6b63e7b61291afede",
+      "csv": "Lateral Movement/impersonateuser_via_local_pass_the_hash_sysmon_and_security.csv",
+      "detections": 19,
+      "csv_sha256": "c458522be8f8a84b60dc9c2f7b2b956a3bc820da6f5b8cf5fcfb1c9738b6a5dc",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_4624_mimikatz_sekurlsa_pth_source_machine.evtx",
+      "evtx_sha256": "bbfd87cacdd56a9135de1838666937cd6c74daba47b366bba0c11f95ce97f461",
+      "csv": "Lateral Movement/lm_4624_mimikatz_sekurlsa_pth_source_machine.csv",
+      "detections": 9,
+      "csv_sha256": "06c9b895d01b202eb520c267462328971c3da172c4a3b85c607b8b7a43553f95",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_5145_Remote_FileCopy.evtx",
+      "evtx_sha256": "3806a2b6662d82e13969939251539e10532bda11f10a5ed6c3565b9c0679907e",
+      "csv": "Lateral Movement/lm_5145_remote_filecopy.csv",
+      "detections": 853,
+      "csv_sha256": "1dc5df11be0876474fc5536cae41545021514c0797addff18a7087dc2828c8fb",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_DCOM_MSHTA_LethalHTA_Sysmon_3_1.evtx",
+      "evtx_sha256": "155cc5da10cb63a7fb69747c440796be17d1f4230ba24e7cb45423bdd9c368b6",
+      "csv": "Lateral Movement/lm_dcom_mshta_lethalhta_sysmon_3_1.csv",
+      "detections": 3,
+      "csv_sha256": "7bdf09dcdc4242fb293d85b5c0a548ea4456b0b9370f11e90688b09597c9ffe9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_ImageLoad_NFSH_Sysmon_7.evtx",
+      "evtx_sha256": "aca97ff41ccc3fb314e97ae5c9e0aa6adcaf97f0cfd4ce92ee3178ae76a50264",
+      "csv": "Lateral Movement/lm_imageload_nfsh_sysmon_7.csv",
+      "detections": 2,
+      "csv_sha256": "faf46ea57d9c18c0b57153cc725f59b87144e08dafe34ad1286218dccdbe0625",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_NewShare_Added_Sysmon_12_13.evtx",
+      "evtx_sha256": "95ce1cefe507a1de70aa5cd987cee942ecdad4dd692cbedb435c58b2cd9fda00",
+      "csv": "Lateral Movement/lm_newshare_added_sysmon_12_13.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Lateral Movement/LM_PowershellRemoting_sysmon_1_wsmprovhost.evtx",
+      "evtx_sha256": "c890d2b67dc2902b2fa5a094e517674920911a15b273f43c674fbfaa69540658",
+      "csv": "Lateral Movement/lm_powershellremoting_sysmon_1_wsmprovhost.csv",
+      "detections": 3,
+      "csv_sha256": "04e2b4d720a67c54243d1db0288e5344c320f37034228e5772710a5bf858edde",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_REMCOM_5145_TargetHost.evtx",
+      "evtx_sha256": "9f6fd1e395454108e2176448f31cc8354378075f51474756a1ed2418e9bbdae2",
+      "csv": "Lateral Movement/lm_remcom_5145_targethost.csv",
+      "detections": 20,
+      "csv_sha256": "a1c466ce92d321aaf9a438791c99a22c6ae0da70685c51447fa3a9bb9a324af9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_Remote_Service01_5145_svcctl.evtx",
+      "evtx_sha256": "5c49c677d0fdce4402369c953e29065d93cc8a3f2071cb8ce997c25a60cd53cc",
+      "csv": "Lateral Movement/lm_remote_service01_5145_svcctl.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Lateral Movement/LM_Remote_Service02_7045.evtx",
+      "evtx_sha256": "af758eb492b6d5ab6665f7e4c44b31490f57be78c37dc0a8b1da714bb0d3d458",
+      "csv": "Lateral Movement/lm_remote_service02_7045.csv",
+      "detections": 5,
+      "csv_sha256": "948d0c35850edd1955b592ceb6dc8fab2cbb230675df4fc7351210e5dc9425d0",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_ScheduledTask_ATSVC_target_host.evtx",
+      "evtx_sha256": "53999570b8edb7f909cb07165fecda1f29bf04e3462d13dc404e31f31a9ab932",
+      "csv": "Lateral Movement/lm_scheduledtask_atsvc_target_host.csv",
+      "detections": 31,
+      "csv_sha256": "10bdd8409a19c22a86aa538f078a4e493efc806b8fcc2a92cf9236e923a13cbd",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_WMIC_4648_rpcss.evtx",
+      "evtx_sha256": "421b796a74d3b0bdeab65d5ff520dd825822809a4ed2d38b87c9393dbde43d3b",
+      "csv": "Lateral Movement/lm_wmic_4648_rpcss.csv",
+      "detections": 7,
+      "csv_sha256": "93b187ab52ebe7ca97fca7280dd57b3b2debc38ee89c9a319a3ada50e1e42c46",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_WMI_4624_4688_TargetHost.evtx",
+      "evtx_sha256": "3ff3fcdb55c08ec0eaa39b25c1e02a205314f367bcedc662586bd063185ca41d",
+      "csv": "Lateral Movement/lm_wmi_4624_4688_targethost.csv",
+      "detections": 6,
+      "csv_sha256": "92f1c47adf26c74f1d7e8d1d2b2e10b5f9db142953e56aefd4861e5c8216e61b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_add_new_namedpipe_tp_nullsession_registry_turla_like_ttp.evtx",
+      "evtx_sha256": "9ca45e8f1506d2bda35a9c10c3af95b1463672d9fffddbaca58d8dc03bb8636f",
+      "csv": "Lateral Movement/lm_add_new_namedpipe_tp_nullsession_registry_turla_like_ttp.csv",
+      "detections": 1,
+      "csv_sha256": "9b73a361da0cced0e6a980239e568bab6ab8a46b91f9a92483f565c1865a7255",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_dcom_shwnd_shbrwnd_mmc20_failed_traces_system_10016.evtx",
+      "evtx_sha256": "aed4ec89526d0a5fe3427184664379fd243598f894b2da8cd4b75c3e6c616e57",
+      "csv": "Lateral Movement/lm_dcom_shwnd_shbrwnd_mmc20_failed_traces_system_10016.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Lateral Movement/LM_impacket_docmexec_mmc_sysmon_01.evtx",
+      "evtx_sha256": "6c50f3c7106080fb4e2535285d55435c325b651af7558e5e61a4fe82d80dbdce",
+      "csv": "Lateral Movement/lm_impacket_docmexec_mmc_sysmon_01.csv",
+      "detections": 25,
+      "csv_sha256": "8acabfb272b9bff5d8afe4a748da3cdb20889c640281e27b0c5ed92da0a49023",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_regsvc_DirectoryServiceExtPt_Lsass_NTDS_AdamXpn.evtx",
+      "evtx_sha256": "c351c446c1aaa3e9cd70ee891ad7f0b135573e339d9e383f0a361c687b477fe5",
+      "csv": "Lateral Movement/lm_regsvc_directoryserviceextpt_lsass_ntds_adamxpn.csv",
+      "detections": 6,
+      "csv_sha256": "657646415b0305baffaab6db0e214db78552c7e1e38728c768db65a171d80c1d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_renamed_psexecsvc_5145.evtx",
+      "evtx_sha256": "38343c25834964a28a23cb9ad43e1d72c8ffbac0b21105877956e80e38465f4d",
+      "csv": "Lateral Movement/lm_renamed_psexecsvc_5145.csv",
+      "detections": 2,
+      "csv_sha256": "1e7e857e8ea5d8653b3a8696b0de8100631635f40c28070a431b101f8b140a91",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_sysmon_1_12_13_3_tsclient_SharpRdp.evtx",
+      "evtx_sha256": "595bfaea747cb5a872eff12d637f6abc432d8e1a37be1dd7313a1c7e53b1008a",
+      "csv": "Lateral Movement/lm_sysmon_1_12_13_3_tsclient_sharprdp.csv",
+      "detections": 8,
+      "csv_sha256": "64c17309ff2f9fd2b5b855bc9b44e34dd3b8dc5a45013ca3964f5ac9aa965f31",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_sysmon_3_12_13_1_SharpRDP.evtx",
+      "evtx_sha256": "2c0aa9ea79dd513dee70daf1aeb5cb8d1ca5bad36c96929cb0a61db001d0f41a",
+      "csv": "Lateral Movement/lm_sysmon_3_12_13_1_sharprdp.csv",
+      "detections": 35,
+      "csv_sha256": "2ef12c626ab6d9983ed82eff4fa93104813542aed3e5ef1d3ca81d8fef38ef9f",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_sysmon_3_DCOM_ShellBrowserWindow_ShellWindows.evtx",
+      "evtx_sha256": "be5cb186b8217f49f8e9531bd8ac6fc87ce4659ad5366bf73aa28ba36cdbec68",
+      "csv": "Lateral Movement/lm_sysmon_3_dcom_shellbrowserwindow_shellwindows.csv",
+      "detections": 3,
+      "csv_sha256": "00ecf126b7bb2f5b6ffc70120f09ae691fab1a2f720dca61ee21b8fba9549ef9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_sysmon_psexec_smb_meterpreter.evtx",
+      "evtx_sha256": "18ffdda9c24e593d6b1414b6e05c7f7a5dbffb8588a387c165431b61ab52d76f",
+      "csv": "Lateral Movement/lm_sysmon_psexec_smb_meterpreter.csv",
+      "status": "blocked: Invalid argument"
+    },
+    {
+      "evtx": "Lateral Movement/LM_sysmon_remote_task_src_powershell.evtx",
+      "evtx_sha256": "3b047a264a341faa16e33af4cbf4097f6db3aec75e5c87082f7b9551a3cc0e5b",
+      "csv": "Lateral Movement/lm_sysmon_remote_task_src_powershell.csv",
+      "detections": 4,
+      "csv_sha256": "f82bc0c7d6e83e526281aca2a718e32b1fd367fa3987b2983b9b4ca3b59d52c3",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_tsclient_startup_folder.evtx",
+      "evtx_sha256": "8ca6304cdbdde41b148cf9b25f1978e1eabb1e2253444ba3e8d01379b5ad3323",
+      "csv": "Lateral Movement/lm_tsclient_startup_folder.csv",
+      "detections": 7,
+      "csv_sha256": "f0fff69f2e78f5d5331785a6b3fe4cd7a590a5aba21f578ecaecb625841ecca3",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_typical_IIS_webshell_sysmon_1_10_traces.evtx",
+      "evtx_sha256": "6f1cb3c435389d961261ccfbb2c4562b156d4160319fe4736ce1506a43327c7b",
+      "csv": "Lateral Movement/lm_typical_iis_webshell_sysmon_1_10_traces.csv",
+      "detections": 9,
+      "csv_sha256": "2bf4f27b3ca1aff9d1358489f7dd046312dee26a98fda0566e39135eea8f39f2",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_winrm_exec_sysmon_1_winrshost.evtx",
+      "evtx_sha256": "7115c48511d18d934d1e63417b7b1d5d2b4fef903e716852b00ebc481ee5f2e9",
+      "csv": "Lateral Movement/lm_winrm_exec_sysmon_1_winrshost.csv",
+      "detections": 4,
+      "csv_sha256": "703412222a280c414f344f2397df58826f25e0c5ae1d8c3fc83351f2288786c5",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_winrm_target_wrmlogs_91_wsmanShellStarted_poorLog.evtx",
+      "evtx_sha256": "e5d434f9ade9eafc12990d9826e7a92db801c1a138ab31dcb01f6fd172f3e42a",
+      "csv": "Lateral Movement/lm_winrm_target_wrmlogs_91_wsmanshellstarted_poorlog.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Lateral Movement/LM_wmi_PoisonHandler_Mr-Un1k0d3r_sysmon_1_13.evtx",
+      "evtx_sha256": "9d10de497c8d7929f262be305547d148bac17e1d4fd72222bfae3855ddf9c93a",
+      "csv": "Lateral Movement/lm_wmi_poisonhandler_mr_un1k0d3r_sysmon_1_13.csv",
+      "detections": 20,
+      "csv_sha256": "2769a9a07ba7f2efc0f82c0c341d387dfd25b247be7c5622d88f1137b727c980",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_wmiexec_impacket_sysmon_whoami.evtx",
+      "evtx_sha256": "21b8852b2b386f4d3f6f0c8a7304de8e628bb43cfa23888ab317b95b784ffe59",
+      "csv": "Lateral Movement/lm_wmiexec_impacket_sysmon_whoami.csv",
+      "detections": 22,
+      "csv_sha256": "4f403e503231fca689d1779a707bedd55bb379513c93b4835a4fea791fb515d4",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/LM_xp_cmdshell_MSSQL_Events.evtx",
+      "evtx_sha256": "ef281c4f1068fecbcdeae001665a8fe8d8f8af17125274fa55e195e685d1dc89",
+      "csv": "Lateral Movement/lm_xp_cmdshell_mssql_events.csv",
+      "detections": 3,
+      "csv_sha256": "1b92115ed719b5e709880390882fecc6df9c8bf9539fb8a28e677dd9bda91829",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/MSSQL_15281_xp_cmdshell_exec_failed_attempt.evtx",
+      "evtx_sha256": "a39e30c118eb4da16994b0bc598a48b04258c63543f2163541ef0155e32d4341",
+      "csv": "Lateral Movement/mssql_15281_xp_cmdshell_exec_failed_attempt.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Lateral Movement/RemotePowerShell_MS_Windows-Remote_Management_EventID_169.evtx",
+      "evtx_sha256": "d3305bdf01975538062f13a534fc1b6cf61ca23c8c13e04a1bc75f43e6f552eb",
+      "csv": "Lateral Movement/remotepowershell_ms_windows_remote_management_eventid_169.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Lateral Movement/dfir_rdpsharp_target_RdpCoreTs_168_68_131.evtx",
+      "evtx_sha256": "daebe139e2647e9a5d887a7b9d8f6e023d3ca18a225e9e897746b04fd2c1af5c",
+      "csv": "Lateral Movement/dfir_rdpsharp_target_rdpcorets_168_68_131.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Lateral Movement/lateral_movement_startup_3_11.evtx",
+      "evtx_sha256": "1ba7395ea70bcd250176771133eefaba0f1f19e5a4e60b9a17cbe8d81c34763d",
+      "csv": "Lateral Movement/lateral_movement_startup_3_11.csv",
+      "detections": 3,
+      "csv_sha256": "a6c11e48aa41fed96829793e8ceefeaf36f90695bcf750f7de2582703a5b8533",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/lm_remote_registry_sysmon_1_13_3.evtx",
+      "evtx_sha256": "bde8db7a364e9fd3da953498690e5e6c81c7c915032ff98743074b91cb140824",
+      "csv": "Lateral Movement/lm_remote_registry_sysmon_1_13_3.csv",
+      "detections": 5,
+      "csv_sha256": "a6e782f3742f5939f76886444be4f0c2520f9fea403aff13adc73286e062e647",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/lm_sysmon_18_remshell_over_namedpipe.evtx",
+      "evtx_sha256": "efdb2b2f2dd0864e82dabb693d38b44aea93e43c7df490ca3c94a4084da5c173",
+      "csv": "Lateral Movement/lm_sysmon_18_remshell_over_namedpipe.csv",
+      "detections": 12,
+      "csv_sha256": "8d5af0bf519b12ab4e404884af85feab2bed3908767e1d3518ac273bc74457ec",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/net_share_drive_5142.evtx",
+      "evtx_sha256": "0498ba26c42ada5acd5dd8e2730432b59b9a6a6b294051fd20b4af7f435a7fce",
+      "csv": "Lateral Movement/net_share_drive_5142.csv",
+      "detections": 1,
+      "csv_sha256": "cc7d494da70c39a6757d4d259553b18b20eacc4b8c6ca7f44786467e649e273f",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/powercat_revShell_sysmon_1_3.evtx",
+      "evtx_sha256": "914d90705f1f94e7cff9b8d074e9ed0fab4d35449bf1b18d9f37ea6afd3e84df",
+      "csv": "Lateral Movement/powercat_revshell_sysmon_1_3.csv",
+      "detections": 11,
+      "csv_sha256": "60600c69ecdce128a50e938b499495b36022585330457ebfcf54d1b0e46f681c",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/remote task update 4624 4702 same logonid.evtx",
+      "evtx_sha256": "82ef6ef9e7616c441e79059fcad9ea7b53358431769e924a0bba6408ecba5fce",
+      "csv": "Lateral Movement/remote_task_update_4624_4702_same_logonid.csv",
+      "detections": 5,
+      "csv_sha256": "18433c98c25ea070bec741084229e627a9c1c4776471fefe164bf893148560be",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/remote_file_copy_system_proc_file_write_sysmon_11.evtx",
+      "evtx_sha256": "f03c8c5ff4114ef7baeba777d625a18f27edb4ce327f764cf6ed350b5f29c7bc",
+      "csv": "Lateral Movement/remote_file_copy_system_proc_file_write_sysmon_11.csv",
+      "detections": 4,
+      "csv_sha256": "fee95c7d30e01684b9962888f9d43f56be0323807399a0ffe85753c22ddddcb1",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/sharprdp_sysmon_7_mstscax.dll.evtx",
+      "evtx_sha256": "e75cdf11d232a079606bd6fad30c0d13ccca98386268ef1fd1d76d6fc827e1b3",
+      "csv": "Lateral Movement/sharprdp_sysmon_7_mstscax_dll.csv",
+      "detections": 4,
+      "csv_sha256": "b37b8934933d0edaf3dc00f996efb63017c8184d5f627403dfabed01886cf4a8",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/smb_bi_auth_conn_spoolsample.evtx",
+      "evtx_sha256": "588869dc910cca84331e371310ddcc7ab4012a0cdb9d8d2661a0109642de8f8b",
+      "csv": "Lateral Movement/smb_bi_auth_conn_spoolsample.csv",
+      "detections": 2,
+      "csv_sha256": "695d534058984a33a4ed167e3b334b3b9e29bd52ad665854128980816698f92b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/smbmap_upload_exec_sysmon.evtx",
+      "evtx_sha256": "21a69f9ea97e2a953c47fbb76a9a77682e128436c26ccf7445ae8012832e8def",
+      "csv": "Lateral Movement/smbmap_upload_exec_sysmon.csv",
+      "detections": 24,
+      "csv_sha256": "a8f08c28f44cee2c12176a191ca11966e56b73dcfbc3e536c7599663279be0d2",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/spoolsample_5145.evtx",
+      "evtx_sha256": "265dd0eafc5a5d553da2469c96c4964a208d52191d079abb3ef4dda847238eda",
+      "csv": "Lateral Movement/spoolsample_5145.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Lateral Movement/sysmon_1_exec_via_sql_xpcmdshell.evtx",
+      "evtx_sha256": "79092a6f3c1beed9205fc24210f327c08b10cb50123e047f63f768c3e5bcef57",
+      "csv": "Lateral Movement/sysmon_1_exec_via_sql_xpcmdshell.csv",
+      "detections": 3,
+      "csv_sha256": "07eedc28e2a79735e207a1cbd460083127bb0eaf42ca8bee92910c13e96f9ca8",
+      "status": "ok"
+    },
+    {
+      "evtx": "Lateral Movement/wmi_remote_registry_sysmon.evtx",
+      "evtx_sha256": "2c8cb1ecaea860d599ae85397157eb8f3c0631a4bff949b576bcc007a78430de",
+      "csv": "Lateral Movement/wmi_remote_registry_sysmon.csv",
+      "detections": 5,
+      "csv_sha256": "e034891f6780e59c9810731777ab4b3e3f01317bf4bbe222cd6a938b0b8ece9e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Other/emotet/exec_emotet_ps_4104.evtx",
+      "evtx_sha256": "c1639a23219f24f308e7001ffacb7e72ad6570154542adfbe5198c7c4abebd61",
+      "csv": "Other/emotet/exec_emotet_ps_4104.csv",
+      "detections": 2,
+      "csv_sha256": "dcdd62dc433295ff476385a00e5fe171c0b34791f9c64cfa8b0809024b82c4d5",
+      "status": "ok"
+    },
+    {
+      "evtx": "Other/emotet/exec_emotet_ps_800_get-item.evtx",
+      "evtx_sha256": "ba6381380022037d657972a6146af844fc2c05bab247d56a605ca0148d59a8b9",
+      "csv": "Other/emotet/exec_emotet_ps_800_get_item.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Other/emotet/exec_emotet_ps_800_invoke-item.evtx",
+      "evtx_sha256": "6776429b2ac580b501ad591d9263d30482d58b4cb25445a03098b3d6f56e68df",
+      "csv": "Other/emotet/exec_emotet_ps_800_invoke_item.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Other/emotet/exec_emotet_ps_800_new-item.evtx",
+      "evtx_sha256": "e65359ea8b2b9a2ea69c7f79bd8f3194e1a6570ce914a08c6249c823fa08ac6d",
+      "csv": "Other/emotet/exec_emotet_ps_800_new_item.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Other/emotet/exec_emotet_ps_800_new-object.evtx",
+      "evtx_sha256": "b7aac9e35e5a605652f8d02e901535e56c039cfb5d421d44e2c91d3439cac265",
+      "csv": "Other/emotet/exec_emotet_ps_800_new_object.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Other/emotet/exec_emotet_sysmon_1.evtx",
+      "evtx_sha256": "5d7347a786943c3d4cd0e5d10e8941df3218ce6f3b473ed7a76ff89997c3b83b",
+      "csv": "Other/emotet/exec_emotet_sysmon_1.csv",
+      "detections": 2,
+      "csv_sha256": "b8fe2f8d00416b918ade5cd243fbe6d2dc13ab77d3476d1d0aa205b5227283cd",
+      "status": "ok"
+    },
+    {
+      "evtx": "Other/maldoc_mshta_via_shellbrowserwind_rundll32.evtx",
+      "evtx_sha256": "fd59102d39891a81ee0e002bec2a855998c57e6439a10608fd9f4b12861e34a5",
+      "csv": "Other/maldoc_mshta_via_shellbrowserwind_rundll32.csv",
+      "detections": 15,
+      "csv_sha256": "9c70efc9843376556242d8851732c2545f3b41eae5ed6a6b09e79c0eb6094bc1",
+      "status": "ok"
+    },
+    {
+      "evtx": "Other/rdpcorets_148_mst120_bluekeep_rpdscan_full.evtx",
+      "evtx_sha256": "fdd890565a1c0e5a8efd2a554c18acf32d43852f328abde89edda0031e999b61",
+      "csv": "Other/rdpcorets_148_mst120_bluekeep_rpdscan_full.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Persistence/DACL_DCSync_Right_Powerview_ Add-DomainObjectAcl.evtx",
+      "evtx_sha256": "3acc52d1c27a22db5cf7def3c317caf1c2f44b9db837e676815f9fa233e5a314",
+      "csv": "Persistence/dacl_dcsync_right_powerview__add_domainobjectacl.csv",
+      "detections": 37,
+      "csv_sha256": "7de543c3d0c3903af9fa3d155c77e01a7c9f2d0dc7add611709a3ef764281fe9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/Network_Service_Guest_added_to_admins_4732.evtx",
+      "evtx_sha256": "9619b9d9d7bb8a277080167ff639fd9162e3d88d61d674cf1606beadce17ea5a",
+      "csv": "Persistence/network_service_guest_added_to_admins_4732.csv",
+      "detections": 2,
+      "csv_sha256": "fad4b37ba6b82528e40fb5e26a5e33f2d4c920e0880bd064c7bf4cc75baf0951",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/Persistence_Shime_Microsoft-Windows-Application-Experience_Program-Telemetry_500.evtx",
+      "evtx_sha256": "f13ef5a54ea84140024e30f968ac00e5ce4b4434426f66fafa4479b01d92832a",
+      "csv": "Persistence/persistence_shime_microsoft_windows_application_experience_program_telemetry_500.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Persistence/Persistence_Winsock_Catalog Change EventId_1.evtx",
+      "evtx_sha256": "c53b6f9d958302626c3a7c217b77d49dc5e239210820c3448c60667a41325e3f",
+      "csv": "Persistence/persistence_winsock_catalog_change_eventid_1.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Persistence/evasion_persis_hidden_run_keyvalue_sysmon_13.evtx",
+      "evtx_sha256": "b8df8232d917fed223e2bf9abebb249489f84c6204c40b72dab6a74157d6f8bd",
+      "csv": "Persistence/evasion_persis_hidden_run_keyvalue_sysmon_13.csv",
+      "detections": 2,
+      "csv_sha256": "26dfd1e4a6aed21be55dd9a8ea1465484be6c5854bcab94fb09d889a2ad9de32",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persist_bitsadmin_Microsoft-Windows-Bits-Client-Operational.evtx",
+      "evtx_sha256": "c2ed1a0248ab716a863f52bbfbd04d215f919c7ecefdfe6778a383b5552fb4f7",
+      "csv": "Persistence/persist_bitsadmin_microsoft_windows_bits_client_operational.csv",
+      "detections": 2,
+      "csv_sha256": "90b20dfd40de6392f7b57970808c9baae688c0f9691cd50bdd0f7041fdec08bc",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.evtx",
+      "evtx_sha256": "5efdbe9d51c06538d20db3d132594326fbff8ac8b98c542805aaeb90779b9cde",
+      "csv": "Persistence/persist_firefox_comhijack_sysmon_11_13_7_1.csv",
+      "detections": 15,
+      "csv_sha256": "85ba5dbd127d1233e88f2d117f28035d70a511d5497288c2e205143c7d6d2abb",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persist_turla_outlook_backdoor_comhijack.evtx",
+      "evtx_sha256": "1a066ced716a9580e28662dbfdc60f4446818281c387f4c7bc1acdd742186f1a",
+      "csv": "Persistence/persist_turla_outlook_backdoor_comhijack.csv",
+      "detections": 1,
+      "csv_sha256": "9a83879ee7b21d9957150e8d6a774a764f79cb24626f6bbbeca103014de3c770",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persist_valid_account_guest_rid_hijack.evtx",
+      "evtx_sha256": "5f482d8f769d13b4d90cdbfb114924fe3890e78eb1d0a619219e88a99a6f0f6e",
+      "csv": "Persistence/persist_valid_account_guest_rid_hijack.csv",
+      "detections": 3,
+      "csv_sha256": "485a608264a2326d22f3654f7532c34932af8426846e160041ca92ca34b3839d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persistence_SilentProcessExit_ImageHijack_sysmon_13_1.evtx",
+      "evtx_sha256": "37f5121b071db0333b19d81b676a5e31f63c99c6fd52f504f96659c927827e0d",
+      "csv": "Persistence/persistence_silentprocessexit_imagehijack_sysmon_13_1.csv",
+      "detections": 16,
+      "csv_sha256": "e2387943e2ebddeab18d80523bb84a4e9339ca61476af9bef4e6da92e68161fb",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persistence_accessibility_features_osk_sysmon1.evtx",
+      "evtx_sha256": "9a99994be7f64e5111370cfd1f5f541a7a5e8a1e31911b14e0881811f6ea2925",
+      "csv": "Persistence/persistence_accessibility_features_osk_sysmon1.csv",
+      "detections": 6,
+      "csv_sha256": "93303b044d5358d72114bb573ad2a0b60015072b45e6b0ca86d25ca2b1458366",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persistence_hidden_local_account_sysmon.evtx",
+      "evtx_sha256": "c472b0b7808c310b910af5e099ac7bcbf803adfd68d4edb56c73bf01e9c4bb8c",
+      "csv": "Persistence/persistence_hidden_local_account_sysmon.csv",
+      "detections": 2,
+      "csv_sha256": "c9f6382a2274c64464d0633356c1df2bb67d8c17196bdeef4a1b6981b3d584d0",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persistence_pendingGPO_sysmon_13.evtx",
+      "evtx_sha256": "cf9b918ac583028815e8ca5a547265221f745a92e5d093e759e5b00958db538b",
+      "csv": "Persistence/persistence_pendinggpo_sysmon_13.csv",
+      "detections": 3,
+      "csv_sha256": "5495356bf16dc487b273183a459207df40de699f0d1b8f1a915d34ba556739af",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persistence_security_dcshadow_4742.evtx",
+      "evtx_sha256": "524c34f83dd4dd1091100222caaf36e92aa3eaaf974f7aa0c07ad97aefcdcb66",
+      "csv": "Persistence/persistence_security_dcshadow_4742.csv",
+      "detections": 4,
+      "csv_sha256": "ba368c71f35db800b4922cb48fed6e5aaa0b7bcade36512c75804cfb34918d04",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persistence_startup_UserShellStartup_Folder_Changed_sysmon_13.evtx",
+      "evtx_sha256": "4a6544a5b564fd84d299cea4c97e8f1c813f13ac0f5d24fa751f28c022b31801",
+      "csv": "Persistence/persistence_startup_usershellstartup_folder_changed_sysmon_13.csv",
+      "detections": 2,
+      "csv_sha256": "f909d4aeea82b09825ff991e348c278950190849eef794e7aba64566ad9c2e56",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/persistence_sysmon_11_13_1_shime_appfix.evtx",
+      "evtx_sha256": "799420511f35300d3a071ca2c047d2edd49324d24544214a8124babe3fee9f90",
+      "csv": "Persistence/persistence_sysmon_11_13_1_shime_appfix.csv",
+      "detections": 311,
+      "csv_sha256": "be9ec840c2fc3947803d6bb0ecd53c78cde9f78f643e5183d9374e9ce5eefa45",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/sysmon_13_1_persistence_via_winlogon_shell.evtx",
+      "evtx_sha256": "78592aa982a478d1a65f56853bdf3817a3d5c79db3b1ca64642e1a2e16064423",
+      "csv": "Persistence/sysmon_13_1_persistence_via_winlogon_shell.csv",
+      "detections": 34,
+      "csv_sha256": "4b3a81abf8635d339125184e5a2e424d83cddc0c6605e55551b56ea01a3b6c0a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/sysmon_1_persist_bitsjob_SetNotifyCmdLine.evtx",
+      "evtx_sha256": "f2ac975c8dd1671a66ddbff5d9d59aa76f6577956d8c394970cbe11020837f78",
+      "csv": "Persistence/sysmon_1_persist_bitsjob_setnotifycmdline.csv",
+      "detections": 9,
+      "csv_sha256": "faec01051c288bc3178fd0bec3c7b0d51e57b74e93719556b94685862cbb85cf",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/sysmon_1_smss_child_proc_bootexecute_setupexecute.evtx",
+      "evtx_sha256": "29913aef999a1e4d8f6fad34025912a7585088c599feb808f741a0bcb0c5f417",
+      "csv": "Persistence/sysmon_1_smss_child_proc_bootexecute_setupexecute.csv",
+      "detections": 3,
+      "csv_sha256": "258f563931acd8420481df12df95c97f9c64ec0d1fc3dd90e8f6897a698c86ba",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/sysmon_20_21_1_CommandLineEventConsumer.evtx",
+      "evtx_sha256": "136cd2549e4944e66c6f26aabafea84011ba011982ac1cf35cde7cb52d32b358",
+      "csv": "Persistence/sysmon_20_21_1_commandlineeventconsumer.csv",
+      "detections": 20,
+      "csv_sha256": "797f942043d1b2ed03a436f0c60d495bddddcfe22cff66190900ca0e20af0286",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/sysmon_local_account_creation_and_added_admingroup_12_13.evtx",
+      "evtx_sha256": "85851f4724cf490d26ec96f8f546ee07d8354a381e3f16f83afd4cfd46cbbb7c",
+      "csv": "Persistence/sysmon_local_account_creation_and_added_admingroup_12_13.csv",
+      "detections": 17,
+      "csv_sha256": "b94c7426b329b7cc6dbc803f1bffb80a0ae2d38871b2e658daa6e179b2630da3",
+      "status": "ok"
+    },
+    {
+      "evtx": "Persistence/wmighost_sysmon_20_21_1.evtx",
+      "evtx_sha256": "687c5cbe9a912bd8688692489bd94bb91f0518e3008535469e4fc4e1adc59446",
+      "csv": "Persistence/wmighost_sysmon_20_21_1.csv",
+      "detections": 6,
+      "csv_sha256": "7a25fcc908f3a1df3312a60afceb607cfad23db522ecc8d9acfec6aaade33475",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/4624 LT3 AnonymousLogon Localhost - JuicyPotato.evtx",
+      "evtx_sha256": "b058ae02bbed96921cc0bb65088a3692b4ccd1c5b7aa65a318df353f09fcf6da",
+      "csv": "Privilege Escalation/4624_lt3_anonymouslogon_localhost_juicypotato.csv",
+      "detections": 3,
+      "csv_sha256": "9ed0b376b42b2d8421f0e86eb24f572b682697ae451d35a32b8f35dc6005d014",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/4765_sidhistory_add_t1178.evtx",
+      "evtx_sha256": "2e1aadc0097be6dc61803134c7fa8a4e0ddc33a2aa9c063f8a65cee3c14acade",
+      "csv": "Privilege Escalation/4765_sidhistory_add_t1178.csv",
+      "detections": 2,
+      "csv_sha256": "8d27555d6624d2810fe28edf4ec48863de9a150432d9edfdbdef5bb379b21798",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/CVE-2020-0796_SMBV3Ghost_LocalPrivEsc_Sysmon_3_1_10.evtx",
+      "evtx_sha256": "58c0e61d14c25300c9473b842cec25cb5fb1dd517adf9259f3c3460031a97c9a",
+      "csv": "Privilege Escalation/cve_2020_0796_smbv3ghost_localprivesc_sysmon_3_1_10.csv",
+      "detections": 8,
+      "csv_sha256": "c359d8657a4f56eb7cfeed97d685fd493c3184de9cd445d3d05a0f0b1f75cb4b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/EfsPotato_sysmon_17_18_privesc_seimpersonate_to_system.evtx",
+      "evtx_sha256": "b90b44749a59f8b45827de083e3276d0635310077d51100f1110bf34e555bfc0",
+      "csv": "Privilege Escalation/efspotato_sysmon_17_18_privesc_seimpersonate_to_system.csv",
+      "detections": 25,
+      "csv_sha256": "2580c6b0fe25fbf5601dc49f0798b74a8131db4b30f82332f6996e8cb16ea57f",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Invoke_TokenDuplication_UAC_Bypass4624.evtx",
+      "evtx_sha256": "8e8a735ccfa261b60607d907fb825dc231d067b8bd3da5a32cdabc810ca8abfe",
+      "csv": "Privilege Escalation/invoke_tokenduplication_uac_bypass4624.csv",
+      "detections": 5,
+      "csv_sha256": "0d28de759551ecf5cb1e3e438e1f0237ffa96ee2331362675c2b64b3212268d6",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/NTLM2SelfRelay-med0x2e-security_4624_4688.evtx",
+      "evtx_sha256": "26fd9de9bc19b4af5308c30b51d2ca17b0518f8c89826fceb092c86a01f42b2b",
+      "csv": "Privilege Escalation/ntlm2selfrelay_med0x2e_security_4624_4688.csv",
+      "detections": 12,
+      "csv_sha256": "da7094ec97420c0c637401d6940b8a2eeb5f91b3735d824fc43d4641a547283d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/PrivEsc_CVE-2020-1313_Sysmon_13_UScheduler_Cmdline.evtx",
+      "evtx_sha256": "278c679da912063fdecc9475cf73a2751bc5576e4a8b644add46bd6c8b0af4b1",
+      "csv": "Privilege Escalation/privesc_cve_2020_1313_sysmon_13_uscheduler_cmdline.csv",
+      "detections": 4,
+      "csv_sha256": "f1c0fa777f23ee0b08c1d0db1c3988fdec9e0dfe4896d3864bacbc86747ac45b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/PrivEsc_Imperson_NetSvc_to_Sys_Decoder_Sysmon_1_17_18.evtx",
+      "evtx_sha256": "498ce5682bd58d81edba3a704d82afe80ba9e7a0bbc1ba06b85c72c1f08563fc",
+      "csv": "Privilege Escalation/privesc_imperson_netsvc_to_sys_decoder_sysmon_1_17_18.csv",
+      "detections": 17,
+      "csv_sha256": "081bc56189a1f3ee8b225a54bc4523627275d5075f09c0c6d4992318d3b874d3",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/PrivEsc_NetSvc_SessionToken_Retrival_via_localSMB_Auth_5145.evtx",
+      "evtx_sha256": "2fe940895252a4faa77d036112862f964350adc00b1005dedca4a9a1e00b00d7",
+      "csv": "Privilege Escalation/privesc_netsvc_sessiontoken_retrival_via_localsmb_auth_5145.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "Privilege Escalation/PrivEsc_SeImpersonatePriv_enabled_back_for_upnp_localsvc_4698.evtx",
+      "evtx_sha256": "d6840c8618b24ef671a9810daad60cbd1e12dafe35fba300f5bc54d71a94156a",
+      "csv": "Privilege Escalation/privesc_seimpersonatepriv_enabled_back_for_upnp_localsvc_4698.csv",
+      "detections": 3,
+      "csv_sha256": "d91d2340f08d2126cf4ae53979834c8ac0814c4ae6793267c78c705596c61afd",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/RogueWinRM.evtx",
+      "evtx_sha256": "9b650416ac195034dd0e22b7152de9326828c2587a4a52baf60ed83f2b4e9a7f",
+      "csv": "Privilege Escalation/roguewinrm.csv",
+      "detections": 11,
+      "csv_sha256": "0f82c50ccb2743ee644c4506e0c3597bde88f1ea10eed9bfcde0c2a773be391d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Runas_4624_4648_Webshell_CreateProcessAsUserA.evtx",
+      "evtx_sha256": "23dc9b1713896d35c98834101846985453161631045b3b96e1c363800ad686d7",
+      "csv": "Privilege Escalation/runas_4624_4648_webshell_createprocessasusera.csv",
+      "detections": 2,
+      "csv_sha256": "be2c896522f65c55af71f715282e290a819348ceba91dd25959eb61394f55334",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_13_1_UACBypass_SDCLTBypass.evtx",
+      "evtx_sha256": "343bf81c3dbf508432ba4b2eb2fceef7cb59653417d3e209ffb7cbd2fa485050",
+      "csv": "Privilege Escalation/sysmon_13_1_uacbypass_sdcltbypass.csv",
+      "detections": 5,
+      "csv_sha256": "9c3798ce861a26c27f6927d5996b96e8ea0875f03dea8ec7a3bc919b6ef5d823",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_13_1_UAC_Bypass_EventVwrBypass.evtx",
+      "evtx_sha256": "d4abc83c9668060532b20ada82a2dfc8fd9b106be0eaea539c9d75dc7d8c8043",
+      "csv": "Privilege Escalation/sysmon_13_1_uac_bypass_eventvwrbypass.csv",
+      "detections": 9,
+      "csv_sha256": "7d563de272ce85b73110d411f6d79503123a6db612615cc393bfac9ddaf70e28",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_22.evtx",
+      "evtx_sha256": "45f90c35f977592fa8a5fd5205e73fade980d633bae219dfaeb65de8a27ba18c",
+      "csv": "Privilege Escalation/sysmon_uacme_22.csv",
+      "detections": 26,
+      "csv_sha256": "64400b5c8152739084e3374c0d7f525aeb64e13fe297d875a2e6cb444873a901",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_23.evtx",
+      "evtx_sha256": "c742e7767e11e4810cbbe77f53d04e855241b85b1df30c954e9210e50b5ba772",
+      "csv": "Privilege Escalation/sysmon_uacme_23.csv",
+      "detections": 10,
+      "csv_sha256": "5fa3caecc98f4eb2290e9154735bdbe9ace32fd2a977b91ccbb35effe0226a54",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_30.evtx",
+      "evtx_sha256": "044ee159b0b9617086c74ed6ef183353496573a952be079b2644018af2a4bd04",
+      "csv": "Privilege Escalation/sysmon_uacme_30.csv",
+      "detections": 18,
+      "csv_sha256": "930f2b276809e2f8aeed8858d25d78034fe30cffa42b1843999278ca92e36dbb",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_32.evtx",
+      "evtx_sha256": "3729a7b639782b909b22c3b4ccaacbf1f7acaf8311221cb7976c3e12d863cfbc",
+      "csv": "Privilege Escalation/sysmon_uacme_32.csv",
+      "detections": 10,
+      "csv_sha256": "f70eab62a3d84f7add29c7d35ab10a813ecc664dcb3389899320b9b147ff8b89",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_33.evtx",
+      "evtx_sha256": "369fe7264d8d343659fb8ef0cbf9a9cc2dfff06958e2dd173dfb7ecb8d9093fd",
+      "csv": "Privilege Escalation/sysmon_uacme_33.csv",
+      "detections": 13,
+      "csv_sha256": "5b181864d558e6b34baccf1c6ee0436fba42913b0439e4c2298453beca9c6c87",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_34.evtx",
+      "evtx_sha256": "d3b277e1165eec22392054022ed239d68adfcd654b663076fec062e20c8ea336",
+      "csv": "Privilege Escalation/sysmon_uacme_34.csv",
+      "detections": 9,
+      "csv_sha256": "46782abf8bedcb43145e6b01a8f7120c92dfa6a31acc767618581caff2eb03be",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_36_FileCreate.evtx",
+      "evtx_sha256": "a84ee8dd4a45fcca42d0af62a6bcd1817c09baee8e4211a24dd1484f4c1eb4eb",
+      "csv": "Privilege Escalation/sysmon_uacme_36_filecreate.csv",
+      "detections": 15,
+      "csv_sha256": "c09897f51f68716831b6626ac66ab62058d0938304659728cf56f1ce7a44c9f5",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_37_FileCreate.evtx",
+      "evtx_sha256": "0b3893de16d5b7bf94337a08706a0b158965ab9aa6e20a0dd968883f96d0e1db",
+      "csv": "Privilege Escalation/sysmon_uacme_37_filecreate.csv",
+      "detections": 9,
+      "csv_sha256": "610454ffc1259352b1409c6e12e8463d54bce3a8a84ff8a79ba3cc2587bedcfd",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_38.evtx",
+      "evtx_sha256": "42075b5afd438fbeee2b87ebb085558350c4a3d40d1b5677a3aba10a81d6a522",
+      "csv": "Privilege Escalation/sysmon_uacme_38.csv",
+      "detections": 11,
+      "csv_sha256": "f7d0c5097d9614bfceca496e13a0df0171251fb4bd96822423c8786f0dc5416c",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_39.evtx",
+      "evtx_sha256": "85c32ce26cbd8bf03c44b26d4a913188b38890ed40b8ab855b1f5ccbed703b66",
+      "csv": "Privilege Escalation/sysmon_uacme_39.csv",
+      "detections": 10,
+      "csv_sha256": "df2848d30d7d6a8303999a2713f04994849fbece8a3a579e6215cbb3578e461f",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_41.evtx",
+      "evtx_sha256": "10607601e5ab7476fa8920ca63ace9f29ccbe79279e1731436b9d009f36ba2f0",
+      "csv": "Privilege Escalation/sysmon_uacme_41.csv",
+      "detections": 8,
+      "csv_sha256": "3a30af36cdf5c26d6295ce5629796d283cc8bd8450536c38bd42c86cd682453d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_43.evtx",
+      "evtx_sha256": "47bdaa367dfadf39d6b55587f38c488642836305d593aa6452e6ac51bb88ad3c",
+      "csv": "Privilege Escalation/sysmon_uacme_43.csv",
+      "detections": 9,
+      "csv_sha256": "0e51733d79694a0f5d45c6f5d2a70e3696f868ccb4aea506531770dffbf3453f",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_45.evtx",
+      "evtx_sha256": "aae67b99a0b4103513bb678f9d3d5222a402a5e202d8d3fb1c6bcf085c7548fd",
+      "csv": "Privilege Escalation/sysmon_uacme_45.csv",
+      "detections": 10,
+      "csv_sha256": "99a74e3d98f794446e443fc8db59f15439b319361488d394e944640e93f71ba4",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_53.evtx",
+      "evtx_sha256": "3a6f512f47e00da769d1076fe0367c15f3f787a79cdc8909b74e04f002d3e0f9",
+      "csv": "Privilege Escalation/sysmon_uacme_53.csv",
+      "detections": 14,
+      "csv_sha256": "16c10224ea85e3440d014551ad054f7208b17be22e4eea17ddb2d2202d98446a",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_54.evtx",
+      "evtx_sha256": "90fa9a2b3bdd8414df20846634badf9d6a50882db92caa8b7a163aef6d6aafe1",
+      "csv": "Privilege Escalation/sysmon_uacme_54.csv",
+      "detections": 12,
+      "csv_sha256": "3b812da0c0c01bd484c1d3af5fea34073568a7718b7ae2e167a58362f51d5ddd",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_56.evtx",
+      "evtx_sha256": "a1f83d4189384d95693bb33ffe90f09b82d0a9ff7219bf37b51727d667be54af",
+      "csv": "Privilege Escalation/sysmon_uacme_56.csv",
+      "detections": 20,
+      "csv_sha256": "3d7658fdf8571d09b00fad122f53843590a1e59968923f31a27273dddabdf064",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_63.evtx",
+      "evtx_sha256": "5cbfc3e5c3dfe38ae5c121b2de344229e73e5abb32deba6bf402e6d844b7bf72",
+      "csv": "Privilege Escalation/sysmon_uacme_63.csv",
+      "detections": 4,
+      "csv_sha256": "86fa6be080ce12f3ec75ba14d9c5ba235588937ad12f928b21743b88e1737a7e",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_UACME_64.evtx",
+      "evtx_sha256": "b1a47437b3095b0660f069d107800427279c07448a4a470ad7c6c7ca2e27bced",
+      "csv": "Privilege Escalation/sysmon_uacme_64.csv",
+      "detections": 25,
+      "csv_sha256": "19f56751a98bf693bd98aa34f707c2472fa7f53876ad11198af91b21074f89f1",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/Sysmon_uacme_58.evtx",
+      "evtx_sha256": "40e37fb256e29dd27df7741da1443df59a688d47c295b0855cddc37a78398ffb",
+      "csv": "Privilege Escalation/sysmon_uacme_58.csv",
+      "detections": 11,
+      "csv_sha256": "8911ec3f98908268626bf97bad1e9b5aef735e88994a9e055d6d3b8c8f758e4c",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/System_7045_namedpipe_privesc.evtx",
+      "evtx_sha256": "21a62694861beff246ea9fb357b908541b4acefaefdb7ecd6281b64df96cb187",
+      "csv": "Privilege Escalation/system_7045_namedpipe_privesc.csv",
+      "detections": 4,
+      "csv_sha256": "bdb66d1d2dae9b471081cff790bfcd6a49fa0729c5322782ad349aea397c80d9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/UACME_59_Sysmon.evtx",
+      "evtx_sha256": "1de3775180143fd5d956bae48f572367534ae8c10f6ffbe98dd4b4e0e47e0fa1",
+      "csv": "Privilege Escalation/uacme_59_sysmon.csv",
+      "detections": 8,
+      "csv_sha256": "3c444e986475b476c00ba9898d3ba98eb7e77eba605ba4b097f0a32ad395d118",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/UACME_61_Changepk.evtx",
+      "evtx_sha256": "65fe36818330f6e07731e2efed639091fce4bf836673832e4b6e6092b00ffae3",
+      "csv": "Privilege Escalation/uacme_61_changepk.csv",
+      "detections": 2,
+      "csv_sha256": "ad89a56ca1ecee763b946c8aac33d9ac8bb2167074f158769348116ba56672cc",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/eop_appcontainer_il_broker_filewrite.evtx",
+      "evtx_sha256": "3175fc1489e8ba07035396e8175b8b54a08e5fdc0bb58cafdb19a58dd70bfb58",
+      "csv": "Privilege Escalation/eop_appcontainer_il_broker_filewrite.csv",
+      "detections": 7,
+      "csv_sha256": "64c31063d18cbb7893073cb5a42c96412eea48afc6d1519502ebebea743fbe4f",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privesc_KrbRelayUp_windows_4624.evtx",
+      "evtx_sha256": "f8c7ee23333b228ba05bbae43f410ae9d92244ea6531c369a081e32205c0bc82",
+      "csv": "Privilege Escalation/privesc_krbrelayup_windows_4624.csv",
+      "detections": 1,
+      "csv_sha256": "62619aaf1acb6cf0db2b2af7e4369abd8b3491869db6ec06e3d4f54e139a095d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privesc_registry_symlink_CVE-2020-1377.evtx",
+      "evtx_sha256": "f273b368f752e24ebdc4f84fb0896ea2d5b95cb4916e261e7e2af7ac63609a76",
+      "csv": "Privilege Escalation/privesc_registry_symlink_cve_2020_1377.csv",
+      "detections": 30,
+      "csv_sha256": "959be600b818430d8d878c4f0a66aa159e7fc80a141d01bdb9c9135a053ed022",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privesc_roguepotato_sysmon_17_18.evtx",
+      "evtx_sha256": "21bcc12aed93c390545c1b07005a681e1c9e9dbe5d47983c273518456855595d",
+      "csv": "Privilege Escalation/privesc_roguepotato_sysmon_17_18.csv",
+      "detections": 13,
+      "csv_sha256": "536659e1246498bac31cf9395c108d05df5e4fdcdf3e0fa9196583880eb2be8b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privesc_rotten_potato_from_webshell_metasploit_sysmon_1_8_3.evtx",
+      "evtx_sha256": "03d1d202bdf50f7290da06e816ddf9535705f90acebbb0ccae7d2e62dcbf6699",
+      "csv": "Privilege Escalation/privesc_rotten_potato_from_webshell_metasploit_sysmon_1_8_3.csv",
+      "detections": 25,
+      "csv_sha256": "bce2319268f010b0aff5f488ffd4d88c43dbde03fc9cd5b8f2eaa0cf0885d18c",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privesc_seimpersonate_tosys_spoolsv_sysmon_17_18.evtx",
+      "evtx_sha256": "868533829b979d925c0f4a488a6380bcb85d939a3ad2b1196be5335c38265cf7",
+      "csv": "Privilege Escalation/privesc_seimpersonate_tosys_spoolsv_sysmon_17_18.csv",
+      "detections": 14,
+      "csv_sha256": "62251809d559f4c37b80f4be6133278abae40f0826928ca05edf700ff334bf2d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privesc_spoolfool_mahdihtm_sysmon_1_11_7_13.evtx",
+      "evtx_sha256": "9457cdfd5159e9b25185352a66f9ec1d14cc84f1780ea282e47c5653c28fad58",
+      "csv": "Privilege Escalation/privesc_spoolfool_mahdihtm_sysmon_1_11_7_13.csv",
+      "detections": 3,
+      "csv_sha256": "588de6f946ac94e88488fa7ac4dac51aa25c6118bfbaaf3ff3ba48f5818927eb",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privesc_spoolsv_spl_file_write_sysmon11.evtx",
+      "evtx_sha256": "44c56f76471969f91b4df8f00d3ed087536c99924141b7cd9bdc031e67b5dd3d",
+      "csv": "Privilege Escalation/privesc_spoolsv_spl_file_write_sysmon11.csv",
+      "detections": 54,
+      "csv_sha256": "4ea253568150b3ae6f22211fed6bc2691d36ce4185cc98b3791bd05f2916c6e9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privesc_sysmon_cve_20201030_spooler.evtx",
+      "evtx_sha256": "c220b523b3b788bc593208622058bd54c634005b104aeaf5f177a35aea1e8312",
+      "csv": "Privilege Escalation/privesc_sysmon_cve_20201030_spooler.csv",
+      "detections": 4,
+      "csv_sha256": "edefbb11d864fdc682989d386e7cfa057012b1f3cb29d5ce8d21b840d62c10b3",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privesc_unquoted_svc_sysmon_1_11.evtx",
+      "evtx_sha256": "5b3bd618ff215254db994f223f1700082dbb1f339a651e1c89ae41d857edbcc2",
+      "csv": "Privilege Escalation/privesc_unquoted_svc_sysmon_1_11.csv",
+      "detections": 97,
+      "csv_sha256": "8f34316082418561f0bc7bd0ec1c11c2b58214a266c815daeb8cfbcc2060e0f8",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/privexchange_dirkjan.evtx",
+      "evtx_sha256": "321c68c4f41b47c69f8cf050c572a27be77ee1818716c5d79d746d1c805901ad",
+      "csv": "Privilege Escalation/privexchange_dirkjan.csv",
+      "detections": 7,
+      "csv_sha256": "d69ce3bde2a77f79f9936fd2531e4e0e4773fe8f0eed0deae81b90e3e8d91cc3",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/samaccount_spoofing_CVE-2021-42287_CVE-2021-42278_DC_securitylogs.evtx",
+      "evtx_sha256": "d3cf4940a0400a615e7e848a16de8d957bd12ccb99f7c9ce247b17a72a55d212",
+      "csv": "Privilege Escalation/samaccount_spoofing_cve_2021_42287_cve_2021_42278_dc_securitylogs.csv",
+      "detections": 12,
+      "csv_sha256": "1c220d4fa6c185d474aa365ef238b2680fa4590bad84faebb54cbf5ecc697167",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/security_4624_4673_token_manip.evtx",
+      "evtx_sha256": "2546b08851204db18c8f60722dcbb406356b323fbcd790774949e8a0168cc4e7",
+      "csv": "Privilege Escalation/security_4624_4673_token_manip.csv",
+      "detections": 15,
+      "csv_sha256": "0287d64e736b15511da96f8a7a7c0e8bb65b0945bf099475b635803764951969",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_11_1_15_WScriptBypassUAC.evtx",
+      "evtx_sha256": "48f65d146e64c9c58a4774d03ba83aa120c307e52a0a1d21975fb225125abbff",
+      "csv": "Privilege Escalation/sysmon_11_1_15_wscriptbypassuac.csv",
+      "detections": 34,
+      "csv_sha256": "a132c894d8e5a6d5f4c8232740b52daa71c36e6730a84635208e75a5e691782b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_11_1_7_uacbypass_cliconfg.evtx",
+      "evtx_sha256": "08d994196edc3477b7e860bf5ef97173daa1d82f3132759fe78db96c80383c20",
+      "csv": "Privilege Escalation/sysmon_11_1_7_uacbypass_cliconfg.csv",
+      "detections": 11,
+      "csv_sha256": "004f16bce67bc22a3277e7c3820a60c310c0b321fe4907300ac7459d5e8d6a41",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_11_7_1_uacbypass_windirectory_mocking.evtx",
+      "evtx_sha256": "d75d688bd1df279d32b75aab51a162465d3351c5aae1f7386ad8d4c8dc86528a",
+      "csv": "Privilege Escalation/sysmon_11_7_1_uacbypass_windirectory_mocking.csv",
+      "detections": 17,
+      "csv_sha256": "d5f6e0852b2ef3eb9d3b0b9165dae698152081bdcbdbf895278fccfd1a5b1972",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_13_1_12_11_perfmonUACBypass.evtx",
+      "evtx_sha256": "7a0312bce23cc20e719ffc6ca2cf62ec2b8a9a3f67d0048d7e16a6bdbf134092",
+      "csv": "Privilege Escalation/sysmon_13_1_12_11_perfmonuacbypass.csv",
+      "detections": 3,
+      "csv_sha256": "a80fa5375ea7a386b09a04b3621e64867d7243977646e3d8ee4b6245a5af6ce9",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_13_1_compmgmtlauncherUACBypass.evtx",
+      "evtx_sha256": "2bf934cb66f81fd5abfa5b32c7a50159184c260401e09407513bdb59066e2e93",
+      "csv": "Privilege Escalation/sysmon_13_1_compmgmtlauncheruacbypass.csv",
+      "detections": 6,
+      "csv_sha256": "99d352a48b5a9d73f346ce1156348f8b631dd380c9ae89e07607d4f46def38b2",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_13_1_meterpreter_getsystem_NamedPipeImpersonation.evtx",
+      "evtx_sha256": "9e1fbb0604db5e559c1f65d51b85c35625f6a43d071598f161dd32f70d597722",
+      "csv": "Privilege Escalation/sysmon_13_1_meterpreter_getsystem_namedpipeimpersonation.csv",
+      "detections": 6,
+      "csv_sha256": "2252902599a077e3eb6b45a3b6ce4cf40a33deaf0612598c8505d32d89dcddc5",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_1_11_exec_as_system_via_schedtask.evtx",
+      "evtx_sha256": "6b2ae54c6e3926f62101c2f8f85e7003869de534af1b17d309a0a84298e70edd",
+      "csv": "Privilege Escalation/sysmon_1_11_exec_as_system_via_schedtask.csv",
+      "detections": 10,
+      "csv_sha256": "8fb5424c3368b83212c46e552f990bdc67cd01a94fdbba594ed4050d3c4d583b",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_1_13_11_cmstp_ini_uacbypass.evtx",
+      "evtx_sha256": "6a49ee4d01b15f45c72f242655595613ee06eb5797488d6de7b25b7a1dca85a1",
+      "csv": "Privilege Escalation/sysmon_1_13_11_cmstp_ini_uacbypass.csv",
+      "detections": 9,
+      "csv_sha256": "5c8455e03abe449db09cf98bee7fdc441ac2ec7200e3c1d998fd0e99585a0be8",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_1_13_UACBypass_AppPath_Control.evtx",
+      "evtx_sha256": "8296ad4d09de6d796da8b7dc27aea2f44b261ee12b6a54ef83e2a805cd5b8b87",
+      "csv": "Privilege Escalation/sysmon_1_13_uacbypass_apppath_control.csv",
+      "detections": 3,
+      "csv_sha256": "af13da13bf09d0c65ccb0320aa185c896894ab0c18b6fe1fb2226539b458c275",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_1_7_11_mcx2prov_uacbypass.evtx",
+      "evtx_sha256": "2a6fdd4c4c3b650cf267f02ee87a2cac27362054d37b1834ca92aadbe0b21854",
+      "csv": "Privilege Escalation/sysmon_1_7_11_mcx2prov_uacbypass.csv",
+      "detections": 14,
+      "csv_sha256": "a0946bbb2fde2f4e07841ef2c63393116aaa3d46caa2a0ed7df598853ebd3ddb",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_1_7_11_migwiz.evtx",
+      "evtx_sha256": "83b13ff4ae16dfaa212229c672e4bcc16a3b6ab39c96bcd46a376bb99229dc9d",
+      "csv": "Privilege Escalation/sysmon_1_7_11_migwiz.csv",
+      "detections": 11,
+      "csv_sha256": "454682b5f917a64ea0ff4b7035418452c349a6359caaedbf33ad8c5180e20f3c",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_1_7_11_sysprep_uacbypass.evtx",
+      "evtx_sha256": "230e09d306b1ab52ec5502b8768042a13f375449012485f3bac9191ccffe0c25",
+      "csv": "Privilege Escalation/sysmon_1_7_11_sysprep_uacbypass.csv",
+      "detections": 11,
+      "csv_sha256": "8970a921122a408f3f521beb42dbda5b5349d93f157b66bf2628ac0f64f8039d",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_1_7_elevate_uacbypass_sysprep.evtx",
+      "evtx_sha256": "199b9686cf89e3b6b9e00330c2b707a1de99eafc908992252d2266a25594de76",
+      "csv": "Privilege Escalation/sysmon_1_7_elevate_uacbypass_sysprep.csv",
+      "detections": 20,
+      "csv_sha256": "33c5c96b14ebd8622ca2102686615bac15b5d5a92f45b9446fe5a526e62e2da8",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_privesc_from_admin_to_system_handle_inheritance.evtx",
+      "evtx_sha256": "0e6a64e50207a8772b413dc4cc66c02def3c2d070c923a1faa9d4ad4c5c73ab5",
+      "csv": "Privilege Escalation/sysmon_privesc_from_admin_to_system_handle_inheritance.csv",
+      "detections": 6,
+      "csv_sha256": "95d4917c110330a58c87c622733b906ec7c6f9e51f028e6093e54c3af654fd61",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_privesc_psexec_dwell.evtx",
+      "evtx_sha256": "a79a14dcaac146c06c4d3dc3eb5a6ca1eaf62c93d65f47699a2aa5e88e436223",
+      "csv": "Privilege Escalation/sysmon_privesc_psexec_dwell.csv",
+      "detections": 15,
+      "csv_sha256": "33ec0c4a122861209daabef4f91fa9b897e40967cc24a801b80e822bb98a7899",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/sysmon_uacbypass_CDSSync_schtask_hijack_byeintegrity5.evtx",
+      "evtx_sha256": "6265ba7f12b850cf2ebcee735ee24aa26b66e757f2cfa05759c58f0a4aedf83f",
+      "csv": "Privilege Escalation/sysmon_uacbypass_cdssync_schtask_hijack_byeintegrity5.csv",
+      "detections": 9,
+      "csv_sha256": "f835ae99eed89a19a9413924cdfc850a39c73ae8500e6b6030b17bef7f3c8110",
+      "status": "ok"
+    },
+    {
+      "evtx": "Privilege Escalation/win10_4703_SeDebugPrivilege_enabled.evtx",
+      "evtx_sha256": "df34b4db3dae36c7bc4ae807782e72af0097491674247405b5f71adaa119a4c5",
+      "csv": "Privilege Escalation/win10_4703_sedebugprivilege_enabled.csv",
+      "detections": 0,
+      "csv_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "no detections"
+    },
+    {
+      "evtx": "UACME_59_Sysmon.evtx",
+      "evtx_sha256": "1de3775180143fd5d956bae48f572367534ae8c10f6ffbe98dd4b4e0e47e0fa1",
+      "csv": "uacme_59_sysmon.csv",
+      "detections": 8,
+      "csv_sha256": "be01e3db2dc69d31f9ab2d90adaba123d8b46df8e69f4ca4564e644cc0aab125",
+      "status": "ok"
+    }
+  ]
+}

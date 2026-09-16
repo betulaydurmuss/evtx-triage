@@ -1,0 +1,16 @@
+# PowerView granting DCSync extended rights, then clearing the log.
+sample: "Persistence/DACL_DCSync_Right_Powerview_ Add-DomainObjectAcl.evtx"
+csv: "dacl_dcsync_right_powerview_add_domainobjectacl.csv"
+tactic: persistence
+expect_detections: true
+key_events:
+  - channel: Security
+    event_id: 5136
+    rule_title_contains: "DCSync"
+  - channel: Security
+    event_id: 1102
+    rule_title_contains: "Log Cleared"
+key_events_same_group: true
+must_mention_any: ["directory", "replication", "dcsync", "permission", "acl", "log"]
+must_not_mention: []
+acceptable_assessments: [likely_malicious, suspicious]

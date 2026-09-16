@@ -1,0 +1,4 @@
+# Hayabusa writes LF, no BOM (ADR-0002 section 4). Fixtures must keep those bytes
+# exactly, on every platform, or they stop representing real tool output.
+* text=auto eol=lf
+*.csv -text

@@ -1,0 +1,26 @@
+# DRAFT (Faz 7, 2026-09-15): written by the tool's author from the Hayabusa output of this sample.
+# Not verified by an analyst. Same party wrote the tool, see docs/eval-dataset.md section 3
+# and the open debts listed in README.
+#
+# Application log events 325 to 327 from the NTDS database engine during an ntdsutil copy of ntds.dit.
+sample: Credential Access/dc_applog_ntdsutil_dfir_325_326_327.evtx
+csv: dc_applog_ntdsutil_dfir_325_326_327.csv
+tactic: credential-access
+expect_detections: true
+key_events_same_group: true
+key_events:
+- channel: Application
+  event_id: 325
+  rule_title_contains: Dump Ntds.dit
+- channel: Application
+  event_id: 326
+  rule_title_contains: Ntdsutil
+must_mention_any:
+- ntds
+- ntdsutil
+- active directory
+- database
+must_not_mention: []
+acceptable_assessments:
+- likely_malicious
+- suspicious

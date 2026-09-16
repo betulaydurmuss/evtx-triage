@@ -1,0 +1,343 @@
+{
+  "coverage": {
+    "dictionary_entries": 55,
+    "unknown_pairs": [
+      {
+        "channel": "Microsoft-Windows-TaskScheduler/Operational",
+        "event_id": 106
+      }
+    ],
+    "unknown_tactic_abbreviations": [],
+    "unknown_technique_ids": []
+  },
+  "groups": [
+    {
+      "end": "2024-01-01T10:03:00Z",
+      "event_count": 4,
+      "events": [
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "HOSTA.example.local",
+          "dictionary_title": "Process creation",
+          "event_id": 1,
+          "evtx_file": "C:\\samples\\hosta.evtx",
+          "fields": {
+            "CommandLine": "whoami /all",
+            "Image": "C:\\Windows\\System32\\whoami.exe",
+            "RuleName": "",
+            "User": "EXAMPLE\\alice"
+          },
+          "host": "hosta",
+          "known_event": true,
+          "level": "informational",
+          "mitre_tactics": [],
+          "mitre_tags": [],
+          "other_tags": [],
+          "principal_user": "example\\alice",
+          "record_id": 101,
+          "row_id": "R000001",
+          "rule_id": "11111111-1111-1111-1111-111111111111",
+          "rule_title": "Proc Exec",
+          "tactics_resolved": [],
+          "techniques_resolved": [],
+          "timestamp": "2024-01-01T10:00:00Z"
+        },
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "HOSTA.example.local",
+          "dictionary_title": "Process accessed another process",
+          "event_id": 10,
+          "evtx_file": "C:\\samples\\hosta.evtx",
+          "fields": {
+            "CallTrace": "C:\\tools\\dump.exe+1234",
+            "GrantedAccess": "0x1fffff",
+            "RuleName": "",
+            "SourceImage": "C:\\tools\\dump.exe",
+            "SourceProcessId": "900",
+            "TargetImage": "C:\\Windows\\system32\\lsass.exe",
+            "TargetProcessId": "520"
+          },
+          "host": "hosta",
+          "known_event": true,
+          "level": "medium",
+          "mitre_tactics": [
+            "CredAccess"
+          ],
+          "mitre_tags": [
+            "T1003.001"
+          ],
+          "other_tags": [
+            "sysmon"
+          ],
+          "principal_user": null,
+          "record_id": 102,
+          "row_id": "R000002",
+          "rule_id": "22222222-2222-2222-2222-222222222222",
+          "rule_title": "Potential Credential Dumping Activity Via LSASS",
+          "tactics_resolved": [
+            "Credential Access"
+          ],
+          "techniques_resolved": [
+            "LSASS Memory"
+          ],
+          "timestamp": "2024-01-01T10:01:00.123456Z"
+        },
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "HOSTA.example.local",
+          "dictionary_title": "File created",
+          "event_id": 11,
+          "evtx_file": "C:\\samples\\hosta.evtx",
+          "fields": {
+            "CreationUtcTime": "2024-01-01 10:02:00.000",
+            "Image": "C:\\tools\\dump.exe",
+            "ProcessId": "900",
+            "RuleName": "",
+            "TargetFilename": "C:\\Windows\\Temp\\lsass.dmp"
+          },
+          "host": "hosta",
+          "known_event": true,
+          "level": "low",
+          "mitre_tactics": [],
+          "mitre_tags": [],
+          "other_tags": [],
+          "principal_user": null,
+          "record_id": 103,
+          "row_id": "R000003",
+          "rule_id": "33333333-3333-3333-3333-333333333333",
+          "rule_title": "DMP File Creation",
+          "tactics_resolved": [],
+          "techniques_resolved": [],
+          "timestamp": "2024-01-01T10:02:00Z"
+        },
+        {
+          "channel": "Microsoft-Windows-TaskScheduler/Operational",
+          "computer": "HOSTA.example.local",
+          "dictionary_title": null,
+          "event_id": 106,
+          "evtx_file": "C:\\samples\\hosta.evtx",
+          "fields": {
+            "TaskName": "\\Microsoft\\Windows\\Backup",
+            "UserContext": "EXAMPLE\\alice"
+          },
+          "host": "hosta",
+          "known_event": false,
+          "level": "medium",
+          "mitre_tactics": [],
+          "mitre_tags": [],
+          "other_tags": [],
+          "principal_user": null,
+          "record_id": 107,
+          "row_id": "R000007",
+          "rule_id": "66666666-6666-6666-6666-666666666666",
+          "rule_title": "Unknown Channel Event",
+          "tactics_resolved": [],
+          "techniques_resolved": [],
+          "timestamp": "2024-01-01T10:03:00Z"
+        }
+      ],
+      "evidence": {
+        "cited_row_ids": [
+          "R000001",
+          "R000002",
+          "R000003",
+          "R000007"
+        ],
+        "dropped_row_ids": [],
+        "entries": [
+          {
+            "count": 1,
+            "first": "2024-01-01T10:00:00Z",
+            "last": "2024-01-01T10:00:00Z",
+            "level": "informational",
+            "line": "[R000001] 2024-01-01T10:00:00Z | informational | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Proc Exec | Image=C:\\Windows\\System32\\whoami.exe, CommandLine=whoami /all, User=EXAMPLE\\alice",
+            "row_ids": [
+              "R000001"
+            ]
+          },
+          {
+            "count": 1,
+            "first": "2024-01-01T10:01:00.123456Z",
+            "last": "2024-01-01T10:01:00.123456Z",
+            "level": "medium",
+            "line": "[R000002] 2024-01-01T10:01:00.123456Z | medium | Microsoft-Windows-Sysmon/Operational EID 10 \"Process accessed another process\" | rule: Potential Credential Dumping Activity Via LSASS | SourceImage=C:\\tools\\dump.exe, TargetImage=C:\\Windows\\system32\\lsass.exe, GrantedAccess=0x1fffff, SourceProcessId=900, TargetProcessId=520",
+            "row_ids": [
+              "R000002"
+            ]
+          },
+          {
+            "count": 1,
+            "first": "2024-01-01T10:02:00Z",
+            "last": "2024-01-01T10:02:00Z",
+            "level": "low",
+            "line": "[R000003] 2024-01-01T10:02:00Z | low | Microsoft-Windows-Sysmon/Operational EID 11 \"File created\" | rule: DMP File Creation | Image=C:\\tools\\dump.exe, TargetFilename=C:\\Windows\\Temp\\lsass.dmp, CreationUtcTime=2024-01-01 10:02:00.000, ProcessId=900",
+            "row_ids": [
+              "R000003"
+            ]
+          },
+          {
+            "count": 1,
+            "first": "2024-01-01T10:03:00Z",
+            "last": "2024-01-01T10:03:00Z",
+            "level": "medium",
+            "line": "[R000007] 2024-01-01T10:03:00Z | medium | Microsoft-Windows-TaskScheduler/Operational EID 106 \"UNKNOWN\" | rule: Unknown Channel Event | TaskName=\\Microsoft\\Windows\\Backup, UserContext=EXAMPLE\\alice",
+            "row_ids": [
+              "R000007"
+            ]
+          }
+        ],
+        "folded_lines": 0,
+        "included_row_ids": [
+          "R000001",
+          "R000002",
+          "R000003",
+          "R000007"
+        ],
+        "lines": [
+          "[R000001] 2024-01-01T10:00:00Z | informational | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Proc Exec | Image=C:\\Windows\\System32\\whoami.exe, CommandLine=whoami /all, User=EXAMPLE\\alice",
+          "[R000002] 2024-01-01T10:01:00.123456Z | medium | Microsoft-Windows-Sysmon/Operational EID 10 \"Process accessed another process\" | rule: Potential Credential Dumping Activity Via LSASS | SourceImage=C:\\tools\\dump.exe, TargetImage=C:\\Windows\\system32\\lsass.exe, GrantedAccess=0x1fffff, SourceProcessId=900, TargetProcessId=520",
+          "[R000003] 2024-01-01T10:02:00Z | low | Microsoft-Windows-Sysmon/Operational EID 11 \"File created\" | rule: DMP File Creation | Image=C:\\tools\\dump.exe, TargetFilename=C:\\Windows\\Temp\\lsass.dmp, CreationUtcTime=2024-01-01 10:02:00.000, ProcessId=900",
+          "[R000007] 2024-01-01T10:03:00Z | medium | Microsoft-Windows-TaskScheduler/Operational EID 106 \"UNKNOWN\" | rule: Unknown Channel Event | TaskName=\\Microsoft\\Windows\\Backup, UserContext=EXAMPLE\\alice"
+        ],
+        "neutralized_control_tokens": 0,
+        "note": null,
+        "prompt_tokens": null
+      },
+      "group_id": "G0001",
+      "host": "hosta",
+      "max_level": "medium",
+      "principal_user": "example\\alice",
+      "selected_for_model": true,
+      "start": "2024-01-01T10:00:00Z"
+    },
+    {
+      "end": "2024-01-01T10:00:30.500000Z",
+      "event_count": 1,
+      "events": [
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "HOSTB.example.local",
+          "dictionary_title": "Process creation",
+          "event_id": 1,
+          "evtx_file": "C:\\samples\\hostb.evtx",
+          "fields": {
+            "CommandLine": "powershell -enc AAAA",
+            "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "RuleName": "",
+            "User": "EXAMPLE\\bob"
+          },
+          "host": "hostb",
+          "known_event": true,
+          "level": "high",
+          "mitre_tactics": [
+            "Exec"
+          ],
+          "mitre_tags": [
+            "T1059.001"
+          ],
+          "other_tags": [
+            "sysmon"
+          ],
+          "principal_user": "example\\bob",
+          "record_id": 201,
+          "row_id": "R000005",
+          "rule_id": "44444444-4444-4444-4444-444444444444",
+          "rule_title": "Suspicious Process Execution",
+          "tactics_resolved": [
+            "Execution"
+          ],
+          "techniques_resolved": [
+            "PowerShell"
+          ],
+          "timestamp": "2024-01-01T10:00:30.500000Z"
+        }
+      ],
+      "evidence": {
+        "cited_row_ids": [
+          "R000005"
+        ],
+        "dropped_row_ids": [],
+        "entries": [
+          {
+            "count": 1,
+            "first": "2024-01-01T10:00:30.500000Z",
+            "last": "2024-01-01T10:00:30.500000Z",
+            "level": "high",
+            "line": "[R000005] 2024-01-01T10:00:30.500000Z | high | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Suspicious Process Execution | Image=C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe, CommandLine=powershell -enc AAAA, User=EXAMPLE\\bob",
+            "row_ids": [
+              "R000005"
+            ]
+          }
+        ],
+        "folded_lines": 0,
+        "included_row_ids": [
+          "R000005"
+        ],
+        "lines": [
+          "[R000005] 2024-01-01T10:00:30.500000Z | high | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Suspicious Process Execution | Image=C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe, CommandLine=powershell -enc AAAA, User=EXAMPLE\\bob"
+        ],
+        "neutralized_control_tokens": 0,
+        "note": null,
+        "prompt_tokens": null
+      },
+      "group_id": "G0002",
+      "host": "hostb",
+      "max_level": "high",
+      "principal_user": "example\\bob",
+      "selected_for_model": true,
+      "start": "2024-01-01T10:00:30.500000Z"
+    },
+    {
+      "end": "2024-01-01T10:30:00Z",
+      "event_count": 1,
+      "events": [
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "HOSTA.example.local",
+          "dictionary_title": "Process creation",
+          "event_id": 1,
+          "evtx_file": "C:\\samples\\hosta.evtx",
+          "fields": {
+            "CommandLine": "ping 10.0.0.1",
+            "Image": "C:\\Windows\\System32\\PING.EXE",
+            "RuleName": "",
+            "User": "EXAMPLE\\alice"
+          },
+          "host": "hosta",
+          "known_event": true,
+          "level": "informational",
+          "mitre_tactics": [],
+          "mitre_tags": [],
+          "other_tags": [],
+          "principal_user": "example\\alice",
+          "record_id": 104,
+          "row_id": "R000004",
+          "rule_id": "11111111-1111-1111-1111-111111111111",
+          "rule_title": "Proc Exec",
+          "tactics_resolved": [],
+          "techniques_resolved": [],
+          "timestamp": "2024-01-01T10:30:00Z"
+        }
+      ],
+      "group_id": "G0003",
+      "host": "hosta",
+      "max_level": "informational",
+      "principal_user": "example\\alice",
+      "selected_for_model": false,
+      "start": "2024-01-01T10:30:00Z"
+    }
+  ],
+  "ingest_errors": [
+    {
+      "detail": "Invalid isoformat string: 'not-a-timestamp'",
+      "line_number": 7,
+      "reason": "timestamp",
+      "row_id": "R000006"
+    }
+  ],
+  "input": {
+    "data_rows": 7,
+    "parsed_events": 6,
+    "sha256": "839fa87a4aabd2027a89a5c695dbdcaa0a3aa1a33252bb29c8207734f4d4a18d"
+  }
+}

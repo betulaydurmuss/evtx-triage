@@ -1,0 +1,19 @@
+# LSASS memory dumping with two different tools.
+sample: "Credential Access/sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.evtx"
+csv: "sysmon_10_11_outlfank_dumpert_and_andrewspecial_memdump.csv"
+tactic: credential-access
+expect_detections: true
+key_events:
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 10
+    fields_contain: {TargetImage: "lsass.exe"}
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 11
+    fields_contain: {TargetFilename: ".dmp"}
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 1
+    fields_contain: {Image: "Dumpert"}
+key_events_same_group: true
+must_mention_any: ["lsass", "credential", "dump", "memory"]
+must_not_mention: ["ransomware", "phishing"]
+acceptable_assessments: [likely_malicious, suspicious]

@@ -1,0 +1,317 @@
+# Event dictionary - Windows Security log.
+#
+# Covers every Security event ID that appears in the EVTX-ATTACK-SAMPLES corpus.
+# Summaries are written in our own words from the Microsoft Learn security
+# auditing reference pages listed under `sources`; every URL was checked to
+# return 200 on 2026-09-14. No vendor text is copied verbatim.
+#
+# `principal_user` follows a deliberate split: for logon and authentication
+# events the account the event is about is the target account, while for account
+# and object management events the useful account is the one that performed the
+# action (the subject).
+
+- channel: Security
+  event_id: 1102
+  title: "The audit log was cleared"
+  summary: >-
+    Someone cleared the Security event log. This is both an anti-forensics step and a hard boundary for
+    any investigation, because everything before it is gone from this host. The subject fields name the
+    account that did it.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, SubjectLogonId]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-1102"]
+
+- channel: Security
+  event_id: 4611
+  title: "A trusted logon process has been registered with the Local Security Authority"
+  summary: >-
+    A process registered itself with the LSA as a trusted logon process. This normally happens only
+    during startup for a small set of system components, so a registration outside that window, or from
+    an unexpected process, is worth checking.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, LogonProcessName]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4611"]
+
+- channel: Security
+  event_id: 4624
+  title: "An account was successfully logged on"
+  summary: >-
+    A logon session was created on this computer. LogonType separates the kinds of access: 2 interactive,
+    3 network, 4 batch, 5 service, 7 unlock, 8 network cleartext, 9 new credentials, 10 remote
+    interactive (RDP), 11 cached interactive. IpAddress and WorkstationName show where it came from, and
+    TargetLogonId ties later activity in the same session together.
+  principal_user: {user_field: TargetUserName, domain_field: TargetDomainName}
+  key_fields: [TargetUserName, TargetDomainName, LogonType, IpAddress, WorkstationName, TargetLogonId, LogonProcessName, AuthenticationPackageName]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"]
+
+- channel: Security
+  event_id: 4625
+  title: "An account failed to log on"
+  summary: >-
+    A logon attempt was rejected. The status and sub status codes say why (wrong password, unknown
+    account, disabled account, outside logon hours). Many failures for one account suggest password
+    guessing; one failure each for many accounts suggests password spraying.
+  principal_user: {user_field: TargetUserName, domain_field: TargetDomainName}
+  key_fields: [TargetUserName, TargetDomainName, LogonType, IpAddress, WorkstationName, Status, SubStatus, FailureReason]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625"]
+
+- channel: Security
+  event_id: 4634
+  title: "An account was logged off"
+  summary: >-
+    A logon session ended. Read together with the matching 4624 through TargetLogonId, it bounds how long
+    a session lasted.
+  principal_user: {user_field: TargetUserName, domain_field: TargetDomainName}
+  key_fields: [TargetUserName, TargetDomainName, LogonType, TargetLogonId]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4634"]
+
+- channel: Security
+  event_id: 4648
+  title: "A logon was attempted using explicit credentials"
+  summary: >-
+    A process authenticated as a different account than the one it was running under, the shape produced
+    by runas, by scheduled tasks with stored credentials, and by lateral movement tools. The subject is
+    the calling account, the target is the account whose credentials were used, and TargetServerName
+    shows where they were used.
+  principal_user: {user_field: TargetUserName, domain_field: TargetDomainName}
+  key_fields: [SubjectUserName, TargetUserName, TargetDomainName, TargetServerName, ProcessName, IpAddress]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4648"]
+
+- channel: Security
+  event_id: 4656
+  title: "A handle to an object was requested"
+  summary: >-
+    A process asked for a handle to an audited object, such as a file, a registry key or a process. The
+    accesses requested matter more than the event itself: a request for read access to the memory of a
+    security process is not the same as opening a document.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, ObjectType, ObjectName, AccessList, ProcessName]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4656"]
+
+- channel: Security
+  event_id: 4661
+  title: "A handle to an object was requested"
+  summary: >-
+    The directory service or SAM variant of a handle request. It names the object class and the requested
+    accesses inside Active Directory or the local account database, so it is the record that shows an
+    attempt to read or modify directory objects directly.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, ObjectType, ObjectName, AccessList]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4661"]
+
+- channel: Security
+  event_id: 4662
+  title: "An operation was performed on an object"
+  summary: >-
+    An audited operation ran against a directory object. The properties field carries the control access
+    rights involved, which is how directory replication requests, the pattern behind credential
+    replication attacks, become visible.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, ObjectType, ObjectName, Properties, AccessMask]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4662"]
+
+- channel: Security
+  event_id: 4663
+  title: "An attempt was made to access an object"
+  summary: >-
+    An audited object was actually accessed, as opposed to a handle merely being requested. Read it with
+    the preceding 4656 for the same handle: together they show what was asked for and what was used.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, ObjectType, ObjectName, AccessList, ProcessName]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4663"]
+
+- channel: Security
+  event_id: 4672
+  title: "Special privileges assigned to new logon"
+  summary: >-
+    A session was created holding sensitive privileges such as SeDebugPrivilege or SeTakeOwnership. It
+    follows a 4624 for the same logon id and marks that session as administrative, which is what makes a
+    later credential access or service install possible.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, SubjectLogonId, PrivilegeList]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4672"]
+
+- channel: Security
+  event_id: 4688
+  title: "A new process has been created"
+  summary: >-
+    A process started, recorded by Windows rather than by Sysmon. The command line is present only when
+    command line auditing is enabled. TokenElevationType and the parent process name are what separate a
+    normal launch from an elevation or a suspicious parent-child pair.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, NewProcessName, CommandLine, ParentProcessName, TokenElevationType, SubjectLogonId]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4688"]
+
+- channel: Security
+  event_id: 4698
+  title: "A scheduled task was created"
+  summary: >-
+    A scheduled task was registered. The task content in the event holds the command that will run, the
+    trigger and the account it runs as, so the persistence is readable directly from the record.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, TaskName, TaskContent]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4698"]
+
+- channel: Security
+  event_id: 4699
+  title: "A scheduled task was deleted"
+  summary: >-
+    A scheduled task was removed. Often a cleanup step after a task was used for execution or
+    persistence, so it is worth checking what the task had been.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, TaskName]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4699"]
+
+- channel: Security
+  event_id: 4702
+  title: "A scheduled task was updated"
+  summary: >-
+    An existing scheduled task was modified. Changing a legitimate task's action is quieter than creating
+    a new one, so compare the new task content against what the task is supposed to do.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, TaskName, TaskContentNew]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4702"]
+
+- channel: Security
+  event_id: 4720
+  title: "A user account was created"
+  summary: >-
+    A new account was created. On a workstation or member server this is unusual outside provisioning,
+    and a new account created shortly after a suspicious logon is a persistence step.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, TargetUserName, TargetDomainName, SamAccountName]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4720"]
+
+- channel: Security
+  event_id: 4732
+  title: "A member was added to a security-enabled local group"
+  summary: >-
+    An account was added to a local group. When the group is Administrators or Remote Desktop Users, this
+    is a privilege escalation or a remote access foothold; the member SID names who was added.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, TargetUserName, MemberName, MemberSid]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4732"]
+
+- channel: Security
+  event_id: 4741
+  title: "A computer account was created"
+  summary: >-
+    A computer account was added to the domain. Any authenticated user can normally do this a limited
+    number of times, and a newly created computer account is a known route to escalation in Active
+    Directory.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, TargetUserName, SamAccountName, DnsHostName]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4741"]
+
+- channel: Security
+  event_id: 4742
+  title: "A computer account was changed"
+  summary: >-
+    Attributes of a computer account were modified. Changes to delegation settings or to the service
+    principal names on a computer account are the ones that carry escalation potential.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, TargetUserName, ServicePrincipalNames, AllowedToDelegateTo]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4742"]
+
+- channel: Security
+  event_id: 4765
+  title: "SID History was added to an account"
+  summary: >-
+    SID History was written onto an account. Outside a genuine domain migration this is a way to graft
+    another principal's access onto an account without changing its group memberships.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, TargetUserName, TargetDomainName, SidList]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4765"]
+
+- channel: Security
+  event_id: 4768
+  title: "A Kerberos authentication ticket (TGT) was requested"
+  summary: >-
+    A domain controller issued or refused a TGT. The ticket encryption type matters: weak types on a
+    request are the signature of attacks against Kerberos pre-authentication, and the result code says
+    whether the request succeeded.
+  principal_user: {user_field: TargetUserName, domain_field: TargetDomainName}
+  key_fields: [TargetUserName, TargetDomainName, IpAddress, TicketEncryptionType, Status, PreAuthType]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4768"]
+
+- channel: Security
+  event_id: 4769
+  title: "A Kerberos service ticket was requested"
+  summary: >-
+    A service ticket was requested for a specific service principal name. A burst of requests for many
+    service names from one account, especially with a weak encryption type, is the shape of harvesting
+    tickets for offline cracking.
+  principal_user: {user_field: TargetUserName, domain_field: TargetDomainName}
+  key_fields: [TargetUserName, TargetDomainName, ServiceName, IpAddress, TicketEncryptionType, Status]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4769"]
+
+- channel: Security
+  event_id: 4776
+  title: "The computer attempted to validate the credentials for an account"
+  summary: >-
+    An NTLM credential validation happened. The error code says whether it succeeded, and the workstation
+    field names where the attempt came from. Repeated failures here are the NTLM counterpart of 4625.
+  principal_user: {user_field: TargetUserName}
+  key_fields: [TargetUserName, Workstation, Status, PackageName]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4776"]
+
+- channel: Security
+  event_id: 4781
+  title: "The name of an account was changed"
+  summary: >-
+    An account was renamed. Renaming a privileged account, or renaming a newly created account to look
+    like a service account, is a way to blend in.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, OldTargetUserName, NewTargetUserName]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4781"]
+
+- channel: Security
+  event_id: 4794
+  title: "An attempt was made to set the Directory Services Restore Mode administrator password"
+  summary: >-
+    Someone tried to set the DSRM password on a domain controller. The DSRM account can be used to
+    authenticate to the domain controller outside normal directory logons, so this is a persistence step
+    on the most sensitive host in the domain.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, Workstation, Status]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4794"]
+
+- channel: Security
+  event_id: 5136
+  title: "A directory service object was modified"
+  summary: >-
+    An Active Directory object attribute was written. The record names the object, the attribute and the
+    new value, so changes to group membership, to delegation, or to an object's security descriptor are
+    readable directly.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, ObjectDN, ObjectClass, AttributeLDAPDisplayName, AttributeValue, OperationType]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-5136"]
+
+- channel: Security
+  event_id: 5140
+  title: "A network share object was accessed"
+  summary: >-
+    A client connected to a shared folder. Access to the administrative shares, ADMIN$, C$ or IPC$, from
+    another host is the usual footprint of remote execution tools.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, ShareName, ShareLocalPath, IpAddress, AccessMask]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-5140"]
+
+- channel: Security
+  event_id: 5145
+  title: "A network share object was checked to see whether the client can be granted desired access"
+  summary: >-
+    A per-file access check on a share. This is high volume, but the relative target name shows exactly
+    which file on which share was reached, which is how file copies over administrative shares are traced.
+  principal_user: {user_field: SubjectUserName, domain_field: SubjectDomainName}
+  key_fields: [SubjectUserName, SubjectDomainName, ShareName, RelativeTargetName, IpAddress, AccessMask]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-5145"]
+
+- channel: Security
+  event_id: 5156
+  title: "The Windows Filtering Platform has permitted a connection"
+  summary: >-
+    The host firewall allowed a connection. The record ties the application path to both endpoints, so it
+    is a second, independent source for the same network activity that Sysmon event 3 records.
+  key_fields: [Application, Direction, SourceAddress, SourcePort, DestAddress, DestPort, Protocol]
+  sources: ["https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-5156"]

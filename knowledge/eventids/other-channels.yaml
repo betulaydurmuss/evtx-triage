@@ -1,0 +1,73 @@
+# Event dictionary - System, PowerShell, Defender and Application channels.
+#
+# Only the entries we could source are here. Event IDs from these channels that
+# appear in the corpus but have no authoritative public reference are listed in
+# docs/kb-coverage.md and stay UNKNOWN rather than being filled in from memory
+# (every entry needs a source URL).
+
+- channel: Microsoft-Windows-Bits-Client/Operational
+  event_id: 59
+  # Added on user decision (2026-09-15). No public page maps this ID to its meaning,
+  # so the mapping was verified against the provider's own event manifest on the
+  # build machine: `(Get-WinEvent -ListProvider Microsoft-Windows-Bits-Client).Events`
+  # gives event 59 the template "BITS started the %2 transfer job that is associated
+  # with the %4 URL" (localised). Field names below were read from the 165 events in
+  # the corpus. The URLs cite what BITS jobs are and why ATT&CK watches this channel.
+  title: "BITS transfer job started"
+  summary: >-
+    The Background Intelligent Transfer Service started a transfer job. The record names the job, the
+    URL it transfers from or to, and the file size. BITS is used constantly by Windows and application
+    updaters, but it is also a quiet way to download a payload or keep a download alive across reboots,
+    because the transfer runs inside a trusted service rather than in the process that asked for it.
+    Read the URL and the job name: an unfamiliar host, a raw IP address, or an executable or script
+    being fetched into a user or temporary directory deserves follow-up.
+  key_fields: [name, url, fileLength, bytesTotal, peer, transferId]
+  sources:
+    - "https://learn.microsoft.com/en-us/windows/win32/bits/background-intelligent-transfer-service-portal"
+    - "https://attack.mitre.org/techniques/T1197/"
+
+- channel: System
+  event_id: 7045
+  title: "A service was installed in the system"
+  summary: >-
+    The Service Control Manager registered a new service. The record names the service, the binary the
+    service will run, the start type and the account it runs as. Remote execution tools and persistence
+    both install services, so a service whose image path points at a temporary directory, a script
+    interpreter, or an encoded command deserves a closer look.
+  key_fields: [ServiceName, ImagePath, ServiceType, StartType, AccountName]
+  sources:
+    - "https://learn.microsoft.com/en-us/defender-for-identity/deploy/event-collection-overview"
+
+- channel: Microsoft-Windows-PowerShell/Operational
+  event_id: 4104
+  title: "PowerShell script block logged"
+  summary: >-
+    PowerShell recorded the contents of a script block as it was compiled, which captures the code even
+    when it arrived over the network or was decoded at runtime. Long base64 strings, calls that download
+    and run content in memory, and obfuscation are all visible here. Large scripts are split across
+    several records that share a message number and total.
+  key_fields: [ScriptBlockText, Path, ScriptBlockId, MessageNumber, MessageTotal]
+  sources:
+    - "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logging_windows"
+
+- channel: Microsoft-Windows-Windows Defender/Operational
+  event_id: 1116
+  title: "Microsoft Defender Antivirus detected malware"
+  summary: >-
+    Defender detected malware or other unwanted software. The record names the threat, the severity, the
+    path or process it was found in and the account involved. A detection tells you what Defender saw,
+    not that the activity stopped; the matching remediation record says what was actually done about it.
+  key_fields: [Threat Name, Severity, Category, Path, Process Name, Action, Detection User]
+  sources:
+    - "https://learn.microsoft.com/en-us/defender-endpoint/troubleshoot-microsoft-defender-antivirus"
+
+- channel: Application
+  event_id: 18456
+  title: "SQL Server login failed"
+  summary: >-
+    A SQL Server login attempt was rejected. The message carries a state value that distinguishes the
+    reason, such as an unknown user name from a wrong password, and the client address. Repeated failures
+    against one instance are the database equivalent of password guessing.
+  key_fields: [param1, param2, param3]
+  sources:
+    - "https://learn.microsoft.com/en-us/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error"

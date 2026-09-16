@@ -1,0 +1,29 @@
+# DRAFT (Faz 7, 2026-09-15): written by the tool's author from the Hayabusa output of this sample.
+# Not verified by an analyst. Same party wrote the tool, see docs/eval-dataset.md section 3
+# and the open debts listed in README.
+#
+# Two members are added to Administrators: SIDs ending in RID 501 (Guest) and S-1-5-20 (Network Service).
+sample: Persistence/Network_Service_Guest_added_to_admins_4732.evtx
+csv: network_service_guest_added_to_admins_4732.csv
+tactic: persistence
+expect_detections: true
+key_events_same_group: true
+key_events:
+- channel: Security
+  event_id: 4732
+  fields_contain:
+    MemberSid: '-501'
+- channel: Security
+  event_id: 4732
+  fields_contain:
+    MemberSid: S-1-5-20
+must_mention_any:
+- administrators
+- group
+- guest
+- network service
+- added
+must_not_mention: []
+acceptable_assessments:
+- likely_malicious
+- suspicious

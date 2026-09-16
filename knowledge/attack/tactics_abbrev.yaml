@@ -1,0 +1,69 @@
+# Hayabusa MitreTactics abbreviations to MITRE ATT&CK Enterprise tactics.
+#
+# The MitreTactics column is always abbreviated: -b does not expand it
+# (ADR-0002 section 6). Every abbreviation observed across the whole sample set
+# is listed here; an abbreviation that is not listed stays UNKNOWN.
+#
+# Pinned to ATT&CK Enterprise v19.2 (checked against attack.mitre.org on
+# 2026-09-14). Note that v19 renamed TA0005 from "Defense Evasion" to "Stealth"
+# and added TA0112 "Defense Impairment"; Hayabusa emits the current names.
+#
+# ATT&CK attribution: (c) The MITRE Corporation. This project reproduces tactic
+# identifiers and names from MITRE ATT&CK. ATT&CK is a registered trademark of
+# The MITRE Corporation. https://attack.mitre.org/
+
+attack_version: "19.2"
+source: "https://attack.mitre.org/tactics/enterprise/"
+retrieved: "2026-09-14"
+
+tactics:
+  - abbreviation: Recon
+    name: Reconnaissance
+    attack_id: TA0043
+  - abbreviation: ResDev
+    name: Resource Development
+    attack_id: TA0042
+  - abbreviation: InitAccess
+    name: Initial Access
+    attack_id: TA0001
+  - abbreviation: Exec
+    name: Execution
+    attack_id: TA0002
+  - abbreviation: Persis
+    name: Persistence
+    attack_id: TA0003
+  - abbreviation: PrivEsc
+    name: Privilege Escalation
+    attack_id: TA0004
+  - abbreviation: Stealth
+    name: Stealth
+    attack_id: TA0005
+    note: >-
+      Renamed from "Defense Evasion" in ATT&CK v19. Hayabusa maps both the
+      attack.stealth and the older attack.defense-evasion rule tags here, so the
+      two Sigma spellings collapse to one tactic rather than becoming ambiguous.
+  - abbreviation: DefImpair
+    name: Defense Impairment
+    attack_id: TA0112
+    note: Added in ATT&CK v19.
+  - abbreviation: CredAccess
+    name: Credential Access
+    attack_id: TA0006
+  - abbreviation: Disc
+    name: Discovery
+    attack_id: TA0007
+  - abbreviation: LatMov
+    name: Lateral Movement
+    attack_id: TA0008
+  - abbreviation: Collect
+    name: Collection
+    attack_id: TA0009
+  - abbreviation: C2
+    name: Command and Control
+    attack_id: TA0011
+  - abbreviation: Exfil
+    name: Exfiltration
+    attack_id: TA0010
+  - abbreviation: Impact
+    name: Impact
+    attack_id: TA0040

@@ -1,0 +1,220 @@
+# Event dictionary - Sysmon operational channel.
+#
+# Covers every Sysmon event ID that appears in the EVTX-ATTACK-SAMPLES corpus.
+# Summaries are written in our own words from the Sysmon reference page listed
+# under `sources`; no vendor text is copied verbatim. Anchors were taken from the
+# live page on 2026-09-14. Channel names are the non-abbreviated Hayabusa values
+# (ADR-0002 section 5).
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 1
+  title: "Process creation"
+  summary: >-
+    A new process started. The record carries the full command line, the image path, the parent image
+    and its command line, the integrity level and the account the process ran as, which together show
+    how the process was launched and by whom. Hashes identify the binary across hosts.
+  principal_user:
+    user_field: User
+  key_fields: [Image, CommandLine, ParentImage, ParentCommandLine, User, IntegrityLevel, CurrentDirectory, Hashes, ProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-1-process-creation"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 2
+  title: "Process changed a file creation time"
+  summary: >-
+    A process set a file's creation timestamp explicitly. Legitimate installers do this, but so does
+    timestomping, where an attacker backdates a dropped file to blend in with system files. Compare the
+    previous and new creation times and look at which process made the change.
+  key_fields: [Image, TargetFilename, CreationUtcTime, PreviousCreationUtcTime, ProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-2-a-process-changed-a-file-creation-time"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 3
+  title: "Network connection"
+  summary: >-
+    A process made or accepted a TCP or UDP connection. The record names the process, both endpoints and
+    whether the connection was initiated locally. Useful for tying an outbound destination to the exact
+    binary that contacted it.
+  principal_user:
+    user_field: User
+  key_fields: [Image, User, Protocol, Initiated, SourceIp, SourcePort, DestinationIp, DestinationPort, DestinationHostname]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-3-network-connection"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 4
+  title: "Sysmon service state changed"
+  summary: >-
+    The Sysmon service itself started or stopped. A stop that was not part of planned maintenance matters
+    on its own, because it marks the point where visibility on the host ends.
+  key_fields: [State, Version, SchemaVersion]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-4-sysmon-service-state-changed"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 5
+  title: "Process terminated"
+  summary: >-
+    A process ended. On its own this is routine; it is useful for bounding how long a suspicious process
+    ran, by pairing it with the matching process creation record through ProcessGuid.
+  key_fields: [Image, ProcessId, ProcessGuid]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-5-process-terminated"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 6
+  title: "Driver loaded"
+  summary: >-
+    A kernel driver was loaded. Check the signature status and the path: unsigned drivers, or signed
+    drivers loaded from a user-writable directory, are a common route to kernel-level persistence and to
+    disabling security products.
+  key_fields: [ImageLoaded, Hashes, Signed, Signature, SignatureStatus]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-6-driver-loaded"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 7
+  title: "Image loaded"
+  summary: >-
+    A process loaded a DLL or other module. Volume is high, so this is mostly read as supporting evidence:
+    a module loaded from a temporary or user directory, or an unsigned module inside a signed process,
+    points at sideloading or injection.
+  key_fields: [Image, ImageLoaded, Signed, Signature, SignatureStatus, Hashes]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-7-image-loaded"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 8
+  title: "Thread created in another process"
+  summary: >-
+    A process created a thread inside a different process. This is the classic shape of code injection.
+    The source image, the target image and the start address or start function are the fields to read;
+    debuggers and some security products also do this legitimately.
+  key_fields: [SourceImage, TargetImage, StartAddress, StartFunction, StartModule, SourceProcessId, TargetProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-8-createremotethread"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 10
+  title: "Process accessed another process"
+  summary: >-
+    One process opened a handle to another. GrantedAccess shows the requested rights. Access to lsass.exe
+    with rights that allow reading memory is a common credential theft pattern, so the source image and
+    the granted access mask are read first.
+  # CallTrace is deliberately NOT a key field (user decision, 2026-09-15). It is the
+  # longest value in the record, differs on nearly every event, and says almost
+  # nothing a triage analyst acts on, so it alone blocked folding of otherwise
+  # identical LSASS access events and consumed about a third of the evidence
+  # budget. It is still parsed and kept in the report's per-event `fields`.
+  key_fields: [SourceImage, TargetImage, GrantedAccess, SourceProcessId, TargetProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-10-processaccess"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 11
+  title: "File created"
+  summary: >-
+    A process created or overwrote a file. TargetFilename is the path that was written and Image is the
+    process that wrote it. Memory dump extensions written by an unexpected process, executables dropped
+    into temporary directories, or files written into startup locations are worth following up.
+  key_fields: [Image, TargetFilename, CreationUtcTime, ProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-11-filecreate"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 12
+  title: "Registry key created or deleted"
+  summary: >-
+    A registry key was added or removed. Read it together with the target object path: run keys, service
+    keys and COM hijacking locations are the ones that carry persistence.
+  key_fields: [Image, EventType, TargetObject, ProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-12-registryevent-object-create-and-delete"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 13
+  title: "Registry value set"
+  summary: >-
+    A registry value was written. Unlike event 12 this record includes the value itself, so a run key
+    pointing at a script interpreter, or a service image path pointing at a user directory, is visible
+    directly in the event.
+  key_fields: [Image, EventType, TargetObject, Details, ProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-13-registryevent-value-set"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 15
+  title: "File stream created"
+  summary: >-
+    A file was created with an alternate data stream, and Sysmon hashed its contents. The Zone.Identifier
+    stream marks a file as downloaded from the internet; other named streams are sometimes used to hide
+    payloads inside an otherwise ordinary file.
+  key_fields: [Image, TargetFilename, Hashes, Contents]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-15-filecreatestreamhash"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 16
+  title: "Sysmon configuration changed"
+  summary: >-
+    Sysmon's own configuration was changed. Like a service stop, this is significant on its own: it can
+    narrow what the host records from this point on.
+  key_fields: [Configuration, ConfigurationFileHash, UtcTime]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-16-serviceconfigurationchange"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 17
+  title: "Named pipe created"
+  summary: >-
+    A process created a named pipe. Remote execution and post-exploitation frameworks often use a named
+    pipe for their command channel or for token theft, so an unusual pipe name created by an unexpected
+    process is a useful lead.
+  key_fields: [Image, PipeName, EventType, ProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-17-pipeevent-pipe-created"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 18
+  title: "Named pipe connected"
+  summary: >-
+    A process connected to an existing named pipe. Pairing the connecting image with the pipe name shows
+    which process is talking to which service, and exposes the client side of a remote execution channel.
+  key_fields: [Image, PipeName, EventType, ProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-18-pipeevent-pipe-connected"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 19
+  title: "WMI event filter registered"
+  summary: >-
+    A WMI event filter was created. A filter is the trigger half of a WMI subscription, a persistence
+    technique that survives reboots and leaves nothing on disk in the usual startup locations. Read it
+    with the matching consumer and binding events.
+  key_fields: [Operation, EventNamespace, Name, Query, User]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-19-wmievent-wmieventfilter-activity-detected"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 20
+  title: "WMI event consumer registered"
+  summary: >-
+    A WMI event consumer was created. The consumer is the action half of a WMI subscription; the
+    Destination field holds the command line or script that will run when the filter fires.
+  key_fields: [Operation, Name, Type, Destination, User]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-20-wmievent-wmieventconsumer-activity-detected"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 21
+  title: "WMI consumer bound to a filter"
+  summary: >-
+    A WMI consumer was bound to a filter, which is the step that arms the subscription. Seeing events 19,
+    20 and 21 close together on one host is the complete WMI persistence pattern.
+  key_fields: [Operation, Consumer, Filter, User]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-21-wmievent-wmieventconsumertofilter-activity-detected"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 22
+  title: "DNS query"
+  summary: >-
+    A process resolved a name. The record ties the query and its answers to the process that asked, which
+    is what separates a browser lookup from a lookup made by a script interpreter or an unsigned binary.
+  key_fields: [Image, QueryName, QueryStatus, QueryResults, ProcessId]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-22-dnsevent-dns-query"]
+
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 23
+  title: "File deleted and archived"
+  summary: >-
+    A file was deleted, and Sysmon kept a copy in its archive directory. Deletion of a payload right after
+    it ran is a routine cleanup step, so these records often mark the end of an intrusion sequence and
+    point at what to recover.
+  principal_user:
+    user_field: User
+  key_fields: [Image, TargetFilename, User, Hashes, IsExecutable, Archived]
+  sources: ["https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#event-id-23-filedelete-file-delete-archived"]

@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "evtx-triage"
+version = "0.1.0"
+description = "Local-only triage summaries for Hayabusa CSV timelines"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.7",
+    "pydantic>=2.7",
+    "pyyaml>=6.0",
+    # 3.x: llm/client.py uses DefaultHttpx2Client to switch off proxy discovery and SDK retries.
+    "openai>=3.13,<4",
+    # Exact cosine over the guidance index (ADR-0001 section 4.5). No network, no telemetry.
+    "numpy>=1.26",
+    # Unicode classes (\p{L}, \p{N}) in the tokenizer's pre-tokenizer regex, for exact
+    # prompt token counts (tokens.py). Apache-2.0 AND CNRI-Python, no dependencies,
+    # no network or telemetry. Chosen over `tokenizers`, which pulls in huggingface-hub.
+    "regex>=2024.1",
+]
+
+[project.optional-dependencies]
+# Optional viewer for reports the CLI already wrote. Kept out of the core install on
+# purpose: streamlit pulls pandas, pyarrow and a web server, and the core deliberately
+# has none of those. Streamlit's usage statistics are switched off in .streamlit/config.toml
+# and the server binds to 127.0.0.1; measured with the connection sampler (README).
+ui = ["streamlit>=1.37,<2"]
+dev = [
+    "pytest>=8.0",
+    "pytest-socket>=0.7",
+    "ruff>=0.5",
+    "mypy>=1.10",
+    "types-PyYAML",
+    "types-regex",
+]
+
+[project.scripts]
+evtx-triage = "evtx_triage.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/evtx_triage"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+# Guidance note prose lives in long string literals; wrapping it would hurt review.
+"scripts/build_guidance_notes.py" = ["E501"]
+"eval/verification_views.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+files = ["src"]
+strict = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["openai.*", "yaml.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

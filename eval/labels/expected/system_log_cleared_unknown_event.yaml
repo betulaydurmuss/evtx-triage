@@ -1,0 +1,15 @@
+# System 104 is deliberately NOT in the dictionary (docs/kb-coverage.md).
+# This label exists to prove the tool still reports the event, and that the model
+# is not tempted to invent a description for an UNKNOWN event id.
+sample: "Defense Evasion/DE_104_system_log_cleared.evtx"
+csv: "de_104_system_log_cleared.csv"
+tactic: defense-evasion
+expect_detections: true
+key_events:
+  - channel: System
+    event_id: 104
+    rule_title_contains: "Log File Cleared"
+key_events_same_group: true
+must_mention_any: ["log", "clear"]
+must_not_mention: []
+acceptable_assessments: [suspicious, likely_malicious, insufficient_evidence]

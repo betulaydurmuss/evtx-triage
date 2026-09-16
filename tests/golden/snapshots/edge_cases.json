@@ -1,0 +1,289 @@
+{
+  "coverage": {
+    "dictionary_entries": 55,
+    "unknown_pairs": [],
+    "unknown_tactic_abbreviations": [
+      "Teleport"
+    ],
+    "unknown_technique_ids": [
+      "T9999"
+    ]
+  },
+  "groups": [
+    {
+      "end": "2024-02-01T09:01:00Z",
+      "event_count": 5,
+      "events": [
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "EDGE.example.local",
+          "dictionary_title": "Process creation",
+          "event_id": 1,
+          "evtx_file": "C:\\samples\\edge.evtx",
+          "fields": {
+            "CommandLine": "powershell -c \"Write-Host a,b\"",
+            "Image": "C:\\Windows\\ps.exe",
+            "User": "EXAMPLE\\eve"
+          },
+          "host": "edge",
+          "known_event": true,
+          "level": "medium",
+          "mitre_tactics": [
+            "Exec"
+          ],
+          "mitre_tags": [
+            "T1059.001"
+          ],
+          "other_tags": [
+            "sysmon"
+          ],
+          "principal_user": "example\\eve",
+          "record_id": 1,
+          "row_id": "R000001",
+          "rule_id": "rule-edge",
+          "rule_title": "Rule, with comma",
+          "tactics_resolved": [
+            "Execution"
+          ],
+          "techniques_resolved": [
+            "PowerShell"
+          ],
+          "timestamp": "2024-02-01T09:00:00Z"
+        },
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "EDGE.example.local",
+          "dictionary_title": "File created",
+          "event_id": 11,
+          "evtx_file": "C:\\samples\\edge.evtx",
+          "fields": {},
+          "host": "edge",
+          "known_event": true,
+          "level": "low",
+          "mitre_tactics": [],
+          "mitre_tags": [],
+          "other_tags": [],
+          "principal_user": null,
+          "record_id": null,
+          "row_id": "R000002",
+          "rule_id": "rule-edge",
+          "rule_title": "No fields",
+          "tactics_resolved": [],
+          "techniques_resolved": [],
+          "timestamp": "2024-02-01T09:00:10Z"
+        },
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "EDGE.example.local",
+          "dictionary_title": "Process creation",
+          "event_id": 1,
+          "evtx_file": "C:\\samples\\edge.evtx",
+          "fields": {
+            "Hashes": [
+              "SHA256=AABB",
+              "MD5=CCDD"
+            ],
+            "Image": "C:\\tools\\x.exe",
+            "User": "EXAMPLE\\eve"
+          },
+          "host": "edge",
+          "known_event": true,
+          "level": "high",
+          "mitre_tactics": [
+            "Exec",
+            "Stealth"
+          ],
+          "mitre_tags": [
+            "T1059.001",
+            "T1027"
+          ],
+          "other_tags": [
+            "sysmon"
+          ],
+          "principal_user": "example\\eve",
+          "record_id": 3,
+          "row_id": "R000003",
+          "rule_id": "rule-edge",
+          "rule_title": "Repeated keys",
+          "tactics_resolved": [
+            "Execution",
+            "Stealth"
+          ],
+          "techniques_resolved": [
+            "PowerShell",
+            "Obfuscated Files or Information"
+          ],
+          "timestamp": "2024-02-01T09:00:20Z"
+        },
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "EDGE.example.local",
+          "dictionary_title": "Process creation",
+          "event_id": 1,
+          "evtx_file": "C:\\samples\\edge.evtx",
+          "fields": {
+            "CommandLine": "echo a",
+            "Image": "C:\\Windows\\cmd.exe"
+          },
+          "host": "edge",
+          "known_event": true,
+          "level": "medium",
+          "mitre_tactics": [],
+          "mitre_tags": [],
+          "other_tags": [],
+          "principal_user": null,
+          "record_id": 4,
+          "row_id": "R000004",
+          "rule_id": "rule-edge",
+          "rule_title": "Separator in value",
+          "tactics_resolved": [],
+          "techniques_resolved": [],
+          "timestamp": "2024-02-01T09:00:30Z"
+        },
+        {
+          "channel": "Microsoft-Windows-Sysmon/Operational",
+          "computer": "EDGE.example.local",
+          "dictionary_title": "Process accessed another process",
+          "event_id": 10,
+          "evtx_file": "C:\\samples\\edge.evtx",
+          "fields": {
+            "GrantedAccess": "0x1410",
+            "SourceImage": "C:\\tools\\x.exe",
+            "TargetImage": "C:\\Windows\\system32\\lsass.exe"
+          },
+          "host": "edge",
+          "known_event": true,
+          "level": "medium",
+          "mitre_tactics": [
+            "Teleport"
+          ],
+          "mitre_tags": [
+            "T9999"
+          ],
+          "other_tags": [
+            "sysmon"
+          ],
+          "principal_user": null,
+          "record_id": 7,
+          "row_id": "R000007",
+          "rule_id": "rule-edge",
+          "rule_title": "Odd tactic",
+          "tactics_resolved": [],
+          "techniques_resolved": [],
+          "timestamp": "2024-02-01T09:01:00Z"
+        }
+      ],
+      "evidence": {
+        "cited_row_ids": [
+          "R000001",
+          "R000002",
+          "R000003",
+          "R000004",
+          "R000007"
+        ],
+        "dropped_row_ids": [],
+        "entries": [
+          {
+            "count": 1,
+            "first": "2024-02-01T09:00:00Z",
+            "last": "2024-02-01T09:00:00Z",
+            "level": "medium",
+            "line": "[R000001] 2024-02-01T09:00:00Z | medium | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Rule, with comma | Image=C:\\Windows\\ps.exe, CommandLine=powershell -c \"Write-Host a,b\", User=EXAMPLE\\eve",
+            "row_ids": [
+              "R000001"
+            ]
+          },
+          {
+            "count": 1,
+            "first": "2024-02-01T09:00:10Z",
+            "last": "2024-02-01T09:00:10Z",
+            "level": "low",
+            "line": "[R000002] 2024-02-01T09:00:10Z | low | Microsoft-Windows-Sysmon/Operational EID 11 \"File created\" | rule: No fields",
+            "row_ids": [
+              "R000002"
+            ]
+          },
+          {
+            "count": 1,
+            "first": "2024-02-01T09:00:20Z",
+            "last": "2024-02-01T09:00:20Z",
+            "level": "high",
+            "line": "[R000003] 2024-02-01T09:00:20Z | high | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Repeated keys | Image=C:\\tools\\x.exe, User=EXAMPLE\\eve, Hashes=SHA256=AABB | MD5=CCDD",
+            "row_ids": [
+              "R000003"
+            ]
+          },
+          {
+            "count": 1,
+            "first": "2024-02-01T09:00:30Z",
+            "last": "2024-02-01T09:00:30Z",
+            "level": "medium",
+            "line": "[R000004] 2024-02-01T09:00:30Z | medium | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Separator in value | Image=C:\\Windows\\cmd.exe, CommandLine=echo a",
+            "row_ids": [
+              "R000004"
+            ]
+          },
+          {
+            "count": 1,
+            "first": "2024-02-01T09:01:00Z",
+            "last": "2024-02-01T09:01:00Z",
+            "level": "medium",
+            "line": "[R000007] 2024-02-01T09:01:00Z | medium | Microsoft-Windows-Sysmon/Operational EID 10 \"Process accessed another process\" | rule: Odd tactic | SourceImage=C:\\tools\\x.exe, TargetImage=C:\\Windows\\system32\\lsass.exe, GrantedAccess=0x1410",
+            "row_ids": [
+              "R000007"
+            ]
+          }
+        ],
+        "folded_lines": 0,
+        "included_row_ids": [
+          "R000001",
+          "R000002",
+          "R000003",
+          "R000004",
+          "R000007"
+        ],
+        "lines": [
+          "[R000001] 2024-02-01T09:00:00Z | medium | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Rule, with comma | Image=C:\\Windows\\ps.exe, CommandLine=powershell -c \"Write-Host a,b\", User=EXAMPLE\\eve",
+          "[R000002] 2024-02-01T09:00:10Z | low | Microsoft-Windows-Sysmon/Operational EID 11 \"File created\" | rule: No fields",
+          "[R000003] 2024-02-01T09:00:20Z | high | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Repeated keys | Image=C:\\tools\\x.exe, User=EXAMPLE\\eve, Hashes=SHA256=AABB | MD5=CCDD",
+          "[R000004] 2024-02-01T09:00:30Z | medium | Microsoft-Windows-Sysmon/Operational EID 1 \"Process creation\" | rule: Separator in value | Image=C:\\Windows\\cmd.exe, CommandLine=echo a",
+          "[R000007] 2024-02-01T09:01:00Z | medium | Microsoft-Windows-Sysmon/Operational EID 10 \"Process accessed another process\" | rule: Odd tactic | SourceImage=C:\\tools\\x.exe, TargetImage=C:\\Windows\\system32\\lsass.exe, GrantedAccess=0x1410"
+        ],
+        "neutralized_control_tokens": 0,
+        "note": null,
+        "prompt_tokens": null
+      },
+      "group_id": "G0001",
+      "host": "edge",
+      "max_level": "high",
+      "principal_user": "example\\eve",
+      "selected_for_model": true,
+      "start": "2024-02-01T09:00:00Z"
+    }
+  ],
+  "ingest_errors": [
+    {
+      "detail": "field chunk without a key separator: 'b'",
+      "line_number": 5,
+      "reason": "all_field_info",
+      "row_id": "R000004"
+    },
+    {
+      "detail": "unknown level 'screaming'",
+      "line_number": 6,
+      "reason": "level",
+      "row_id": "R000005"
+    },
+    {
+      "detail": "non-numeric EventID 'EID1'",
+      "line_number": 7,
+      "reason": "event_id",
+      "row_id": "R000006"
+    }
+  ],
+  "input": {
+    "data_rows": 7,
+    "parsed_events": 5,
+    "sha256": "3384c8c1979e6f19b690d0f112bf3b00ccfc83fde84c0a26b61e91105519c3e3"
+  }
+}

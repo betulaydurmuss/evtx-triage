@@ -1,0 +1,16 @@
+# UACMe/Akagi user account control bypass.
+sample: "Privilege Escalation/Sysmon_UACME_64.evtx"
+csv: "sysmon_uacme_64.csv"
+tactic: privilege-escalation
+expect_detections: true
+key_events:
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 1
+    rule_title_contains: "UACMe"
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 11
+    rule_title_contains: "UAC Bypass"
+key_events_same_group: true
+must_mention_any: ["uac", "bypass", "elevat", "privilege"]
+must_not_mention: []
+acceptable_assessments: [likely_malicious, suspicious]

@@ -1,0 +1,19 @@
+# RoguePotato / EfsPotato named pipe privilege escalation.
+sample: "Privilege Escalation/privesc_roguepotato_sysmon_17_18.evtx"
+csv: "privesc_roguepotato_sysmon_17_18.csv"
+tactic: privilege-escalation
+expect_detections: true
+key_events:
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 17
+    rule_title_contains: "EfsPotato"
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 18
+    rule_title_contains: "EfsPotato"
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 1
+    rule_title_contains: "Hacktool"
+key_events_same_group: true
+must_mention_any: ["pipe", "privilege", "escalat", "system", "token"]
+must_not_mention: []
+acceptable_assessments: [likely_malicious, suspicious]

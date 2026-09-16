@@ -1,0 +1,31 @@
+# DRAFT (Faz 7, 2026-09-15): written by the tool's author from the Hayabusa output of this sample.
+# Not verified by an analyst. Same party wrote the tool, see docs/eval-dataset.md section 3
+# and the open debts listed in README.
+#
+# A VBScript run through cscript makes WMI start rundll32 comsvcs.dll MiniDump against PID 4868. The access event shows that PID is notepad.exe, not LSASS: a story that the dump hit LSASS is not supported by this evidence.
+sample: Credential Access/sysmon_10_1_memdump_comsvcs_minidump.evtx
+csv: sysmon_10_1_memdump_comsvcs_minidump.csv
+tactic: credential-access
+expect_detections: true
+key_events_same_group: true
+key_events:
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 1
+  rule_title_contains: Process Memory Dump Via Comsvcs
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 1
+  fields_contain:
+    CommandLine: memdump.vbs
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 10
+  fields_contain:
+    SourceImage: rundll32.exe
+must_mention_any:
+- comsvcs
+- minidump
+- dump
+- memory
+must_not_mention: []
+acceptable_assessments:
+- likely_malicious
+- suspicious

@@ -1,0 +1,102 @@
+# evtx-triage configuration.
+#
+# Every tunable value of the tool lives here. The schema has NO defaults:
+# a missing key is a hard error (no hidden defaults). Relative paths are
+# resolved against the directory that holds this file.
+
+[knowledge]
+eventids_dir = "../knowledge/eventids"
+guidance_dir = "../knowledge/guidance"
+attack_dir = "../knowledge/attack"
+
+[ingest]
+# Accept timestamps without a UTC offset instead of failing. Hayabusa with
+# -U -O always writes a Z suffix, so this stays false (ADR-0002 section 7).
+assume_utc = false
+
+[grouping]
+gap_minutes = 10       # a larger silence between two events starts a new group
+max_span_minutes = 120 # longest period a single group may cover
+
+[selection]
+model_min_level = "medium" # groups reaching this level or above go to the model
+# Upper bound on model requests per run, so an unbounded input cannot turn into a
+# multi-day run: a synthetic 100,000 row timeline produced 15,362 groups above the
+# threshold, about 64 hours of model time on this hardware (Faz 8 large input test).
+# The most severe groups are kept, earliest first; the report lists what was left out.
+# 0 disables the cap.
+max_groups_to_model = 200
+
+[pack]
+# "tokenizer": exact counts from the chat model's own tokenizer.json (llm.tokenizer_file).
+# Matched the API's prompt_tokens on 12 of 12 real prompts (ADR-0001 section 5).
+# "estimate": characters / chars_per_token, for machines without the tokenizer file.
+token_counter = "tokenizer"
+# Only used by the estimate. It must stay an UPPER bound on the real count, or
+# max_input_tokens is silently exceeded. Measured on 12 real prompts (2026-09-15):
+# characters per token ranged 2.14 (Security events, dense SIDs and GUIDs) to 3.29,
+# median 2.42; 1.9 is the minimum minus 10 percent. Being an upper bound, it
+# over-counts a typical prompt by about 45% and wastes evidence budget.
+chars_per_token = 1.9
+max_field_value_chars = 200 # long values (CallTrace, hashes) are truncated
+
+[llm]
+endpoint = "http://127.0.0.1:5273/v1" # loopback addresses only; anything else is rejected
+# The REST endpoint rejects catalog aliases, this must be a Model ID (ADR-0001 section 2).
+model_id = "qwen2.5-7b-instruct-cuda-gpu"
+# Released prompts are pinned by hash in src/evtx_triage/llm/prompts/versions.json;
+# changing a prompt means adding a new version; released prompts are immutable.
+# triage_v3 (injection hardening) was measured and not adopted: on 20 poisoned samples it
+# flipped the assessment exactly as often as v2 (14/20 and 18/20) for 250 more tokens per
+# request (ADR-0001 section 9c.3).
+prompt_version = "triage_v2"
+# Ships with the model in the Foundry Local cache; `doctor` checks it sits next to model_id.
+tokenizer_file = "~/.foundry/cache/models/Microsoft/qwen2.5-7b-instruct-cuda-gpu-4/v4/tokenizer.json"
+chat_template_overhead_tokens = 13  # tokens the chat template adds per request, measured (ADR-0001 section 5)
+context_tokens = 5120     # total budget, measured ceiling is 5505 (ADR-0001 section 5)
+max_input_tokens = 4096   # hard limit for every request, retries included
+retry_feedback_tokens = 256 # kept free for the rejection reasons a retry adds to the prompt
+max_output_tokens = 1024
+temperature = 0.0
+seed = 1234
+max_retries = 1           # validation retries; GPU OOM is never retried (ADR-0001 section 6)
+timeout_seconds = 900
+
+[retrieval]
+# Guidance retrieval. The embedding model runs on the CPU so it can
+# stay loaded next to the chat model without using GPU memory (ADR-0001 section 7).
+embedding_model_id = "qwen3-embedding-0.6b-generic-cpu"
+embedding_dim = 1024
+normalized = true          # the model returns unit vectors; kb build fails if that changes
+embedding_batch_size = 8   # notes are embedded in fixed batches, in id order
+index_path = "../data/index/guidance.sqlite"   # git-ignored; rebuild with `kb build`
+# Prepended to the query only, never to the notes (asymmetric retrieval).
+query_instruction = "Instruct: Given Windows security detections from one host, retrieve the investigation guidance that helps an analyst triage them\nQuery: "
+top_k = 3
+min_score = 0.0
+prompt_note_chars = 400    # how much of each retrieved note the prompt shows
+
+[runtime]
+# User decision (2026-09-15, ADR-0001 section 9b): only `foundry model load` is automated,
+# for a model already in the cache while the server is running; a load opens no
+# connection off the machine (ADR-0001 section 9). Starting or restarting the server
+# stays with the user, because `server start` contacts Azure.
+auto_load_models = true
+foundry_cli = "foundry"
+model_load_timeout_seconds = 900
+# An unloaded model's GPU memory is not returned (ADR-0001 section 7): loading the chat
+# model on top of it runs out of memory. Above this, ask for a server restart instead.
+# A fresh server measured 0 MiB; the leftover after an unload was 1773 MiB once and 137 MiB another time.
+max_gpu_used_before_chat_load_mib = 512
+# Before the first group, send one request of exactly llm.max_input_tokens (about 10 s).
+# Without it, 7 of 27 groups of 3,764+ tokens hit a GPU out-of-memory error on a fresh
+# server that had served small requests first; after one full-budget request, 7 of 7
+# passed (ADR-0001 section 6). A failing warm-up stops the run before any group is sent.
+warm_up_at_full_budget = true
+
+[assessment_check]
+# A log value can talk the model into a benign verdict (measured, ADR-0001 section 9c.3).
+# Accepted interpretations whose assessment is one of these, in a group whose detections
+# reach min_level, get a warning next to the assessment. The answer is not rejected.
+min_level = "high"
+assessments = ["likely_benign", "insufficient_evidence"]

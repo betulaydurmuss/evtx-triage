@@ -1,0 +1,48 @@
+# Directory reconnaissance against privileged groups, by two different accounts.
+#
+# Label decision (reviewed by the user, 2026-09-15): this sample contains TWO
+# stories, not one. example\administrator enumerates the password policy and the
+# privileged groups and later clears the Security log; example\user01 arrives with
+# a network logon and a share access and runs its own reconnaissance queries.
+#
+# The first draft of this label expected all key events in one group, and the
+# grouping "failed" it. That expectation was wrong: merging two accounts' activity
+# into one group would tell the analyst a single-actor story that the evidence
+# does not support. The label now asserts that each account's activity stays
+# together AND that the two accounts stay apart.
+#
+# Known, deliberately not asserted: one EID 4776 event names the account as a
+# bare "administrator" with no domain, so it lands in its own one-event group
+# instead of example\administrator's. Merging bare and domain-qualified names
+# would be a guess about identity, which the grouping rules forbid.
+sample: "Discovery/dicovery_4661_net_group_domain_admins_target.evtx"
+csv: "dicovery_4661_net_group_domain_admins_target.csv"
+tactic: discovery
+expect_detections: true
+key_events_same_group: false
+expected_groups:
+  - name: administrator
+    key_events:
+      - channel: Security
+        event_id: 4661
+        principal_user: "example\\administrator"
+        rule_title_contains: "AD Privileged Users or Groups Reconnaissance"
+      - channel: Security
+        event_id: 4661
+        principal_user: "example\\administrator"
+        rule_title_contains: "Password Policy Enumerated"
+      - channel: Security
+        event_id: 1102
+        rule_title_contains: "Log Cleared"
+  - name: user01
+    key_events:
+      - channel: Security
+        event_id: 4661
+        principal_user: "example\\user01"
+        rule_title_contains: "Reconnaissance"
+      - channel: Security
+        event_id: 4624
+        principal_user: "example\\user01"
+must_mention_any: ["group", "account", "enumerat", "reconnaissance", "discovery", "log"]
+must_not_mention: []
+acceptable_assessments: [suspicious, likely_malicious, insufficient_evidence]

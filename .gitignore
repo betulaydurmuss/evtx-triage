@@ -1,0 +1,15 @@
+# Local data: sample EVTX files, generated CSVs, indexes, run outputs — never commit
+data/
+out/
+
+# Local assistant instructions — kept on this machine only
+CLAUDE.md
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/

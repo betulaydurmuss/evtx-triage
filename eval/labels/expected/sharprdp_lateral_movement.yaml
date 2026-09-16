@@ -1,0 +1,16 @@
+# SharpRDP: commands driven through the Run dialog over an RDP session.
+sample: "Lateral Movement/LM_sysmon_3_12_13_1_SharpRDP.evtx"
+csv: "lm_sysmon_3_12_13_1_sharprdp.csv"
+tactic: lateral-movement
+expect_detections: true
+key_events:
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 12
+    rule_title_contains: "RunMRU Registry Key Deletion"
+  - channel: "Microsoft-Windows-Sysmon/Operational"
+    event_id: 13
+    rule_title_contains: "Run Dialog Box"
+key_events_same_group: true
+must_mention_any: ["registry", "run", "remote", "rdp", "command"]
+must_not_mention: []
+acceptable_assessments: [likely_malicious, suspicious]

@@ -1,0 +1,8 @@
+Timestamp,RuleTitle,Level,Computer,Channel,EventID,MitreTactics,MitreTags,OtherTags,RecordID,AllFieldInfo,RuleFile,RuleID,EvtxFile
+2024-02-01T09:00:00.000000Z,"Rule, with comma",medium,EDGE.example.local,Microsoft-Windows-Sysmon/Operational,1,Exec,T1059.001,sysmon,1,"CommandLine: powershell -c ""Write-Host a,b"" ¦ Image: C:\Windows\ps.exe ¦ User: EXAMPLE\eve",r.yml,rule-edge,C:\samples\edge.evtx
+2024-02-01T09:00:10.000000Z,No fields,low,EDGE.example.local,Microsoft-Windows-Sysmon/Operational,11,,,,,,r.yml,rule-edge,C:\samples\edge.evtx
+2024-02-01T09:00:20.000000Z,Repeated keys,high,EDGE.example.local,Microsoft-Windows-Sysmon/Operational,1,Exec ¦ Stealth,T1059.001 ¦ T1027,sysmon,3,Hashes: SHA256=AABB ¦ Hashes: MD5=CCDD ¦ Image: C:\tools\x.exe ¦ User: EXAMPLE\eve,r.yml,rule-edge,C:\samples\edge.evtx
+2024-02-01T09:00:30.000000Z,Separator in value,medium,EDGE.example.local,Microsoft-Windows-Sysmon/Operational,1,,,,4,CommandLine: echo a ¦ b ¦ Image: C:\Windows\cmd.exe,r.yml,rule-edge,C:\samples\edge.evtx
+2024-02-01T09:00:40.000000Z,Bad level,screaming,EDGE.example.local,Microsoft-Windows-Sysmon/Operational,1,,,,5,Image: C:\x.exe,r.yml,rule-edge,C:\samples\edge.evtx
+2024-02-01T09:00:50.000000Z,Bad eid,low,EDGE.example.local,Microsoft-Windows-Sysmon/Operational,EID1,,,,6,Image: C:\x.exe,r.yml,rule-edge,C:\samples\edge.evtx
+2024-02-01T09:01:00.000000Z,Odd tactic,medium,EDGE.example.local,Microsoft-Windows-Sysmon/Operational,10,Teleport,T9999,sysmon,7,SourceImage: C:\tools\x.exe ¦ TargetImage: C:\Windows\system32\lsass.exe ¦ GrantedAccess: 0x1410,r.yml,rule-edge,C:\samples\edge.evtx

@@ -1,0 +1,26 @@
+# DRAFT (Faz 7, 2026-09-15): written by the tool's author from the Hayabusa output of this sample.
+# Not verified by an analyst. Same party wrote the tool, see docs/eval-dataset.md section 3
+# and the open debts listed in README.
+#
+# A service named WinPwnage runs cmd writing to a named pipe: the getsystem pattern.
+sample: Privilege Escalation/System_7045_namedpipe_privesc.evtx
+csv: system_7045_namedpipe_privesc.csv
+tactic: privilege-escalation
+expect_detections: true
+key_events_same_group: true
+key_events:
+- channel: System
+  event_id: 7045
+  rule_title_contains: Getsystem
+  fields_contain:
+    ServiceName: WinPwnage
+must_mention_any:
+- service
+- pipe
+- getsystem
+- system
+- winpwnage
+must_not_mention: []
+acceptable_assessments:
+- likely_malicious
+- suspicious

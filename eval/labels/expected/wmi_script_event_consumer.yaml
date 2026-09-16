@@ -1,0 +1,28 @@
+# DRAFT (Faz 7, 2026-09-15): written by the tool's author from the Hayabusa output of this sample.
+# Not verified by an analyst. Same party wrote the tool, see docs/eval-dataset.md section 3
+# and the open debts listed in README.
+#
+# A WMI script event consumer is modified and the script consumer host scrcons.exe starts.
+sample: Persistence/wmighost_sysmon_20_21_1.evtx
+csv: wmighost_sysmon_20_21_1.csv
+tactic: persistence
+expect_detections: true
+key_events_same_group: true
+key_events:
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 20
+  rule_title_contains: WMI Consumer
+- channel: Microsoft-Windows-Sysmon/Operational
+  event_id: 1
+  fields_contain:
+    Image: scrcons.exe
+must_mention_any:
+- wmi
+- consumer
+- script
+- persist
+- scrcons
+must_not_mention: []
+acceptable_assessments:
+- likely_malicious
+- suspicious

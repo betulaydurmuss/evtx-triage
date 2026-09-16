@@ -1,0 +1,28 @@
+# DRAFT (Faz 7, 2026-09-15): written by the tool's author from the Hayabusa output of this sample.
+# Not verified by an analyst. Same party wrote the tool, see docs/eval-dataset.md section 3
+# and the open debts listed in README.
+#
+# Two services are installed with cmd.exe as the image path, under spooler-like names.
+sample: Lateral Movement/LM_Remote_Service02_7045.evtx
+csv: lm_remote_service02_7045.csv
+tactic: lateral-movement
+expect_detections: true
+key_events_same_group: true
+key_events:
+- channel: System
+  event_id: 7045
+  fields_contain:
+    ServiceName: spoolfool
+- channel: System
+  event_id: 7045
+  fields_contain:
+    ServiceName: spoolsv
+must_mention_any:
+- service
+- cmd
+- spool
+- install
+must_not_mention: []
+acceptable_assessments:
+- likely_malicious
+- suspicious

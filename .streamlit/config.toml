@@ -1,0 +1,23 @@
+# Streamlit settings for the report viewer. Read when streamlit runs from the repo root.
+#
+# The project rule is that run time talks to loopback only and that no dependency phones
+# home, so the two Streamlit behaviours that would break it are switched off here.
+
+[browser]
+# Streamlit's default is true: it posts usage statistics to a third party.
+gatherUsageStats = false
+serverAddress = "127.0.0.1"
+
+[server]
+# Bind to loopback only; never expose the viewer to the network.
+address = "127.0.0.1"
+port = 8501
+headless = true
+fileWatcherType = "none"
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = true
+
+[theme]
+base = "dark"

@@ -1,0 +1,271 @@
+# Golden queries for guidance retrieval (Faz 5 exit criterion: recall@3 >= 0.8).
+#
+# Each query points at a real model-bound group. The expected notes were written by
+# reading the group's detection rule titles and events BEFORE retrieval was run
+# against it, to keep the labels from being fitted to the ranking. They were still
+# written by the same party that wrote the notes: see docs/eval-dataset.md section 3.
+#
+# Groups without a fitting note in the corpus (for example SAM hive dumping or
+# startup-folder persistence) were left out on purpose: a query with no correct
+# answer says nothing about recall.
+#
+# `rule_hint` must appear in one of the group's rule titles. If grouping changes and
+# a group id starts pointing elsewhere, the evaluation stops instead of scoring the
+# wrong group.
+
+queries:
+  # --- evaluation set and reference sample -------------------------------------
+  - id: Q01
+    csv: reference.csv
+    group: G0001
+    host: alice
+    rule_hint: "Dumpert"
+    expected: [G-001, G-002]
+    why: LSASS access by dumping tools and .dmp files written to Temp.
+  - id: Q02
+    csv: eval/dacl_dcsync_right_powerview_add_domainobjectacl.csv
+    group: G0001
+    host: dc1
+    rule_hint: "DCSync"
+    expected: [G-007, G-024]
+    why: DCSync extended right granted through PowerView, then the Security log is cleared.
+  - id: Q03
+    csv: eval/de_104_system_log_cleared.csv
+    group: G0001
+    host: pc01
+    rule_hint: "Log File Cleared"
+    expected: [G-024]
+    why: System log cleared (event 104 is UNKNOWN in the dictionary).
+  - id: Q04
+    csv: eval/de_1102_security_log_cleared.csv
+    group: G0001
+    host: pc01
+    rule_hint: "Log Cleared"
+    expected: [G-024]
+    why: Security log cleared.
+  - id: Q05
+    csv: eval/dicovery_4661_net_group_domain_admins_target.csv
+    group: G0001
+    host: win-77ltaphiq1r
+    rule_hint: "Password Policy Enumerated"
+    expected: [G-030, G-024]
+    why: Password policy and privileged group enumeration, log cleared.
+  - id: Q06
+    csv: eval/dicovery_4661_net_group_domain_admins_target.csv
+    group: G0003
+    host: win-77ltaphiq1r
+    rule_hint: "AD Privileged Users or Groups Reconnaissance"
+    expected: [G-030]
+    why: Second account enumerating privileged groups over a network session.
+  - id: Q07
+    csv: eval/exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.csv
+    group: G0001
+    host: iewin7
+    rule_hint: "RunHTMLApplication"
+    expected: [G-016, G-015]
+    why: rundll32/mshta running script, shells spawning suspicious programs.
+  - id: Q08
+    csv: eval/lm_sysmon_3_12_13_1_sharprdp.csv
+    group: G0001
+    host: msedgewin10
+    rule_hint: "RunMRU"
+    expected: [G-011]
+    why: Commands driven through the Run dialog and RunMRU clean-up (SharpRDP).
+  - id: Q09
+    csv: eval/privesc_roguepotato_sysmon_17_18.csv
+    group: G0001
+    host: msedgewin10
+    rule_hint: "EfsPotato"
+    expected: [G-023]
+    why: Potato named-pipe impersonation to SYSTEM.
+  - id: Q10
+    csv: eval/sysmon_uacme_64.csv
+    group: G0001
+    host: desktop-ntssljd
+    rule_hint: "UACMe"
+    expected: [G-022]
+    why: UACMe/Akagi UAC bypass.
+  - id: Q11
+    csv: eval/tutto_malseclogon.csv
+    group: G0001
+    host: msedgewin10
+    rule_hint: "Overpass the Hash"
+    expected: [G-006, G-001]
+    why: Overpass-the-hash logons plus an LSASS process clone.
+
+  # --- per-tactic CSVs -------------------------------------------------------------
+  - id: Q12
+    csv: by_tactic/automatedtestingtools.csv
+    group: G0002
+    host: msedgewin10
+    rule_hint: "Defender Alert"
+    expected: [G-029]
+    why: Defender hack tool detections.
+  - id: Q13
+    csv: by_tactic/automatedtestingtools.csv
+    group: G0007
+    host: msedgewin10
+    rule_hint: "New RUN Key Pointing to Suspicious Folder"
+    expected: [G-018]
+    why: Run key pointing into a suspicious folder.
+  - id: Q14
+    csv: by_tactic/command_and_control.csv
+    group: G0014
+    host: pc01
+    rule_hint: "Driver Loaded (Unsigned)"
+    expected: [G-026, G-032]
+    why: Unsigned driver load and outbound tunnelling from non-standard tools.
+  - id: Q15
+    csv: by_tactic/credential_access.csv
+    group: G0014
+    host: dc1
+    rule_hint: "Active Directory Replication from Non Machine Ac"
+    expected: [G-007]
+    why: Directory replication requested by a non-machine account.
+  - id: Q16
+    csv: by_tactic/credential_access.csv
+    group: G0017
+    host: msedgewin10
+    rule_hint: "Comsvcs"
+    expected: [G-002, G-016]
+    why: LSASS dump through rundll32 comsvcs.dll.
+  - id: Q17
+    csv: by_tactic/credential_access.csv
+    group: G0024
+    host: msedgewin10
+    rule_hint: "PowerShell Get-Process LSASS in ScriptBlock"
+    expected: [G-014]
+    why: Malicious PowerShell script block content.
+  - id: Q18
+    csv: by_tactic/credential_access.csv
+    group: G0050
+    host: 01566s-win16-ir
+    rule_hint: "SMB Create Remote File Admin Share"
+    expected: [G-009]
+    why: Files written to an administrative share.
+  - id: Q19
+    csv: by_tactic/defense_evasion.csv
+    group: G0009
+    host: iewin7
+    rule_hint: "Remote Thread Creation Via PowerShell"
+    expected: [G-025]
+    why: Remote thread injection.
+  - id: Q20
+    csv: by_tactic/defense_evasion.csv
+    group: G0027
+    host: 01566s-win16-ir
+    rule_hint: "Hidden User Account Created"
+    expected: [G-020]
+    why: Hidden local account created.
+  - id: Q21
+    csv: by_tactic/discovery.csv
+    group: G0011
+    host: msedgewin10
+    rule_hint: "Vulnerable Driver Load"
+    expected: [G-026]
+    why: Vulnerable or unsigned driver loaded.
+  - id: Q22
+    csv: by_tactic/execution.csv
+    group: G0008
+    host: iewin7
+    rule_hint: "Regsvr32"
+    expected: [G-016]
+    why: regsvr32 fetching a script over HTTP.
+  - id: Q23
+    csv: by_tactic/execution.csv
+    group: G0021
+    host: msedgewin10
+    rule_hint: "Base64 Encoded IEX"
+    expected: [G-015]
+    why: Base64-encoded PowerShell command lines.
+  - id: Q24
+    csv: by_tactic/execution.csv
+    group: G0025
+    host: msedgewin10
+    rule_hint: "Desktopimgdownldr"
+    expected: [G-031]
+    why: File download through a BITS job.
+  - id: Q25
+    csv: by_tactic/lateral_movement.csv
+    group: G0004
+    host: win-77ltaphiq1r
+    rule_hint: "Suspicious Service Path"
+    expected: [G-008]
+    why: Service installed with a suspicious image path.
+  - id: Q26
+    csv: by_tactic/lateral_movement.csv
+    group: G0008
+    host: pc01
+    rule_hint: "Explicit Credential"
+    expected: [G-013]
+    why: Remote logons with explicitly supplied credentials.
+  - id: Q27
+    csv: by_tactic/lateral_movement.csv
+    group: G0030
+    host: msedgewin10
+    rule_hint: "WmiPrvSE"
+    expected: [G-012]
+    why: Processes started by WmiPrvSE.
+  - id: Q28
+    csv: by_tactic/lateral_movement.csv
+    group: G0035
+    host: 01566s-win16-ir
+    rule_hint: "Suspicious Scheduled Task Update"
+    expected: [G-017, G-024]
+    why: Scheduled task modified and the log cleared.
+  - id: Q29
+    csv: by_tactic/persistence.csv
+    group: G0006
+    host: pc04
+    rule_hint: "WMI Persistence"
+    expected: [G-019]
+    why: WMI script event consumer persistence.
+  - id: Q30
+    csv: by_tactic/persistence.csv
+    group: G0019
+    host: msedgewin10
+    rule_hint: "User Added To Local Admin Grp"
+    expected: [G-020]
+    why: Account added to local Administrators.
+  - id: Q31
+    csv: by_tactic/persistence.csv
+    group: G0016
+    host: iewin7
+    rule_hint: "Autorun Keys Modification"
+    expected: [G-018]
+    why: Autostart registry keys modified.
+  - id: Q32
+    csv: by_tactic/privilege_escalation.csv
+    group: G0001
+    host: 2012r2srv
+    rule_hint: "SID History"
+    expected: [G-021, G-030]
+    why: SID history added and password policy enumerated.
+  - id: Q33
+    csv: by_tactic/privilege_escalation.csv
+    group: G0004
+    host: iewin7
+    rule_hint: "Bypass UAC Using Event Viewer"
+    expected: [G-022]
+    why: UAC bypass through Event Viewer.
+  - id: Q34
+    csv: by_tactic/privilege_escalation.csv
+    group: G0016
+    host: iewin7
+    rule_hint: "Getsystem Service"
+    expected: [G-008]
+    why: Service installation used for getsystem.
+  - id: Q35
+    csv: by_tactic/privilege_escalation.csv
+    group: G0061
+    host: 01566s-win16-ir
+    rule_hint: "Computer Account Name Change"
+    expected: [G-021, G-020]
+    why: Computer account created and renamed.
+  - id: Q36
+    csv: by_tactic/other.csv
+    group: G0001
+    host: desktop-ripclip
+    rule_hint: "Powershell Token Obfuscation"
+    expected: [G-014, G-015]
+    why: Obfuscated PowerShell in script blocks and command lines.
