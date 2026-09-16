@@ -30,9 +30,8 @@ Olay günlükleri kurumun en hassas verisidir: kullanıcı adları, iç ağ adre
 Bunları bir bulut modeline göndermek çoğu ortamda zaten yasak, yasak olmadığı yerde de istenmez. Bu yüzden araç
 Foundry Local üzerinde çalışan bir modele, yalnızca `127.0.0.1` üzerinden bağlanır.
 
-İddia ölçüldü (2026-09-16): uçak modunda, beş ayrı kanaldan beş örnek uçtan uca çalıştı; modeller de o sırada
+İddia ölçüldü : uçak modunda, beş ayrı kanaldan beş örnek uçtan uca çalıştı; modeller de o sırada
 yüklendi. Koşu boyunca `foundrylocald` ve `python` süreçlerinin loopback dışı hiçbir TCP bağlantısı görülmedi
-([ADR-0001](docs/adr/0001-runtime-ve-model.md) §9, `scripts/c2_offline_check.ps1`).
 
 Aynı kural bağımlılıklara da uygulanır: telemetri gönderen paket eklenmez. Token sayımı için `tokenizers` yerine
 `regex` seçildi, çünkü ilki `huggingface-hub`'ı da getiriyor. Arayüzdeki Streamlit'in kullanım istatistiği kapatıldı
@@ -73,7 +72,7 @@ Model yanıtı şu altı kuralı geçmezse rapora girmez; geçmezse bir kez daha
 6. Metindeki IPv4 adresleri grubun alan değerlerinde var.
 
 Kuralların gerçekten tuttuğu, modelin **gerçek** cevaplarına 16 türde hata enjekte edilerek ölçüldü: 190 denemenin
-190'ı yakalandı (`eval/validator_injection.py`).
+190'ı yakalandı 
 
 ### Model katmanının kuralları
 
@@ -89,7 +88,6 @@ Kuralların gerçekten tuttuğu, modelin **gerçek** cevaplarına 16 türde hata
 ## Kurulum
 
 Gereken: Windows 11, NVIDIA 8 GB VRAM, 14 GB RAM, Python 3.11, Foundry Local 0.10.3, Hayabusa 4.1.0.
-(Ölçümlerin hepsi bu sınıf donanımda yapıldı; başka bir kart için [Sınırlılıklar](#sınırlılıklar).)
 
 ```powershell
 py -3.11 -m venv .venv
@@ -153,7 +151,6 @@ kullanmıyor. `.streamlit/config.toml` kullanım istatistiğini kapatır ve sunu
 ## Ölçüm sonuçları
 
 Hepsi bu makinede, gerçek model ve gerçek örneklerle ölçüldü. Eşikler
-[ADR-0003](docs/adr/0003-model-karari-ve-kabul-esikleri.md) §3'te (E1–E13).
 
 | Ölçüm | Sonuç | Eşik |
 |---|---|---|
@@ -173,7 +170,7 @@ Hepsi bu makinede, gerçek model ve gerçek örneklerle ölçüldü. Eşikler
 | Büyük girdi (100.000 satır) | 0 hata, deterministik hat 3,5 sn, 585 MiB tepe bellek | — |
 
 **Bu sayılar bir sınırla okunmalı:** değerlendirme etiketlerini aracı geliştiren taraf yazdı, bağımsız doğrulama
-henüz yapılmadı. Ayrıntı: [docs/eval-dataset.md](docs/eval-dataset.md) §3 ve §7.
+henüz yapılmadı. 
 
 Değerlendirmeyi yeniden koşmak için:
 
@@ -186,8 +183,7 @@ Değerlendirmeyi yeniden koşmak için:
 .\.venv\Scripts\python.exe eval\auto_labels.py                               # 278 örnekte modelsiz ölçümler
 ```
 
-Örnekler ([EVTX-ATTACK-SAMPLES](https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES), GPL) ve onlardan üretilen
-CSV'ler repoya girmez; sürümler ve hash'ler `eval/samples.lock` dosyasında.
+Örnekler ve onlardan üretilen CSV'ler repoya girmez; sürümler ve hash'ler `eval/samples.lock` dosyasında.
 
 ## Sınırlılıklar
 
@@ -215,16 +211,9 @@ değil, yönlendirilebilir bir özettir; seviyeleri ve kanıt satırlarını her
 26 etiket, altın sorgular ve rehber notlarının kendisi aracı geliştiren tarafça yazıldı; 16'sı araç çıktısı
 görülerek yazılmış taslaktır. Sonuçlar bu yüzden **iyimser üst sınırdır.**
 
-### Tek donanımda, tek modelle ölçüldü
-
-Model karşılaştırması yapılmadı ([Sonraki adımlar](#sonraki-adımlar)). Yükleme sonrası GPU kullanımı koşudan koşuya
-5,2–7,4 GB arasında değişti; başka bir 8 GB kartta 4.096 token'lık bütçe tutmayabilir. `doctor` ve ısınma isteği
-bunu koşu başlamadan gösterir, `llm.max_input_tokens` düşürülebilir.
-
 ### Çok büyük girdilerde
 
-100.000 satırlık bir zaman çizelgesinde 15.362 grup model eşiğini geçiyor; bu yaklaşık 64 saat model zamanı eder.
-`selection.max_groups_to_model` (varsayılan 200) en yüksek seviyeli grupları seçer, gerisini raporda
+100.000 satırlık bir zaman çizelgesinde 15.362 grup model eşiğini geçiyor; bu yaklaşık 64 saat model zamanı eder. (varsayılan 200) en yüksek seviyeli grupları seçer, gerisini raporda
 `deterministic.selection.not_sent` altında listeler. Ayrıca rapor JSON'ı satır başına ~1,7 KB büyür: 100.000 satır
 175 MiB dosya demektir.
 
@@ -247,7 +236,7 @@ atlatılmadı; aynı durum başka saldırı log'larında da olabilir.
    eşiklerle karşılaştır. Dikkat: `phi-4-mini` sınıfı modellerde sözlük daha büyük olduğu için logits tamponu
    token başına daha pahalıdır; bütçe yeniden ölçülmelidir.
 2. **Etiketlerin elle doğrulanması.** 26 etiket ve Q07/Q14/Q16 bekliyor. Sadeleştirilmiş görünümler:
-   `eval\verification_views.py` (çıktı `out\verification\INDEX.md`). Doğrulamadan sonra metrikler ve eşikler
+   `eval\verification_views.py`. Doğrulamadan sonra metrikler ve eşikler
    yeniden ölçülmeli.
 3. **C1b.** Ağ izolasyonunun kesin kanıtı için WFP denetimi (yönetici gerekir).
 4. **Firewall kuralı kararı.** `foundrylocald` için giden trafiği engelleyen bir kural, ölçüme göre günlük
@@ -255,20 +244,10 @@ atlatılmadı; aynı durum başka saldırı log'larında da olabilir.
 5. **Çok büyük raporlar.** 175 MiB'lik JSON pratikte zor okunur; rapora satır/olay budama seçeneği ya da ayrı bir
    özet formatı düşünülebilir.
 
-## Belgeler
-
-| Belge | İçerik |
-|---|---|
-| [ADR-0001](docs/adr/0001-runtime-ve-model.md) | Runtime, VRAM bütçesi, OOM ve ısınma, ağ gözlemi, güvenlik bulguları |
-| [ADR-0002](docs/adr/0002-hayabusa-girdi-sozlesmesi.md) | Hayabusa girdi sözleşmesi: başlık, biçim, `-b` ve `-A`, Defender |
-| [ADR-0003](docs/adr/0003-model-karari-ve-kabul-esikleri.md) | Model kararı, temel ölçüm, v1 kabul eşikleri |
-| [docs/eval-dataset.md](docs/eval-dataset.md) | Değerlendirme verisi, etiketlerin sınırlılıkları, sonuçlar |
-| [docs/kb-coverage.md](docs/kb-coverage.md) | Sözlük kapsaması ve kapsanmayan olaylar |
-
 ## Lisans ve üçüncü taraf içeriği
 
 - Kod: MIT ([LICENSE](LICENSE)).
-- Bağımlılıklar: 71 paketin hepsi izin verici lisanslı (`scripts/check_licenses.py`, 2026-09-16).
+- Bağımlılıklar: 71 paketin hepsi izin verici lisanslı (`scripts/check_licenses.py`).
 - Hayabusa (AGPL-3.0) ve hayabusa-rules (DRL 1.1) repoda yok; ayrıca kurulur, yalnızca CSV üretmek için kullanılır.
 - EVTX-ATTACK-SAMPLES (GPL) ve ondan üretilen CSV'ler repoda yok; `data/` ve `out/` commit edilmez.
 - ATT&CK verisi: © The MITRE Corporation. ATT&CK, The MITRE Corporation'ın tescilli markasıdır (`knowledge/attack/`).
